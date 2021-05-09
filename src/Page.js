@@ -1,9 +1,6 @@
 import { useState } from "react";
 
-// URL to Game of Thrones API to fetch all characters
-let url = 'https://thronesapi.com/api/v2/Characters';
-
-export default function PAge(props) {
+export default function Page(props) {
 
     return (
         <div className="m-2">

@@ -1,5 +1,4 @@
 import React from "react"
-import throne from './throne.jpg';
 
 export default function Home(props) {
     return (
