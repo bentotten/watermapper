@@ -5,6 +5,7 @@ export default function Charts(props) {
 
     return (
         <div className="m-2" >
+            <br />
             <h2>Charts?</h2>
         </div>
     )

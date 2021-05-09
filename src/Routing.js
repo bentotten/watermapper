@@ -11,7 +11,7 @@ export default function Routing(props) {
         <Router>
             <div>
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                    <h1 className="navbar-brand">Exercise 03 Navbar</h1>
+                    <h1 className="navbar-brand">Navbar</h1>
                     <ul className="navbar ml-auto" id="links">
                         <li className="nav-link"><Link to="/">Home</Link></li>
                         <li className="nav-link"><Link to="/charts">Charts</Link></li>
