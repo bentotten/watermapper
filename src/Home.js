@@ -5,9 +5,8 @@ export default function Home(props) {
     return (
         <>
             <br />
-            <h2>Fear cuts deeper than swords</h2>
+            <h2>Water Map goes here</h2>
             <br />
-            <img src={throne} alt='Iron Throne'></img>
         </>
     )
 }
