@@ -1,8 +1,7 @@
 import React from "react"
 import map from "./map.PNG"
 import useFetch from "./Api.js"
-import { useState, useEffect } from "react";
-import $ from 'jquery';
+
 
 export default function Home(props) {
 
@@ -11,7 +10,6 @@ export default function Home(props) {
     const data = useFetch(url);
     console.log(`Testing ${JSON.stringify(data)}`)
     console.log(data)
-
     const test = JSON.stringify(data)
 
 
