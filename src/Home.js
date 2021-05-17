@@ -1,27 +1,73 @@
 import React from "react"
-import map from "./map.PNG"
-import useFetch from "./Api.js"
+import L from 'leaflet'
+import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
+import marker from './img/map-marker.png'
+import gages from './data/sites.json'
 
+
+// Future improvement: Pull and dynmically create markers for Gage houses
 
 export default function Home(props) {
+    const startLocation = {
+        lat: 45.5051,
+        lng: -122.6750,
+        zoom: 11,
+    }
+    const mapMarker = L.icon({
+        iconUrl: marker,
+        iconSize: [25, 25],
+    })
 
-    let url = 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01646500,01638500&parameterCd=00060,00065'
 
-    const data = useFetch(url);
-    console.log(`Testing ${JSON.stringify(data)}`)
-    console.log(data)
-    const test = JSON.stringify(data)
+    const position = [startLocation.lat, startLocation.lng]
 
+    const test = [45.6391, -122.7619]
+    const coodinates = [[gages[0].longitude, gages[0].latitude], [gages[1].longitude, gages[1].latitude], [gages[2].longitude, gages[2].latitude], [gages[3].longitude, gages[3].latitude], [gages[4].longitude, gages[4].latitude], [gages[5].longitude, gages[5].latitude]]
+    console.log(gages)
 
     return (
         <>
             <br />
             <h2>Portland Water</h2>
             <br />
+            <Map className="map" center={position} zoom={startLocation
+                .zoom} scrollWheelZoom={true}>
+                <TileLayer
+                    attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+                    url="https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}.jpg?key=a25BWEXwxHphmT537wWB"
+                />
 
-            <img src={map} alt='Map of Gage Houses in Portland'></img>
-            <div>{test}</div>
-
+                <Marker position={coodinates[0]} icon={mapMarker}>
+                    <Popup>
+                        KC: Put Popup Here
+                    </Popup>
+                </Marker>
+                <Marker position={coodinates[1]} icon={mapMarker}>
+                    <Popup>
+                        KC: Put Popup Here
+                    </Popup>
+                </Marker>
+                <Marker position={coodinates[2]} icon={mapMarker}>
+                    <Popup>
+                        KC: Put Popup Here
+                    </Popup>
+                </Marker>
+                <Marker position={coodinates[3]} icon={mapMarker}>
+                    <Popup>
+                        KC: Put Popup Here
+                    </Popup>
+                </Marker>
+                <Marker position={coodinates[4]} icon={mapMarker}>
+                    <Popup>
+                        KC: Put Popup Here
+                    </Popup>
+                </Marker>
+                <Marker position={coodinates[5]} icon={mapMarker}>
+                    <Popup>
+                        KC: Put Popup Here
+                    </Popup>
+                </Marker>
+            </Map>
 
         </>
     )
