@@ -3,11 +3,13 @@ import L from 'leaflet'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 import marker from './img/map-marker.png'
 import gages from './data/sites.json'
+import Legend from "./Legend";
 
 
 // Future improvement: Pull and dynmically create markers for Gage houses
 
 export default function Home(props) {
+    // Map Setup
     const startLocation = {
         lat: 45.5051,
         lng: -122.6750,
@@ -17,19 +19,13 @@ export default function Home(props) {
         iconUrl: marker,
         iconSize: [25, 25],
     })
-
-
     const position = [startLocation.lat, startLocation.lng]
 
-    const test = [45.6391, -122.7619]
+    // Data from sites.json
     const coodinates = [[gages[0].longitude, gages[0].latitude], [gages[1].longitude, gages[1].latitude], [gages[2].longitude, gages[2].latitude], [gages[3].longitude, gages[3].latitude], [gages[4].longitude, gages[4].latitude], [gages[5].longitude, gages[5].latitude]]
-    console.log(gages)
 
     return (
         <>
-            <br />
-            <h2>Portland Water</h2>
-            <br />
             <Map className="map" center={position} zoom={startLocation
                 .zoom} scrollWheelZoom={true}>
                 <TileLayer
@@ -67,8 +63,10 @@ export default function Home(props) {
                         KC: Put Popup Here
                     </Popup>
                 </Marker>
+                <Legend />
             </Map>
 
         </>
     )
 }
+
