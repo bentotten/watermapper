@@ -9,7 +9,7 @@ import Page from './Page.js';
 export default function Routing(props) {
     return (
         <Router>
-            <div className="header">
+            <div>
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                     <h1 className="navbar-brand">Navbar</h1>
                     <ul className="navbar ml-auto" id="links">
