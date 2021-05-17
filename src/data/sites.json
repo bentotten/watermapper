@@ -1,0 +1,40 @@
+[
+    {
+      "site": 14211820,
+      "name": "COLUMBIA SLOUGH AT PORTLAND OR",
+      "type": "Stream",
+      "url": "https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=14211820",
+      "longitude": "45.639167",
+      "latitude": "-122.761944"
+    },
+    {
+      "site": 14144700,
+      "name": "COLUMBIA RIVER AT VANCOUVER WA",
+      "type": "Stream",
+      "url": "https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=14144700"
+    },
+    {
+      "site": 453320122483701,
+      "name": "BRONSON CREEK AT LAIDLAW",
+      "type": "Stream",
+      "url": "https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=453320122483701"
+    },
+    {
+      "site": 14211720,
+      "name": "WILLAMETTE RIVER AT PORTLAND OR",
+      "type": "Stream",
+      "url": "https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=14211720"
+    },
+    {
+      "site": 453004122510301,
+      "name": "BEAVERTON CREEK AT 170TH AVE BEAVERTON OR",
+      "type": "Stream",
+      "url": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=453004122510301"
+    },
+    {
+      "site": 14206900,
+      "name": "FANNO CREEK AT 56TH AVE AT PORTLAND OR",
+      "type": "Stream",
+      "url": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14206900"
+    }
+  ]
