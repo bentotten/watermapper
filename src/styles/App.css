@@ -1,12 +1,15 @@
-.map {
-  height: 100vh;
-}
-
 .App {
   text-align: center;
 }
 
-h2 {
+.header {
+  height: 45px;
+  align: top;
+  position: fixed;
+  top: 0;
+}
+
+h1 {
   color: #654321;
 }
 
@@ -17,4 +20,9 @@ a {
 input.btn.btn-primary {
   background-color: #654321;
   color: wheat;
+}
+
+/* 143px is the combined height of navbar above the map, will need to adjust if that size changes */
+.map {
+  height: calc(100vh - 143px);
 }
