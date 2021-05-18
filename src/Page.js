@@ -1,7 +1,7 @@
 import { useState } from "react";
 import React from "react"
-import L from 'leaflet'
-import { Map, TileLayer, Marker, Popup, Circle, LayersControl} from 'react-leaflet'
+import L, { layerGroup } from 'leaflet'
+import { Map, TileLayer, Marker, Popup, Circle, LayersControl, LayerGroup} from 'react-leaflet'
 import marker from './img/map-marker.png'
 import gages from './data/sites.json'
 import useFetch from "./Api.js"
@@ -14,6 +14,8 @@ export default function Page(props) {
     }
 
     const position = [startLocation.lat, startLocation.lng]
+    const CSP = [gages[0].longitude, gages[0].latitude]; //COLUMBIA SLOUGH AT PORTLAND OR
+    const CRV = [gages[1].longitude, gages[1].latitude] //COLUMBIA RIVER AT VANCOUVER WA
 
     const test = [45.6391, -122.7619]
     const coodinates = [[gages[0].longitude, gages[0].latitude], [gages[1].longitude, gages[1].latitude], [gages[2].longitude, gages[2].latitude], [gages[3].longitude, gages[3].latitude], [gages[4].longitude, gages[4].latitude], [gages[5].longitude, gages[5].latitude]]
@@ -35,8 +37,19 @@ export default function Page(props) {
                     attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
                     url="https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}.jpg?key=a25BWEXwxHphmT537wWB"
                     />
-                </LayersControl.BaseLayer>
-                    <Circle center = {position} radius = {600}/>
+                    </LayersControl.BaseLayer>
+                    <LayersControl.Overlay name = "2019">
+                        <LayerGroup>
+                            <Circle 
+                                center = {CSP} 
+                                radius = {600}
+                            />
+                            <Circle 
+                                center = {CRV} 
+                                radius = {600}
+                            />
+                        </LayerGroup>
+                    </LayersControl.Overlay>
                 </LayersControl>
         </Map>
         </>
