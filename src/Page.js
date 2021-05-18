@@ -20,6 +20,10 @@ export default function Page(props) {
     const WRP = [gages[3].longitude, gages[3].latitude] //WILLAMETTE RIVER AT PORTLAND OR
     const BCB = [gages[4].longitude, gages[4].latitude] //BEAVERTON CREEK AT 170TH AVE BEAVERTON OR
     const FCP = [gages[5].longitude, gages[5].latitude] //FANNO CREEK AT 56TH AVE AT PORTLAND OR
+    const mapMarker = L.icon({
+        iconUrl: marker,
+        iconSize: [25, 25],
+    })
 
     const test = [45.6391, -122.7619]
     const coodinates = [[gages[0].longitude, gages[0].latitude], [gages[1].longitude, gages[1].latitude], [gages[2].longitude, gages[2].latitude], [gages[3].longitude, gages[3].latitude], [gages[4].longitude, gages[4].latitude], [gages[5].longitude, gages[5].latitude]]
@@ -42,11 +46,12 @@ export default function Page(props) {
                     url="https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}.jpg?key=a25BWEXwxHphmT537wWB"
                     />
                     </LayersControl.BaseLayer>
-                    <LayersControl.Overlay name = "2019">
+                    <LayersControl.Overlay checked name = "2019">
                         <LayerGroup>
                             <Circle 
                                 center = {CSP} 
-                                radius = {600}
+                                pathOptions={{ color: 'green', fillColor: 'green' }}
+                                radius = {800}
                             />
                             <Circle 
                                 center = {CRV} 
@@ -56,6 +61,13 @@ export default function Page(props) {
                                 center = {BCL} 
                                 radius = {600}
                             />
+                            <Marker position={WRP} icon={mapMarker}>
+                                <Popup>
+                                Site: {gages[3].site}
+                                Name: {gages[3].name}
+                                URL: {gages[3].url}
+                                </Popup>
+                                </Marker>
                             <Circle 
                                 center = {WRP} 
                                 radius = {600}
