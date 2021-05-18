@@ -15,7 +15,11 @@ export default function Page(props) {
 
     const position = [startLocation.lat, startLocation.lng]
     const CSP = [gages[0].longitude, gages[0].latitude]; //COLUMBIA SLOUGH AT PORTLAND OR
-    const CRV = [gages[1].longitude, gages[1].latitude] //COLUMBIA RIVER AT VANCOUVER WA
+    const CRV = [gages[1].longitude, gages[1].latitude] //COLUMBIA RIVER AT VANCOUVER WAA
+    const BCL = [gages[2].longitude, gages[2].latitude]; //BRONSON CREEK AT LAIDLAW
+    const WRP = [gages[3].longitude, gages[3].latitude] //WILLAMETTE RIVER AT PORTLAND OR
+    const BCB = [gages[4].longitude, gages[4].latitude] //BEAVERTON CREEK AT 170TH AVE BEAVERTON OR
+    const FCP = [gages[5].longitude, gages[5].latitude] //FANNO CREEK AT 56TH AVE AT PORTLAND OR
 
     const test = [45.6391, -122.7619]
     const coodinates = [[gages[0].longitude, gages[0].latitude], [gages[1].longitude, gages[1].latitude], [gages[2].longitude, gages[2].latitude], [gages[3].longitude, gages[3].latitude], [gages[4].longitude, gages[4].latitude], [gages[5].longitude, gages[5].latitude]]
@@ -46,6 +50,22 @@ export default function Page(props) {
                             />
                             <Circle 
                                 center = {CRV} 
+                                radius = {600}
+                            />
+                            <Circle 
+                                center = {BCL} 
+                                radius = {600}
+                            />
+                            <Circle 
+                                center = {WRP} 
+                                radius = {600}
+                            />
+                            <Circle 
+                                center = {BCB} 
+                                radius = {600}
+                            />
+                            <Circle 
+                                center = {FCP} 
                                 radius = {600}
                             />
                         </LayerGroup>
