@@ -3,48 +3,54 @@
       "site": 14211820,
       "name": "COLUMBIA SLOUGH AT PORTLAND OR",
       "type": "Stream",
-      "url": "https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=14211820",
-      "longitude": "45.639167",
-      "latitude": "-122.761944"
+      "website": "https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=14211820",
+      "longitude": "45.63900515",
+      "latitude": "-122.763155",
+      "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14211820"
     },
     {
       "site": 14144700,
       "name": "COLUMBIA RIVER AT VANCOUVER WA",
       "type": "Stream",
-      "url": "https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=14144700",
-      "longitude": "45.620833",
-      "latitude": "-122.672222"
+      "website": "https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=14144700",
+      "longitude": "45.62067265",
+      "latitude": "-122.6734306",
+      "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14144700"
     },
     {
-      "site": 453320122483701,
-      "name": "BRONSON CREEK AT LAIDLAW",
+      "site": 14211550,
+      "name": "JOHNSON CREEK AT MILWAUKIE OR",
       "type": "Stream",
-      "url": "https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=453320122483701",
-      "longitude": "45.555614",
-      "latitude": "-122.810261"
+      "website": "https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=14211550",
+      "longitude": "45.452897",
+      "latitude": "-122.6431496",
+      "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14211550"
     },
     {
       "site": 14211720,
       "name": "WILLAMETTE RIVER AT PORTLAND OR",
       "type": "Stream",
-      "url": "https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=14211720",
+      "website": "https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=14211720",
       "longitude": "45.517500",
-      "latitude": "-122.669167"
+      "latitude": "-122.669167",
+      "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14211720"
     },
     {
-      "site": 453004122510301,
-      "name": "BEAVERTON CREEK AT 170TH AVE BEAVERTON OR",
+      "site": 14211315,
+      "name": "TRYON CREEK NEAR LAKE OSWEGO OR",
       "type": "Stream",
-      "url": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=453004122510301",
-      "longitude": "45.500831",
-      "latitude": "-122.852109"
+      "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14211315",
+      "longitude": "45.5175",
+      "latitude": "-122.6691667",
+      "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14211315"
     },
     {
       "site": 14206900,
       "name": "FANNO CREEK AT 56TH AVE AT PORTLAND OR",
       "type": "Stream",
-      "url": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14206900",
-      "longitude": "45.488028",
-      "latitude": "-122.734847"
+      "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14206900",
+      "longitude": "45.4878958",
+      "latitude": "-122.7348194",
+      "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14206900"
     }
   ]
