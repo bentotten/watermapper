@@ -12,6 +12,14 @@ export default function Page(props) {
         lng: -122.6750,
         zoom: 11,
     }
+    function colorChange(temp){
+        if(temp < 10)
+            return 'red'
+        if(temp == 10)
+            return 'green'
+        if(temp > 10)
+            return 'blue'
+    }
 
     const position = [startLocation.lat, startLocation.lng]
     const CSP = [gages[0].longitude, gages[0].latitude]; //COLUMBIA SLOUGH AT PORTLAND OR
@@ -49,6 +57,7 @@ export default function Page(props) {
                     <LayersControl.Overlay checked name = "2019">
                         <LayerGroup>
                             <Circle 
+                                color = {colorChange(15)}
                                 center = {CSP} 
                                 pathOptions={{ color: 'green', fillColor: 'green' }}
                                 radius = {800}
