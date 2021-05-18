@@ -13,13 +13,25 @@ export default function Page(props) {
         zoom: 11,
     }
     function colorChange(temp){
-        if(temp < 10)
+        if(temp < 13)
             return 'red'
-        if(temp == 10)
-            return 'green'
-        if(temp > 10)
+        if(temp > 13)
             return 'blue'
+        else
+            return 'green'
     }
+    function changeRadius(discharge){
+        if(discharge > 3000)
+            return 900;
+        if(discharge > 4000)
+            return 1200;
+        if(discharge < 2000)
+            return 400;
+        else
+            return 500;
+    }
+
+
 
     const position = [startLocation.lat, startLocation.lng]
     const CSP = [gages[0].longitude, gages[0].latitude]; //COLUMBIA SLOUGH AT PORTLAND OR
@@ -57,7 +69,7 @@ export default function Page(props) {
                     <LayersControl.Overlay checked name = "2019">
                         <LayerGroup>
                             <Circle 
-                                color = {colorChange(15)}
+                                color = {colorChange(gages[0].temperature)}
                                 center = {CSP} 
                                 pathOptions={{ color: 'green', fillColor: 'green' }}
                                 radius = {800}
