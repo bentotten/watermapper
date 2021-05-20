@@ -35,7 +35,9 @@ export default function Home(props) {
 
                 <Marker position={coodinates[0]} icon={mapMarker}>
                     <Popup>
-                        KC: Put Popup Here
+                        <div><b>{gages[0].name}</b></div>
+                        <div>Site: {gages[0].site}</div>
+                        <a href={gages[0].website}>{gages[0].website}</a>
                     </Popup>
                 </Marker>
                 <Marker position={coodinates[1]} icon={mapMarker}>
