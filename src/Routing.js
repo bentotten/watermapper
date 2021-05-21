@@ -40,10 +40,10 @@ export default function Routing(props) {
                         </Nav>
                         <Nav>
                         <h2>
-                        <NavDropdown className="pull-right" title="Chart" id="basic-nav-dropdown">
-                            <div className="chart">
-                                <img src={dummyChart} alt="graph" />
-                            </div>
+                        <NavDropdown className="drop" drop='left' title="Chart" id="basic-nav-dropdown">
+                                <div className="chart">
+                                    <img id="graph" src={dummyChart} alt="graph"/>
+                                </div>
                         </NavDropdown>
                         </h2>
                         </Nav>

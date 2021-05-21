@@ -1,5 +1,8 @@
 
-
+body {
+  margin: 0px;
+  padding: 0px;
+}
 .header {
   height: 45px;
   position: fixed;
@@ -8,9 +11,8 @@
 .pull-right{
   margin-left: 20%;
   color: white;
-  right: 0; 
-  left: auto;
 }
+
 .navbar{
   left: 0;
   position: fixed;
@@ -29,7 +31,22 @@ a {
 }
 #basic-nav-dropdown{
   color: white;
-  margin-left: 99%;
+}
+.drop{
+  color: white;
+  margin-left: 99%;;
+}
+.dropdown-menu {
+  transform: translateY(100px);
+}
+#chart{
+  margin-left: 50%;
+  width: 100%;
+}
+#graph{
+  
+  height: 100px;
+  width: 1000px;
 }
 .h-box {
   border: solid white;
