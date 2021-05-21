@@ -1,20 +1,41 @@
-.App {
-  text-align: center;
-}
+
 
 .header {
   height: 45px;
-  align: top;
   position: fixed;
   top: 0;
 }
-
-h1 {
-  color: #654321;
+.pull-right{
+  margin-left: 20%;
+  color: white;
+  right: 0; 
+  left: auto;
 }
-
+.navbar{
+  left: 0;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  background: rgba(0,100,0,.3);
+  fill-opacity: 5%;
+  width: 100%;
+}
+h1 {
+  color: white;
+}
 a {
-  color: wheat;
+  color: white;
+  text-decoration: underline;
+}
+#basic-nav-dropdown{
+  color: white;
+  margin-left: 99%;
+}
+.h-box {
+  border: solid white;
+  padding: .5%;
+  padding-left: 2%;
+  box-sizing: content-box;
 }
 
 input.btn.btn-primary {
@@ -24,5 +45,7 @@ input.btn.btn-primary {
 
 /* 143px is the combined height of navbar above the map, will need to adjust if that size changes */
 .map {
-  height: calc(100vh - 143px);
+  height: calc(100vh);
+  z-index: 1;
 }
+

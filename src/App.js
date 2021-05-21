@@ -7,7 +7,6 @@ function App() {
 
   return (
     <div className='App'>
-      <h1>Portland Water</h1>
       <div><Routing /></div>
     </div>
   );

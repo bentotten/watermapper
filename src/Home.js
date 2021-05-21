@@ -1,6 +1,6 @@
 import React from "react"
 import L from 'leaflet'
-import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
+import { Map, TileLayer, Marker, Popup, ZoomControl } from 'react-leaflet'
 import marker from './img/map-marker.png'
 import gages from './data/sites.json'
 import Legend from "./Legend";
@@ -19,6 +19,7 @@ export default function Home(props) {
         iconUrl: marker,
         iconSize: [25, 25],
     })
+    
     const position = [startLocation.lat, startLocation.lng]
 
     // Data from sites.json
@@ -27,7 +28,8 @@ export default function Home(props) {
     return (
         <>
             <Map className="map" center={position} zoom={startLocation
-                .zoom} scrollWheelZoom={true}>
+                .zoom} scrollWheelZoom={true} zoomControl={false}>
+                <ZoomControl position="bottomleft" />
                 <TileLayer
                     attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
                     url="https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}.jpg?key=a25BWEXwxHphmT537wWB"

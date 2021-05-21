@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
+import './styles/chart.css';
 import React from 'react';
 import { Navbar, Nav, NavItem, NavDropdown } from 'react-bootstrap';
 import Home from './Home.js';
@@ -12,29 +13,43 @@ export default function Routing(props) {
     return (
         <Router>
             <div>
-            <Navbar inverse collapseOnSelect>
-                        <Navbar.Brand>
-                        <a href="#brand">Portland Water Usage Data Dashboard</a>
-                        </Navbar.Brand>
+                <Route>
+                    <Home />
+                </Route>
+                <Navbar inverse collapseOnSelect className="navbar">
+                        <div className="h-box">
+                            <Navbar.Brand>
+                                <h1>Portland Water Usage Data Dashboard</h1>
+                            </Navbar.Brand>
+                        </div>
                         <Navbar.Toggle />
+                    
                     <Navbar.Collapse>
+                    
                         <Nav>
-                        <NavItem>
-                            <Link to="/">Home</Link>
+                        <NavItem className="pull-right">
+                            <h2>
+                                <Link to="/">Home</Link>
+                            </h2>
                         </NavItem>
-                        <NavItem>
-                            <Link to="/page">ReadMe</Link>
+                        <NavItem className="pull-right">
+                            <h2>
+                                <Link to="/page">Gradient</Link>
+                            </h2>
                         </NavItem>
                         </Nav>
-                        <Nav pullRight>
-                            <NavDropdown eventKey={3} title="Chart" id="basic-nav-dropdown">
-                                <div className="chart">
-                                    <img src={dummyChart} alt="graph" />
-                                </div>
-                            </NavDropdown>
+                        <Nav>
+                        <h2>
+                        <NavDropdown className="pull-right" title="Chart" id="basic-nav-dropdown">
+                            <div className="chart">
+                                <img src={dummyChart} alt="graph" />
+                            </div>
+                        </NavDropdown>
+                        </h2>
                         </Nav>
                     </Navbar.Collapse>
-                </Navbar>;  
+                </Navbar>;
+                  
                             
                 {/* Switches */}
                 <Switch>
@@ -44,9 +59,7 @@ export default function Routing(props) {
                     <Route path="/page">
                         <Page />
                     </Route>
-                    <Route>
-                        <Home />
-                    </Route>
+                    
                 </Switch>
             </div>
         </Router>
