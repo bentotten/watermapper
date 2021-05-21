@@ -4,6 +4,7 @@ import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 import marker from './img/map-marker.png'
 import gages from './data/sites.json'
 import Legend from "./Legend";
+import useFetch from "./Api.js"
 
 
 // Future improvement: Pull and dynmically create markers for Gage houses
@@ -35,36 +36,48 @@ export default function Home(props) {
 
                 <Marker position={coodinates[0]} icon={mapMarker}>
                     <Popup>
-                        KC: Put Popup Here
+                        <div><b>{gages[0].name}</b></div>
+                        <div>Site: {gages[0].site}</div>
+                        <a href={gages[0].website}>https://waterdata.usgs.gov</a>
                     </Popup>
                 </Marker>
                 <Marker position={coodinates[1]} icon={mapMarker}>
                     <Popup>
-                        KC: Put Popup Here
+                        <div><b>{gages[1].name}</b></div>
+                        <div>Site: {gages[1].site}</div>
+                        <a href={gages[1].website}>https://waterdata.usgs.gov</a>
                     </Popup>
                 </Marker>
                 <Marker position={coodinates[2]} icon={mapMarker}>
                     <Popup>
-                        KC: Put Popup Here
+                        <div><b>{gages[2].name}</b></div>
+                        <div>Site: {gages[2].site}</div>
+                        <a href={gages[2].website}>https://waterdata.usgs.gov</a>
                     </Popup>
                 </Marker>
                 <Marker position={coodinates[3]} icon={mapMarker}>
                     <Popup>
-                        KC: Put Popup Here
+                        <div><b>{gages[3].name}</b></div>
+                        <div>Site: {gages[3].site}</div>
+                        <a href={gages[3].website}>https://waterdata.usgs.gov</a>
                     </Popup>
                 </Marker>
                 <Marker position={coodinates[4]} icon={mapMarker}>
                     <Popup>
-                        KC: Put Popup Here
+                        <div><b>{gages[4].name}</b></div>
+                        <div>Site: {gages[4].site}</div>
+                        <a href={gages[4].website}>https://waterdata.usgs.gov</a>
                     </Popup>
                 </Marker>
                 <Marker position={coodinates[5]} icon={mapMarker}>
                     <Popup>
-                        KC: Put Popup Here
+                        <div><b>{gages[5].name}</b></div>
+                        <div>Site: {gages[5].site}</div>
+                        <a href={gages[5].website}>https://waterdata.usgs.gov</a>
                     </Popup>
                 </Marker>
-                <Legend />
             </Map>
+
 
         </>
     )
