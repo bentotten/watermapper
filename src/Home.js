@@ -22,37 +22,11 @@ export default function Home(props) {
     })
     const position = [startLocation.lat, startLocation.lng]
 
-    let url = 'https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14211820'
-    let test = useFetch(url);
-    console.log(test)
-
     // Data from sites.json
     const coodinates = [[gages[0].longitude, gages[0].latitude], [gages[1].longitude, gages[1].latitude], [gages[2].longitude, gages[2].latitude], [gages[3].longitude, gages[3].latitude], [gages[4].longitude, gages[4].latitude], [gages[5].longitude, gages[5].latitude]]
 
-    const legendContext = useContext(contextValue) {
-
-    }
-
-
-    const handleChange = (event) => {
-        console.log(event.target.value)
-    }
-
     return (
         <>
-            <fieldset>
-                <label for="registration">
-                    <legend><b>Drop Down</b></legend>
-
-                    <select name="registration" id="registration" onChange={handleChange} className="workplz">
-                        <option value="Choose an option" >Choose an option</option>
-                        <option value="Registered">Registered</option>
-                        <option value="Waitlisted">Waitlisted</option>
-                        <option value="Not Registered">Not Registered</option>
-                    </select>
-                </label>
-            </fieldset>
-
             <Map className="map" center={position} zoom={startLocation
                 .zoom} scrollWheelZoom={true}>
                 <TileLayer
@@ -64,45 +38,44 @@ export default function Home(props) {
                     <Popup>
                         <div><b>{gages[0].name}</b></div>
                         <div>Site: {gages[0].site}</div>
-                        <a href={gages[0].website}>{gages[0].website}</a>
+                        <a href={gages[0].website}>https://waterdata.usgs.gov</a>
                     </Popup>
                 </Marker>
                 <Marker position={coodinates[1]} icon={mapMarker}>
                     <Popup>
                         <div><b>{gages[1].name}</b></div>
                         <div>Site: {gages[1].site}</div>
-                        <a href={gages[1].website}>{gages[1].website}</a>
+                        <a href={gages[1].website}>https://waterdata.usgs.gov</a>
                     </Popup>
                 </Marker>
                 <Marker position={coodinates[2]} icon={mapMarker}>
                     <Popup>
                         <div><b>{gages[2].name}</b></div>
                         <div>Site: {gages[2].site}</div>
-                        <a href={gages[2].website}>{gages[2].website}</a>
+                        <a href={gages[2].website}>https://waterdata.usgs.gov</a>
                     </Popup>
                 </Marker>
                 <Marker position={coodinates[3]} icon={mapMarker}>
                     <Popup>
                         <div><b>{gages[3].name}</b></div>
                         <div>Site: {gages[3].site}</div>
-                        <a href={gages[3].website}>{gages[3].website}</a>
+                        <a href={gages[3].website}>https://waterdata.usgs.gov</a>
                     </Popup>
                 </Marker>
                 <Marker position={coodinates[4]} icon={mapMarker}>
                     <Popup>
                         <div><b>{gages[4].name}</b></div>
                         <div>Site: {gages[4].site}</div>
-                        <a href={gages[4].website}>{gages[4].website}</a>
+                        <a href={gages[4].website}>https://waterdata.usgs.gov</a>
                     </Popup>
                 </Marker>
                 <Marker position={coodinates[5]} icon={mapMarker}>
                     <Popup>
                         <div><b>{gages[5].name}</b></div>
                         <div>Site: {gages[5].site}</div>
-                        <a href={gages[5].website}>{gages[5].website}</a>
+                        <a href={gages[5].website}>https://waterdata.usgs.gov</a>
                     </Popup>
                 </Marker>
-                <Legend />
             </Map>
 
 
