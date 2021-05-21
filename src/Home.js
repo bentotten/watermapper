@@ -65,32 +65,41 @@ export default function Home(props) {
                         <div><b>{gages[0].name}</b></div>
                         <div>Site: {gages[0].site}</div>
                         <a href={gages[0].website}>{gages[0].website}</a>
-
                     </Popup>
                 </Marker>
                 <Marker position={coodinates[1]} icon={mapMarker}>
                     <Popup>
-                        KC: Put Popup Here
+                        <div><b>{gages[1].name}</b></div>
+                        <div>Site: {gages[1].site}</div>
+                        <a href={gages[1].website}>{gages[1].website}</a>
                     </Popup>
                 </Marker>
                 <Marker position={coodinates[2]} icon={mapMarker}>
                     <Popup>
-                        KC: Put Popup Here
+                        <div><b>{gages[2].name}</b></div>
+                        <div>Site: {gages[2].site}</div>
+                        <a href={gages[2].website}>{gages[2].website}</a>
                     </Popup>
                 </Marker>
                 <Marker position={coodinates[3]} icon={mapMarker}>
                     <Popup>
-                        KC: Put Popup Here
+                        <div><b>{gages[3].name}</b></div>
+                        <div>Site: {gages[3].site}</div>
+                        <a href={gages[3].website}>{gages[3].website}</a>
                     </Popup>
                 </Marker>
                 <Marker position={coodinates[4]} icon={mapMarker}>
                     <Popup>
-                        KC: Put Popup Here
+                        <div><b>{gages[4].name}</b></div>
+                        <div>Site: {gages[4].site}</div>
+                        <a href={gages[4].website}>{gages[4].website}</a>
                     </Popup>
                 </Marker>
                 <Marker position={coodinates[5]} icon={mapMarker}>
                     <Popup>
-                        KC: Put Popup Here
+                        <div><b>{gages[5].name}</b></div>
+                        <div>Site: {gages[5].site}</div>
+                        <a href={gages[5].website}>{gages[5].website}</a>
                     </Popup>
                 </Marker>
                 <Legend />
