@@ -5,6 +5,7 @@ import React from 'react';
 import { Navbar, Nav, NavItem, NavDropdown } from 'react-bootstrap';
 import Home from './Home.js';
 import Page from './Page.js';
+import Chart from './Chart.js';
 
 import dummyChart from './img/basic-bar-graph.png';
 
@@ -42,7 +43,10 @@ export default function Routing(props) {
                         <h2>
                         <NavDropdown className="drop" drop='left' title="Chart" id="basic-nav-dropdown">
                                 <div className="chart">
-                                    <img id="graph" src={dummyChart} alt="graph"/>
+                                    <Route>
+                                        <Chart />
+                                    </Route>
+                                    {/*<img id="graph" src={dummyChart} alt="graph"/>*/}
                                 </div>
                         </NavDropdown>
                         </h2>
