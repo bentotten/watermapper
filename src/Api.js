@@ -3,27 +3,32 @@ import { useState, useEffect } from "react";
 export default function useFetch(url) {
     const [data, setData] = useState([]);
 
-    useEffect(() => {
-        fetch(url)
-            .then(response => response.json())
-            .then(data => setData(data));
-    }, []);
+    let getData = async (url) => {
+        try {
+            let response = await fetch(url);
+            let data = await response.json();
 
-    /*
-    data.value.forEach(element => {
-        console.log(element)
-    });
+            //console.log(data);
+            //console.log(data.value.timeSeries[0].values[0].value[0]);
 
+            const {
+                value,
+                qualifiers,
+                dateTime
+            } = data.value.timeSeries[0].values[0].value[0];
 
-    console.log(data.value)
-    console.log(data.value.keys())
-*/
+            setData(value, qualifiers[0], dateTime)
 
-    // return data
+            //console.log(value);
+            //console.log(qualifiers[0]);
+            //console.log(dateTime);
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
-    return (
-        <div> I'm working </div>
-    )
+    getData(url)
+
+    return data
 }
 
-// TODO: check data exists before returning after making async

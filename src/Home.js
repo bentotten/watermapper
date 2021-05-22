@@ -20,7 +20,7 @@ export default function Home(props) {
         iconUrl: marker,
         iconSize: [25, 25],
     })
-    
+
     const position = [startLocation.lat, startLocation.lng]
 
     // Data from sites.json
