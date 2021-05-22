@@ -7,6 +7,8 @@ import Home from './Home.js';
 import Page from './Page.js';
 import Chart from './Chart.js';
 import dummyChart from './img/basic-bar-graph.png';
+import Test from './Test.js';
+
 //import gages from './data/sites.json'
 
 
@@ -65,6 +67,10 @@ export default function Routing(props) {
                     </Route>
                     <Route path="/page">
                         <Page />
+                    </Route>
+
+                    <Route path="/test">
+                        <Test />
                     </Route>
 
                 </Switch>

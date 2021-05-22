@@ -4,7 +4,7 @@ import { Map, TileLayer, Marker, Popup, ZoomControl } from 'react-leaflet'
 import marker from './img/map-marker.png'
 import gages from './data/sites.json'
 import Legend from "./Legend";
-import useFetch from "./Api.js"
+import CallApi from "./Api.js"
 
 
 // Future improvement: Pull and dynmically create markers for Gage houses
@@ -20,7 +20,7 @@ export default function Home(props) {
         iconUrl: marker,
         iconSize: [25, 25],
     })
-    
+
     const position = [startLocation.lat, startLocation.lng]
 
     // Data from sites.json
