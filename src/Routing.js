@@ -6,11 +6,14 @@ import { Navbar, Nav, NavItem, NavDropdown } from 'react-bootstrap';
 import Home from './Home.js';
 import Page from './Page.js';
 import Chart from './Chart.js';
-
 import dummyChart from './img/basic-bar-graph.png';
+//import gages from './data/sites.json'
 
 
 export default function Routing(props) {
+
+    // Do for each loop to reach in each gage from json file then save all six data
+
     return (
         <Router>
             <div>

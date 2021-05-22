@@ -9,5 +9,21 @@ export default function useFetch(url) {
             .then(data => setData(data));
     }, []);
 
-    return data;
+    /*
+    data.value.forEach(element => {
+        console.log(element)
+    });
+
+
+    console.log(data.value)
+    console.log(data.value.keys())
+*/
+
+    // return data
+
+    return (
+        <div> I'm working </div>
+    )
 }
+
+// TODO: check data exists before returning after making async
