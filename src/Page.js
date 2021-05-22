@@ -155,28 +155,28 @@ export default function Page(props) {
                             />
                         </LayerGroup>
                     </LayersControl.Overlay>
-                    <LayersControl.Overlay name = "2018">
+                    <LayersControl.Overlay checked name = "2018">
 
                     </LayersControl.Overlay>
-                    <LayersControl.Overlay name = "2017">
+                    <LayersControl.Overlay checked name = "2017">
 
                     </LayersControl.Overlay>
-                     <LayersControl.Overlay name = "2016">
+                     <LayersControl.Overlay checked name = "2016">
 
                     </LayersControl.Overlay>
-                     <LayersControl.Overlay name = "2015">
+                     <LayersControl.Overlay checked name = "2015">
 
                     </LayersControl.Overlay>
-                     <LayersControl.Overlay name = "2014">
+                     <LayersControl.Overlay checked name = "2014">
 
                     </LayersControl.Overlay>
-                     <LayersControl.Overlay name = "2013">
+                     <LayersControl.Overlay checked name = "2013">
 
                     </LayersControl.Overlay>
-                     <LayersControl.Overlay name = "2012">
+                     <LayersControl.Overlay checked name = "2012">
 
                     </LayersControl.Overlay>
-                     <LayersControl.Overlay name = "2011">
+                     <LayersControl.Overlay checked name = "2011">
 
                     </LayersControl.Overlay>
  
