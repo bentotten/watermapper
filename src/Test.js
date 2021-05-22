@@ -1,12 +1,16 @@
-import useFetch from "./Api.js"
+import CallApi from "./Api.js"
+import gages from './data/sites.json'
 
 export default function Test(props) {
+    let test = {}
 
-    let url = 'https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14211820'
-    let test = useFetch(url);
-    console.log(test)
+    console.log(gages)
+    for (let el in gages) {
+        test = CallApi(gages[el].daily_url);
+        console.log(test)
+    }
 
     return (
-        <div> {test} </div>
-    );
+        <div> working </div>
+    )
 }

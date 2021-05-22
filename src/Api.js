@@ -1,27 +1,22 @@
 import { useState, useEffect } from "react";
 
 export default function useFetch(url) {
-    const [data, setData] = useState([]);
+    let filtered_data = { value: "", dateTime: "", siteName: "" }
 
     let getData = async (url) => {
         try {
             let response = await fetch(url);
             let data = await response.json();
 
-            //console.log(data);
-            //console.log(data.value.timeSeries[0].values[0].value[0]);
-
             const {
                 value,
-                qualifiers,
                 dateTime
             } = data.value.timeSeries[0].values[0].value[0];
 
-            setData(value, qualifiers[0], dateTime)
+            filtered_data.value = value
+            filtered_data.dateTime = dateTime
+            filtered_data.siteName = data.value.timeSeries[0].sourceInfo.siteName
 
-            //console.log(value);
-            //console.log(qualifiers[0]);
-            //console.log(dateTime);
         } catch (error) {
             console.error(error);
         }
@@ -29,6 +24,6 @@ export default function useFetch(url) {
 
     getData(url)
 
-    return data
+    return filtered_data
 }
 
