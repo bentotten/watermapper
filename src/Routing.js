@@ -33,7 +33,7 @@ export default function Routing(props) {
                         <Nav>
                             <NavItem className="pull-right">
                                 <h2>
-                                    <Link to="/">Home</Link>
+                                    <Link to="/home">Home</Link>
                                 </h2>
                             </NavItem>
                             <NavItem className="pull-right">
@@ -55,12 +55,12 @@ export default function Routing(props) {
                             </h2>
                         </Nav>
                     </Navbar.Collapse>
-                </Navbar>;
+                </Navbar>
 
 
                 {/* Switches */}
                 <Switch>
-                    <Route path="/">
+                    <Route path="/home">
                         <Home />
                     </Route>
                     <Route path="/page">
