@@ -57,15 +57,10 @@ export default function Routing(props) {
                     </Navbar.Collapse>
                 </Navbar>
 
-
                 {/* Switches */}
                 <Switch>
-                    <Route path exact ="/">
-                        <Home />
-                    </Route>
-                    <Route path="/page">
-                        <Page />
-                    </Route>
+                    <Route exact path ="/" component={Home} />
+                    <Route path ="/Page" component={Page} />
 
                 </Switch>
             </div>
