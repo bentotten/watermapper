@@ -154,7 +154,9 @@ export default function Page(props) {
                                 radius = {600}
                             />
                         </LayerGroup>
-                    </LayersControl.Overlay>
+                        </LayersControl.Overlay>
+                       {/*
+                             </LayersControl.Overlay>
                     <LayersControl.Overlay checked name = "2018">
 
                     </LayersControl.Overlay>
@@ -180,6 +182,7 @@ export default function Page(props) {
 
                     </LayersControl.Overlay>
  
+                       */} 
                 </LayersControl>
         </Map>
         </>
