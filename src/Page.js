@@ -104,7 +104,7 @@ export default function Page(props) {
         <>
             <Home />
             <LayersControl position="topright">
-                <LayersControl.Overlay checked name="2019">
+                <LayersControl.Overlay checked name="Stream Discharge">
                     <LayerGroup>
                         <Circle
                             color={colorChange(gages[0].temperature)}
@@ -134,31 +134,6 @@ export default function Page(props) {
                         />
                     </LayerGroup>
                 </LayersControl.Overlay>
-                <LayersControl.Overlay name="2018">
-
-                </LayersControl.Overlay>
-                <LayersControl.Overlay name="2017">
-
-                </LayersControl.Overlay>
-                <LayersControl.Overlay name="2016">
-
-                </LayersControl.Overlay>
-                <LayersControl.Overlay name="2015">
-
-                </LayersControl.Overlay>
-                <LayersControl.Overlay name="2014">
-
-                </LayersControl.Overlay>
-                <LayersControl.Overlay name="2013">
-
-                </LayersControl.Overlay>
-                <LayersControl.Overlay name="2012">
-
-                </LayersControl.Overlay>
-                <LayersControl.Overlay name="2011">
-
-                </LayersControl.Overlay>
-
             </LayersControl>
         </>
     )
