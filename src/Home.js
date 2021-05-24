@@ -1,6 +1,6 @@
 import React from "react"
-import L from 'leaflet'
-import { Map, TileLayer, Marker, Popup, ZoomControl } from 'react-leaflet'
+import L, { layerGroup } from 'leaflet'
+import { Map, TileLayer, Marker, Popup, ZoomControl, LayersControl, LayerGroup } from 'react-leaflet'
 import marker from './img/map-marker.png'
 import gages from './data/sites.json'
 import Legend from "./Legend";
@@ -35,49 +35,55 @@ export default function Home(props) {
                     attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
                     url="https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}.jpg?key=a25BWEXwxHphmT537wWB"
                 />
+                <LayersControl position="topright">
+                    <LayersControl.Overlay checked name="Stream Discharge">
+                        <LayerGroup>
 
-                <Marker position={coodinates[0]} icon={mapMarker}>
-                    <Popup>
-                        <div><b>{gages[0].name}</b></div>
-                        <div>Site: {gages[0].site}</div>
-                        <a href={gages[0].website}>https://waterdata.usgs.gov</a>
-                    </Popup>
-                </Marker>
-                <Marker position={coodinates[1]} icon={mapMarker}>
-                    <Popup>
-                        <div><b>{gages[1].name}</b></div>
-                        <div>Site: {gages[1].site}</div>
-                        <a href={gages[1].website}>https://waterdata.usgs.gov</a>
-                    </Popup>
-                </Marker>
-                <Marker position={coodinates[2]} icon={mapMarker}>
-                    <Popup>
-                        <div><b>{gages[2].name}</b></div>
-                        <div>Site: {gages[2].site}</div>
-                        <a href={gages[2].website}>https://waterdata.usgs.gov</a>
-                    </Popup>
-                </Marker>
-                <Marker position={coodinates[3]} icon={mapMarker}>
-                    <Popup>
-                        <div><b>{gages[3].name}</b></div>
-                        <div>Site: {gages[3].site}</div>
-                        <a href={gages[3].website}>https://waterdata.usgs.gov</a>
-                    </Popup>
-                </Marker>
-                <Marker position={coodinates[4]} icon={mapMarker}>
-                    <Popup>
-                        <div><b>{gages[4].name}</b></div>
-                        <div>Site: {gages[4].site}</div>
-                        <a href={gages[4].website}>https://waterdata.usgs.gov</a>
-                    </Popup>
-                </Marker>
-                <Marker position={coodinates[5]} icon={mapMarker}>
-                    <Popup>
-                        <div><b>{gages[5].name}</b></div>
-                        <div>Site: {gages[5].site}</div>
-                        <a href={gages[5].website}>https://waterdata.usgs.gov</a>
-                    </Popup>
-                </Marker>
+                            <Marker position={coodinates[0]} icon={mapMarker}>
+                                <Popup>
+                                    <div><b>{gages[0].name}</b></div>
+                                    <div>Site: {gages[0].site}</div>
+                                    <a href={gages[0].website}>https://waterdata.usgs.gov</a>
+                                </Popup>
+                            </Marker>
+                            <Marker position={coodinates[1]} icon={mapMarker}>
+                                <Popup>
+                                    <div><b>{gages[1].name}</b></div>
+                                    <div>Site: {gages[1].site}</div>
+                                    <a href={gages[1].website}>https://waterdata.usgs.gov</a>
+                                </Popup>
+                            </Marker>
+                            <Marker position={coodinates[2]} icon={mapMarker}>
+                                <Popup>
+                                    <div><b>{gages[2].name}</b></div>
+                                    <div>Site: {gages[2].site}</div>
+                                    <a href={gages[2].website}>https://waterdata.usgs.gov</a>
+                                </Popup>
+                            </Marker>
+                            <Marker position={coodinates[3]} icon={mapMarker}>
+                                <Popup>
+                                    <div><b>{gages[3].name}</b></div>
+                                    <div>Site: {gages[3].site}</div>
+                                    <a href={gages[3].website}>https://waterdata.usgs.gov</a>
+                                </Popup>
+                            </Marker>
+                            <Marker position={coodinates[4]} icon={mapMarker}>
+                                <Popup>
+                                    <div><b>{gages[4].name}</b></div>
+                                    <div>Site: {gages[4].site}</div>
+                                    <a href={gages[4].website}>https://waterdata.usgs.gov</a>
+                                </Popup>
+                            </Marker>
+                            <Marker position={coodinates[5]} icon={mapMarker}>
+                                <Popup>
+                                    <div><b>{gages[5].name}</b></div>
+                                    <div>Site: {gages[5].site}</div>
+                                    <a href={gages[5].website}>https://waterdata.usgs.gov</a>
+                                </Popup>
+                            </Marker>
+                        </LayerGroup>
+                    </LayersControl.Overlay>
+                </LayersControl>
             </Map>
 
 
