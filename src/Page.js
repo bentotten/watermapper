@@ -6,6 +6,7 @@ import { Map, TileLayer, Marker, Circle, Popup, LayersControl, LayerGroup } from
 import marker from './img/map-marker.png'
 import gages from './data/sites.json'
 import useFetch from "./Api.js"
+import Home from './Home.js';
 
 export default function Page(props) {
     let data = useFetch('https://waterservices.usgs.gov/nwis/dv/?format=json&sites=14211820,%2014144700,%20453320122483701,%2014211720,%20453004122510301,%2014206900&period=P1D&siteStatus=active')
@@ -101,6 +102,7 @@ export default function Page(props) {
 
     return (
         <>
+            <Home />
             <LayersControl position="topright">
                 <LayersControl.Overlay checked name="2019">
                     <LayerGroup>
@@ -118,13 +120,6 @@ export default function Page(props) {
                             center={BCL}
                             radius={600}
                         />
-                        <Marker position={WRP} icon={mapMarker}>
-                            <Popup>
-                                Site: {gages[3].site}
-                                Name: {gages[3].name}
-                                URL: {gages[3].url}
-                            </Popup>
-                        </Marker>
                         <Circle
                             center={WRP}
                             radius={600}
