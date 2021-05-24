@@ -8,16 +8,33 @@ import Page from './Page.js';
 import Chart from './Chart.js';
 import dummyChart from './img/basic-bar-graph.png';
 import Test from './Test.js';
+import L, { layerGroup } from 'leaflet'
+import { Map, TileLayer, Marker, Popup, ZoomControl, LayersControl, LayerGroup } from 'react-leaflet'
+import marker from './img/map-marker.png'
 
 //import gages from './data/sites.json'
 
 
 export default function Routing(props) {
 
-    // Do for each loop to reach in each gage from json file then save all six data
+    // Setup map
+    const startLocation = {
+        lat: 45.5051,
+        lng: -122.6750,
+        zoom: 11,
+    }
+    const mapMarker = L.icon({
+        iconUrl: marker,
+        iconSize: [25, 25],
+    })
 
+    const position = [startLocation.lat, startLocation.lng]
+
+
+    // Do for each loop to reach in each gage from json file then save all six data
     return (
         <>
+
             <Router>
                 <Navbar collapseOnSelect className="navbar">
                     <div className="h-box">
@@ -47,31 +64,43 @@ export default function Routing(props) {
                                         <Route>
                                             <Chart />
                                         </Route>
-                                        {/*<img id="graph" src={dummyChart} alt="graph"/>*/}
+
                                     </div>
                                 </NavDropdown>
                             </h2>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
-                {/* Switches */}
-                <Switch>
-                    <>
-                        <Route exact path="/">
-                            <Home />
-                        </Route>
-                        <Route exact path="/home">
-                            <Home />
-                        </Route>
-                        <Route exact path="/page">
-                            <Page />
-                        </Route>
-                        <Route exact path="/test">
-                            <Test />
-                        </Route>
-                    </>
-                </Switch>
+
+                <Map className="map" center={position} zoom={startLocation
+                    .zoom} scrollWheelZoom={true} zoomControl={false}>
+                    <ZoomControl position="bottomleft" />
+                    <TileLayer
+                        attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+                        url="https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}.jpg?key=a25BWEXwxHphmT537wWB"
+                    />
+
+                    <Switch>
+                        <>
+                            <Route exact path="/">
+                                <Home />
+                            </Route>
+                            <Route exact path="/home">
+                                <Home />
+                            </Route>
+                            <Route exact path="/page">
+                                <Page />
+                            </Route>
+                            <Route exact path="/test">
+                                <Test />
+                            </Route>
+                        </>
+                    </Switch>
+                </Map>
             </Router>
+
         </>
     )
+
 }
+
