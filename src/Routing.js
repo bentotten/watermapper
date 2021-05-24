@@ -71,7 +71,6 @@ export default function Routing(props) {
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
-
                 <Map className="map" center={position} zoom={startLocation
                     .zoom} scrollWheelZoom={true} zoomControl={false}>
                     <ZoomControl position="bottomleft" />
