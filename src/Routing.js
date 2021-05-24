@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.css';https://github.com/bentotten/watermapper/blob/fix-console-errors-on-load/src/Routing.js
+import 'bootstrap/dist/css/bootstrap.css';
 import './styles/chart.css';
 import React from 'react';
 import { Navbar, Nav, NavItem, NavDropdown } from 'react-bootstrap';
