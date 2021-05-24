@@ -17,12 +17,9 @@ export default function Routing(props) {
     // Do for each loop to reach in each gage from json file then save all six data
 
     return (
-        <Router>
-            <div>
-                <Route>
-                    <Home />
-                </Route>
-                <Navbar inverse collapseOnSelect className="navbar">
+        <>
+            <Router>
+                <Navbar collapseOnSelect className="navbar">
                     <div className="h-box">
                         <Navbar.Brand>
                             <h1>Portland Water Usage Data Dashboard</h1>
@@ -31,11 +28,10 @@ export default function Routing(props) {
                     <Navbar.Toggle />
 
                     <Navbar.Collapse>
-
                         <Nav>
                             <NavItem className="pull-right">
                                 <h2>
-                                    <Link to="/home">Home</Link>
+                                    <Link to="/">Home</Link>
                                 </h2>
                             </NavItem>
                             <NavItem className="pull-right">
@@ -58,23 +54,24 @@ export default function Routing(props) {
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
-
-
                 {/* Switches */}
                 <Switch>
-                    <Route path="/home">
-                        <Home />
-                    </Route>
-                    <Route path="/page">
-                        <Page />
-                    </Route>
-
-                    <Route path="/test">
-                        <Test />
-                    </Route>
-
+                    <>
+                        <Route exact path="/">
+                            <Home />
+                        </Route>
+                        <Route exact path="/home">
+                            <Home />
+                        </Route>
+                        <Route exact path="/page">
+                            <Page />
+                        </Route>
+                        <Route exact path="/test">
+                            <Test />
+                        </Route>
+                    </>
                 </Switch>
-            </div>
-        </Router>
+            </Router>
+        </>
     )
 }
