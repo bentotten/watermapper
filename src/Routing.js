@@ -34,7 +34,6 @@ export default function Routing(props) {
     // Do for each loop to reach in each gage from json file then save all six data
     return (
         <>
-
             <Router>
                 <Navbar collapseOnSelect className="navbar">
                     <div className="h-box">
