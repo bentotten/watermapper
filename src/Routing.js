@@ -18,11 +18,11 @@ export default function Routing(props) {
 
     return (
         <Router>
-            <div>
+            <>
                 <Route>
                     <Home />
                 </Route>
-                <Navbar inverse collapseOnSelect className="navbar">
+                <Navbar collapseOnSelect className="navbar">
                     <div className="h-box">
                         <Navbar.Brand>
                             <h1>Portland Water Usage Data Dashboard</h1>
@@ -74,7 +74,7 @@ export default function Routing(props) {
                     </Route>
 
                 </Switch>
-            </div>
+            </>
         </Router>
     )
 }
