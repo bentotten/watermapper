@@ -9,15 +9,15 @@ import useFetch from "./Api.js"
 import Home from './Home.js';
 
 export default function Page(props) {
-    let data = useFetch('https://waterservices.usgs.gov/nwis/dv/?format=json&sites=14211820,%2014144700,%20453320122483701,%2014211720,%20453004122510301,%2014206900&period=P1D&siteStatus=active')
-    console.log(data.value);
     /*
     data.value.timeSeries.forEach(element =>{
         console.log(element)
     })
     */
     let url =
-        "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14211820";
+        "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14211820,%2014144700,%2014211315,%2014206900,%2014211550 ";
+    let url2 =
+        "https://waterservices.usgs.gov/nwis/dv/?format=json&sites=14211820,%2014144700,%2014211315,%2014206900,%2014211550&siteStatus=all"
     const startLocation = {
         lat: 45.5051,
         lng: -122.6750,
@@ -61,6 +61,7 @@ export default function Page(props) {
         )
       }
      */
+    let obj = [{}];
     let getData = async () => {
         try {
             let response = await fetch(url);
@@ -74,7 +75,16 @@ export default function Page(props) {
                 qualifiers,
                 dateTime
             } = data.value.timeSeries[0].values[0].value[0];
+            for(let i = 0; i < 5; ++i){
+                obj[i] ={
+                    name: data.value.timeSeries[i].sourceInfo.siteName,
+                    site: data.value.timeSeries[i].sourceInfo.siteCode[0].value,
+                    lat:  data.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.latitude,
+                    long: data.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.longitude
 
+                };
+            }
+            console.log(obj);
             console.log(value);
             console.log(qualifiers[0]);
             console.log(dateTime);
