@@ -62,6 +62,9 @@ export default function Routing(props) {
 
                 {/* Switches */}
                 <Switch>
+	    	    <Route path="/">
+	    		<Home />
+	    	    </Route>
                     <Route path="/home">
                         <Home />
                     </Route>
