@@ -6,23 +6,23 @@ import { Bar, defaults } from 'react-chartjs-2';
 
 export default function Charts(props) {
     
-        const url = 'https://thronesapi.com/api/v2/Characters';
-        const [characters, setCharacters] = useState(null);
+        const url = 'https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14211720,%2014211542,%2014207200,%2014202000,%20453004122510301';
+        const [water, setData] = useState(null);
         useEffect(() => {
-          getCharacters();
+          getData();
           
         }, [])
-        async function getCharacters(){
+        async function getData(){
           try {
             const response = await axios.get(url);
-            setCharacters(response.data);
+            setData(response.data);
           } catch (err) {
             console.error(err);
           }
         }
         var data = []
         var options = []
-        if(characters){
+        if(){
             defaults.color = 'white';
           let backgroundColors = [
             'rgba(54, 162, 235, 0.8)',
@@ -50,35 +50,20 @@ export default function Charts(props) {
             'rgba(210, 199, 199, 1)',
           ];
           
-          var houses = [[]]
-          houses.push(["none",0])
+          var gauges = [{}]
+          if(water){
+            gauges[i] = {
+              name: water.value.timeSeries[i].sourceInfo.siteName,
+              site: water.value.timeSeries[i].sourceInfo.siteCode[0].value,
+              lat:  water.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.latitude,
+              long: water.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.longitude,
+              temp: water.value.timeSeries[i].values[0].value[0].value
+            }
+          }
           
           
           for(let i = 0; i < characters.length; i++){
-            var found = false
-            for(let j = 1; j < houses.length; j++){
-              if(characters[i].family === "None" || characters[i].family === '' || characters[i].family === 'Unknown' || characters[i].family === 'Free Folk'){
-                houses[j][1]++
-                found = true
-                break
-              }
-              else if(i !== 0){
-                if(houses[j][0].substring(houses[j][0].length - 5)===characters[i].family.substring(characters[i].family.length - 5)){
-                  houses[j][1]++
-                  if(houses[j][0].length < characters[i].family.length){
-                    houses[j][0] = characters[i].family
-                  }
-                  found = true
-                  break
-                }
-              }
-            }
-            if(found===false){
-              houses.push([characters[i].family,1])
-              if(houses[houses.length-1][0].substring(0,5) !== "House"){
-                houses[houses.length-1][0] = "House " + houses[houses.length-1][0]
-              }
-            }
+            gauges
           }
           console.log(houses)
           var houses2 = []
