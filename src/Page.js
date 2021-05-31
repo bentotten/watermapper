@@ -7,6 +7,7 @@ import gages from './data/sites.json'
 import useFetch from "./Api.js"
 import Home from './Home.js';
 import axios from 'axios';
+import tempSiteURLS from './data/temp_gage_urls.json'
 
 export default function Page(props) {
     /*
@@ -268,6 +269,11 @@ export default function Page(props) {
                 <LayersControl.Overlay name="Tempearture">
                     <LayerGroup>
                         <Marker position={PRA} icon={mapMarker}>
+                            <Popup>
+                                <div><b>{obj2[0].name}</b></div>
+                                <div>Site: {obj2[0].site}</div>
+                                <a href={tempSiteURLS[0].website}>https://waterdata.usgs.gov</a>
+                            </Popup>
                             <Circle
                             color={colorChange(obj2[0].temp)}
                             center={PRA}
@@ -280,6 +286,11 @@ export default function Page(props) {
                             </Circle>
                         </Marker>
                         <Marker position={TRL} icon={mapMarker}>
+                            <Popup>
+                                <div><b>{ obj2[1] && obj2[1].name}</b></div>
+                                <div>Site: {obj2[1] && obj2[1].site}</div>
+                                <a href={tempSiteURLS[1].website}>https://waterdata.usgs.gov</a>
+                            </Popup>
                             <Circle
                             color={obj2[1] && colorChange(obj2[1].temp)}
                             center={TRL}
@@ -292,6 +303,11 @@ export default function Page(props) {
                             </Circle>
                         </Marker>
                         <Marker position={CSC} icon={mapMarker}>
+                            <Popup>
+                                <div><b>{ obj2[2] && obj2[2].name}</b></div>
+                                <div>Site: {obj2[2] && obj2[2].site}</div>
+                                <a href={tempSiteURLS[2].website}>https://waterdata.usgs.gov</a>
+                            </Popup>
                         <Circle
                             color={obj2[2] && colorChange(obj2[2].temp)}
                             center={CSC}
@@ -321,6 +337,11 @@ export default function Page(props) {
                             </Circle>
                         </Marker>
                         <Marker position={BCB} icon={mapMarker}>
+                        <Popup>
+                                <div><b>{ obj2[4] && obj2[4].name}</b></div>
+                                <div>Site: {obj2[4] && obj2[4].site}</div>
+                                <a href={tempSiteURLS[4].website}>https://waterdata.usgs.gov</a>
+                            </Popup>
                         <Circle
                             color={obj2[4] && colorChange(obj2[4].temp)}
                             center={BCB}
