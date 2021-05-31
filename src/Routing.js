@@ -6,7 +6,6 @@ import { Navbar, Nav, NavItem, NavDropdown } from 'react-bootstrap';
 import Home from './Home.js';
 import Page from './Page.js';
 import Chart from './Chart.js';
-import dummyChart from './img/basic-bar-graph.png';
 import Test from './Test.js';
 import L, { layerGroup } from 'leaflet'
 import { Map, TileLayer, Marker, Popup, ZoomControl, LayersControl, LayerGroup } from 'react-leaflet'
@@ -39,6 +38,8 @@ export default function Routing(props) {
                     <div className="h-box">
                         <Navbar.Brand>
                             <h1>Portland Water Usage Data Dashboard</h1>
+                            <h2>Portland Water Usage Data Dashboard</h2>
+                            <h3>Portland Water Usage</h3><h3>Data Dashboard</h3>
                         </Navbar.Brand>
                     </div>
                     <Navbar.Toggle />
@@ -46,18 +47,30 @@ export default function Routing(props) {
                     <Navbar.Collapse>
                         <Nav>
                             <NavItem className="pull-right">
-                                <h2>
+                                <h2 className='big'>
                                     <Link to="/">Home</Link>
                                 </h2>
+                                <h3 className='med'>
+                                    <Link to="/">Home</Link>
+                                </h3>
+                                <h4 className='small'>
+                                    <Link to="/">Home</Link>
+                                </h4>
                             </NavItem>
                             <NavItem className="pull-right">
-                                <h2>
+                                <h2 className='big'>
                                     <Link to="/page">Gradient</Link>
                                 </h2>
+                                <h3 className='med'>
+                                    <Link to="/page">Gradient</Link>
+                                </h3>
+                                <h4 className='small'>
+                                    <Link to="/page">Gradient</Link>
+                                </h4>
                             </NavItem>
                         </Nav>
                         <Nav>
-                            <h2>
+                            <h2 className='big1'>
                                 <NavDropdown className="drop" drop='left' title="Chart" id="basic-nav-dropdown">
                                     <div className="chart">
                                         <Route>
@@ -67,6 +80,36 @@ export default function Routing(props) {
                                     </div>
                                 </NavDropdown>
                             </h2>
+                            <h2 className='big2'>
+                                <NavDropdown className="drop" drop='down' title="Chart" id="basic-nav-dropdown">
+                                    <div className="chart">
+                                        <Route>
+                                            <Chart />
+                                        </Route>
+
+                                    </div>
+                                </NavDropdown>
+                            </h2>
+                            <h3 className='med'>
+                                <NavDropdown className="drop" drop='down' title="Chart" id="basic-nav-dropdown">
+                                    <div className="chart">
+                                        <Route>
+                                            <Chart />
+                                        </Route>
+
+                                    </div>
+                                </NavDropdown>
+                            </h3>
+                            <h4 className='small'>
+                                <NavDropdown className="drop" drop='down' title="Chart" id="basic-nav-dropdown">
+                                    <div className="chart">
+                                        <Route>
+                                            <Chart />
+                                        </Route>
+
+                                    </div>
+                                </NavDropdown>
+                            </h4>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
