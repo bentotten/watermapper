@@ -60,31 +60,18 @@ export default function Charts(props) {
               temp: water.value.timeSeries[i].values[0].value[0].value
             }
           }
+          var gaugeNames = [];
+          var gaugeTemp = [];
           
-          
-          for(let i = 0; i < characters.length; i++){
-            gauges
+          for(let i = 0; i < gauges.length; i++){
+            gaugeNames.push(gauges[i].name);
+            gaugeTemp.push(gauges[i].temp);
           }
-          console.log(houses)
-          var houses2 = []
-          for(let i = 0; i < houses.length; i++){
-            if(houses[i][1] > 1)
-            houses2.push(houses[i])
-          }
-          console.log(houses2)
-            // These labels appear in the legend and in the tooltips when hovering different arcs
-          var houses3 = []
-          var houses4 = []
-          for(let i = 0; i < houses2.length; i++){
-            houses3.push(houses2[i][0])
-            houses4.push(houses2[i][1])
-          }
-          // eslint-disable-next-line no-const-assign
           data =  {
-            labels: houses3,
+            labels: gaugeNames,
             datasets: [{
-                label: 'House Size',
-                data: houses4,
+                label: 'Gauge Temperatures',
+                data: gaugeTemp,
                 backgroundColor: backgroundColors,
                 borderColor: borderColors,
                 borderWidth: 1,
