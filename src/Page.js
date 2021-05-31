@@ -8,6 +8,7 @@ import useFetch from "./Api.js"
 import Home from './Home.js';
 import axios from 'axios';
 import tempSiteURLS from './data/temp_gage_urls.json'
+import CallApi from "./Api.js"
 
 export default function Page(props) {
     /*
@@ -21,6 +22,7 @@ export default function Page(props) {
             let CSC = [0, 0]; //CRYSTAL SPRINGS CREEK
             let WRP = [0, 0]; //WILLAMETTE RIVER AT PORTLAND
             let BCB = [0, 0]; //BEVERTON CREEK AT BEAVERTO
+            let obj =[{}];
     let url =
         "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14211820,%2014144700,%2014211315,%2014206900,%2014211550 ";
     let url2 =
@@ -28,6 +30,8 @@ export default function Page(props) {
     let url3 =
         "https://waterservices.usgs.gov/nwis/dv/?format=json&sites=14211720,%2014211542,%2014207200,%2014202000,%20453004122510301&parameterCd=00010&siteType=FA-CI&siteStatus=active";
 
+
+    
     const startLocation = {
         lat: 45.5051,
         lng: -122.6750,
@@ -54,15 +58,66 @@ export default function Page(props) {
             return '#E90606'
     }
     function changeRadius(discharge) {
-        if (discharge > 3000)
-            return 900;
-        if (discharge > 4000)
-            return 1200;
-        if (discharge < 2000)
-            return 400;
+        if(discharge >= 500000)
+            return 10000;
+        if (discharge >= 200000 && discharge < 500000)
+            return 9000;
+        if (discharge >= 100000 && discharge < 200000)
+            return 8000;
+        if (discharge >= 50000 && discharge < 100000)
+            return 7000;
+        if(discharge >= 10000 && discharge < 50000)
+            return 6000;
+        if(discharge >= 5000 && discharge < 10000)
+            return 5000;
+        if(discharge >= 1000 && discharge < 5000)
+            return 4000;
+        if(discharge >= 500 && discharge < 1000)
+            return 3000;
+        if(discharge >= 100 && discharge < 500)
+            return 2000;
         else
-            return 500;
+            return 1000;
     }
+
+    //discharge api call
+    let discharge = [{}];
+    /*
+    for (let i in gages) {
+        discharge[i] = CallApi(gages[i].daily_url);
+    }
+    if(discharge){
+        console.log(discharge);
+        console.log(discharge[0].siteName)
+    }
+    */
+    (function(){
+        async function getDischarge(){
+          let response = await fetch(url);
+          let data = await response.json();
+          return data.value;
+        }
+      
+        getDischarge().then((discharge) => {
+            if(discharge){
+          console.log(discharge);
+          console.log(discharge[0])
+ 
+            }
+          /*
+            
+            obj[i] ={
+                name: discharge.timeSeries[i].sourceInfo.siteName,
+                site: discharge.timeSeries[i].sourceInfo.siteCode[0].value,
+                lat:  discharge.timeSeries[i].sourceInfo.geoLocation.geogLocation.latitude,
+                long: discharge.timeSeries[i].sourceInfo.geoLocation.geogLocation.longitude,
+                quantity: discharge.value.timeSeries[i].values[0].value[0].value
+            };
+          }
+          */
+        });
+      })();
+
     /*j
     function LocationMarker() {
         const [position, setPosition] = useState(null)
@@ -98,7 +153,6 @@ export default function Page(props) {
           console.error(err);
         }
       }
-      let obj =[{}];
       let obj2 =[{}];
       if(water){
         console.log(water);
@@ -244,26 +298,37 @@ export default function Page(props) {
                 <LayersControl.Overlay checked name="Stream Discharge">
                     <LayerGroup>
                         <Circle
-                            color={'#E74C2B'}
+                            color={'white'}
                             center={CSP}
-                            radius={800}
-                        />
+                            radius={changeRadius(discharge[0] && discharge[0].value)}
+                        >
+                            <Popup>
+                                <div><b>{discharge[0] && discharge[0].siteName}</b></div>
+                                <div>Discharge: {discharge[0] && discharge[0].value} </div>
+                            </Popup>
+                        </Circle>
+                        
                         <Circle
+                            color={'pink'}
                             center={CRV}
-                            radius={600}
-                        />
+                            //radius={changeRadius(discharge[1].value)}
+                        >
+                        </Circle>
                         <Circle
                             center={BCL}
                             radius={600}
-                        />
+                        >
+                        </Circle>
                         <Circle
                             center={WRP}
                             radius={600}
-                        />
+                        >
+                        </Circle>
                         <Circle
                             center={BCB}
                             radius={600}
-                        />
+                        >
+                        </Circle>
                     </LayerGroup>
                 </LayersControl.Overlay>
                 <LayersControl.Overlay name="Tempearture">
