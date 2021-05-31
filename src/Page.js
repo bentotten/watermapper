@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import React from "react"
 import L, { layerGroup, popup } from 'leaflet'
 import { Map, TileLayer, Marker, Circle, Popup, LayersControl, LayerGroup } from 'react-leaflet'
-//import Popup from 'react-leaflet-editable-popup'
 import marker from './img/map-marker.png'
 import gages from './data/sites.json'
 import useFetch from "./Api.js"
@@ -34,12 +33,24 @@ export default function Page(props) {
         zoom: 11,
     }
     function colorChange(temp) {
-        if (temp < 13)
-            return 'red'
-        if (temp > 13)
-            return 'blue'
+        if (temp < 5 )
+            return '#1652CB';
+        if (temp >= 5 && temp < 9)
+            return '#169ACB';
+        if (temp >= 9 && temp < 13)
+            return '#16CB72';
+        if (temp >= 13 && temp < 17) 
+            return '#16CB2E';
+        if (temp >= 17 && temp < 24) 
+            return '#42CB16';    
+        if (temp >= 24 && temp < 30) 
+            return '#E1EA03';       
+         if (temp >= 30 && temp < 40) 
+            return '#E97E06';       
+        if (temp >= 40 && temp < 60) 
+            return '#E97E06';        
         else
-            return 'green'
+            return '#E90606'
     }
     function changeRadius(discharge) {
         if (discharge > 3000)
@@ -86,7 +97,7 @@ export default function Page(props) {
           console.error(err);
         }
       }
-
+      let obj =[{}];
       let obj2 =[{}];
       if(water){
         console.log(water);
@@ -111,21 +122,34 @@ export default function Page(props) {
 
       //dicharge api call
       /*
-      const [discharge] = useState(null);
+      const [discharge, SetData] = useState(null);
       useEffect(() => {
         getData2();
         
       }, [])
       async function getData2(){
         try {
-          const response2 = await axios.get(url);
+          const response2 = await axios.get(url2);
           console.log(response2);
           setData(response2.data2);
         } catch (err) {
           console.error(err);
         }
       }
-      */
+      if(discharge){
+        console.log(discharge);
+        for(let i = 0; i < 5; ++i){
+            obj[i] ={
+                name: discharge.value.timeSeries[i].sourceInfo.siteName,
+                site: discharge.value.timeSeries[i].sourceInfo.siteCode[0].value,
+                lat:  discharge.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.latitude,
+                long: discharge.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.longitude,
+                quantity: discharge.value.timeSeries[i].values[0].value[0].value
+            };
+        }
+        console.log(obj);
+    }
+    */
     //let obj2 = [[]]
    // console.log(data.value.timeSeries[0].sourceInfo.siteName)
    /*
@@ -219,9 +243,8 @@ export default function Page(props) {
                 <LayersControl.Overlay checked name="Stream Discharge">
                     <LayerGroup>
                         <Circle
-                            color={'white'}
-                            center={CRV}
-                            pathOptions={{ color: 'red', fillColor: 'green' }}
+                            color={'#E74C2B'}
+                            center={CSP}
                             radius={800}
                         />
                         <Circle
@@ -248,7 +271,7 @@ export default function Page(props) {
                             <Circle
                             color={colorChange(obj2[0].temp)}
                             center={PRA}
-                            radius={900}
+                            radius={7000}
                             >
                                 <Popup>
                                 <div><b>{obj2[0].name}</b></div>
@@ -260,7 +283,7 @@ export default function Page(props) {
                             <Circle
                             color={obj2[1] && colorChange(obj2[1].temp)}
                             center={TRL}
-                            radius={900}
+                            radius={7000}
                             >
                                 <Popup>
                                 <div> {obj2[1] && obj2[1].name}</div>
@@ -271,8 +294,8 @@ export default function Page(props) {
                         <Marker position={CSC} icon={mapMarker}>
                         <Circle
                             color={obj2[2] && colorChange(obj2[2].temp)}
-                            center={TRL}
-                            radius={900}
+                            center={CSC}
+                            radius={7000}
                             >
                                 <Popup>
                                 <div> {obj2[2] && obj2[2].name}</div>
@@ -281,10 +304,15 @@ export default function Page(props) {
                             </Circle>
                         </Marker>
                         <Marker position={WRP} icon={mapMarker}>
+                            <Popup>
+                                <div><b>{gages[3].name}</b></div>
+                                <div>Site: {gages[3].site}</div>
+                                <a href={gages[3].website}>https://waterdata.usgs.gov</a>
+                            </Popup>
                         <Circle
                             color={obj2[3] && colorChange(obj2[3].temp)}
-                            center={TRL}
-                            radius={900}
+                            center={WRP}
+                            radius={7000}
                             >
                                 <Popup>
                                 <div> {obj2[3] && obj2[3].name}</div>
@@ -293,6 +321,16 @@ export default function Page(props) {
                             </Circle>
                         </Marker>
                         <Marker position={BCB} icon={mapMarker}>
+                        <Circle
+                            color={obj2[4] && colorChange(obj2[4].temp)}
+                            center={BCB}
+                            radius={7000}
+                            >
+                                <Popup>
+                                <div> {obj2[4] && obj2[4].name}</div>
+                                <div> Temp: {obj2[4] && obj2[4].temp}</div>
+                                </Popup>
+                            </Circle>
                         </Marker>
                     </LayerGroup>
                 </LayersControl.Overlay>
