@@ -1,0 +1,22 @@
+[
+	{
+		"name": "PUDDING RIVER AT AURORA, OR",
+		"daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14202000"
+	},
+	{
+		"name": "TUALATIN RIVER AT OSWEGO DAM, NEAR WEST LINN, OR",
+		"daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14207200"
+	},
+	{
+		"name": "CRYSTAL SPRINGS CREEK AT BYBEE ST, PORTLAND, OR",
+		"daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14211542"
+	},
+	{
+		"name": "WILLAMETTE RIVER AT PORTLAND, OR",
+		"daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14211720"
+	},
+	{
+		"name": "BEAVERTON CREEK AT 170TH AVE, BEAVERTON, OR",
+		"daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=453004122510301"
+	}
+]
