@@ -53,7 +53,7 @@ export default function Chart(props) {
     ];
     
     var gauges = [{}]
-    for(let i = 0; i < water.length; i++){
+    for(let i = 0; i < 5; i++){
       gauges[i] = {
         name: water.value.timeSeries[i].sourceInfo.siteName,
         site: water.value.timeSeries[i].sourceInfo.siteCode[0].value,
