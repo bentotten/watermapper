@@ -64,123 +64,60 @@ export default function Routing(props) {
 
                             <h2 className="big1">
                                 <NavDropdown drop='left' title="Chart" id="basic-nav-dropdown">
-                                    <Navbar collapseOnSelect className="navbar">
-                                        <NavbarCollapse>
-                                            <Nav>
-                                                <NavItem className="pull-right">
-                                                    <h2 className="big">Discharge Data</h2>
-                                                    <div className="chart1">
-                                                        <Route>
-                                                            <Chart />
-                                                        </Route>
-                                                    </div>
-                                                </NavItem>
-                                            </Nav>
-                                        </NavbarCollapse>
-                                        <NavbarCollapse>
-                                            <Nav>
-                                                <NavItem className="pull-right">
-                                                    <h2 className="big">Temperature Data</h2>
-                                                    <div className="chart2">
-                                                        <Route>
-                                                            <Chart />
-                                                        </Route>
-                                                    </div>
-                                                </NavItem>
-                                            </Nav>
-                                        </NavbarCollapse>
-                                    </Navbar>
+
+                                    {/* MATT: FILL ME IN HERE ------ */}
+                                    <div className="chart">
+                                        <Route>
+                                            <Chart />
+                                        </Route>
+
+                                    </div>
+                                    {/* ----------------------------- */}
+
                                 </NavDropdown>
                             </h2>
 
                             <h2 className='big2'>
                                 <NavDropdown drop='down' title="Chart" id="basic-nav-dropdown">
-                                    <Navbar collapseOnSelect className="navbar">
-                                        <NavbarCollapse>
-                                            <Nav>
-                                                <NavItem className="pull-right">
-                                                    <h2 className="big">Discharge Data</h2>
-                                                    <div className="chart1">
-                                                        <Route>
-                                                            <Chart />
-                                                        </Route>
-                                                    </div>
-                                                </NavItem>
-                                            </Nav>
-                                        </NavbarCollapse>
-                                        <NavbarCollapse>
-                                            <Nav>
-                                                <NavItem className="pull-right">
-                                                    <h2 className="big">Temperature Data</h2>
-                                                    <div className="chart2">
-                                                        <Route>
-                                                            <Chart />
-                                                        </Route>
-                                                    </div>
-                                                </NavItem>
-                                            </Nav>
-                                        </NavbarCollapse>
-                                    </Navbar>
+
+                                    {/* MATT: FILL ME IN HERE ------ */}
+                                    <div className="chart">
+                                        <Route>
+                                            <Chart />
+                                        </Route>
+
+                                    </div>
+                                    {/* ----------------------------- */}
+
                                 </NavDropdown>
+
                             </h2>
                             <h3 className='med'>
                                 <NavDropdown className="drop" drop='down' title="Chart" id="basic-nav-dropdown">
-                                    <Navbar collapseOnSelect className="navbar">
-                                        <NavbarCollapse>
-                                            <Nav>
-                                                <NavItem className="pull-right">
-                                                    <h3 className="med">Discharge Data</h3>
-                                                    <div className="chart1">
-                                                        <Route>
-                                                            <Chart />
-                                                        </Route>
-                                                    </div>
-                                                </NavItem>
-                                            </Nav>
-                                        </NavbarCollapse>
-                                        <NavbarCollapse>
-                                            <Nav>
-                                                <NavItem className="pull-right">
-                                                    <h3 className="med">Temperature Data</h3>
-                                                    <div className="chart2">
-                                                        <Route>
-                                                            <Chart />
-                                                        </Route>
-                                                    </div>
-                                                </NavItem>
-                                            </Nav>
-                                        </NavbarCollapse>
-                                    </Navbar>
+
+                                    {/* MATT: FILL ME IN HERE ------ */}
+                                    <div className="chart">
+                                        <Route>
+                                            <Chart />
+                                        </Route>
+
+                                    </div>
+                                    {/* ----------------------------- */}
+
                                 </NavDropdown>
                             </h3>
                             <h4 className='small'>
                                 <NavDropdown className="drop" drop='down' title="Chart" id="basic-nav-dropdown">
-                                    <Navbar collapseOnSelect className="navbar">
-                                        <NavbarCollapse>
-                                            <Nav>
-                                                <NavItem className="pull-right">
-                                                    <h4 className="small">Discharge Data</h4>
-                                                    <div className="chart1">
-                                                        <Route>
-                                                            <Chart />
-                                                        </Route>
-                                                    </div>
-                                                </NavItem>
-                                            </Nav>
-                                        </NavbarCollapse>
-                                        <NavbarCollapse>
-                                            <Nav>
-                                                <NavItem className="pull-right">
-                                                    <h4 className="small">Temperature Data</h4>
-                                                    <div className="chart2">
-                                                        <Route>
-                                                            <Chart />
-                                                        </Route>
-                                                    </div>
-                                                </NavItem>
-                                            </Nav>
-                                        </NavbarCollapse>
-                                    </Navbar>
+
+                                    {/* MATT: FILL ME IN HERE ------ */}
+                                    <div className="chart">
+                                        <Route>
+                                            <Chart />
+                                        </Route>
+
+                                    </div>
+                                    {/* ----------------------------- */}
+
                                 </NavDropdown>
                             </h4>
 
