@@ -5,8 +5,8 @@ import './styles/chart.css'
 
 
 
-export default function Chart(props) {
-
+export default function Chart2(props) {
+    
   const url = 'https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14211720,%2014211542,%2014207200,%2014202000,%20453004122510301';
   const [water, setData] = useState(null);
   useEffect(() => {
@@ -108,4 +108,3 @@ export default function Chart(props) {
     </div>
   );
 }
-

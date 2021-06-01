@@ -3,10 +3,58 @@ import L, { layerGroup } from 'leaflet'
 import { Map, TileLayer, Marker, Popup, ZoomControl, LayersControl, LayerGroup } from 'react-leaflet'
 import marker from './img/map-marker.png'
 import gages from './data/sites.json'
-import tempgages from './data/temp_gage_urls.json'
-import Legend from "./Legend";
-import CallApi from "./Api.js"
+import temperatures from './data/temp2.json'
+//import Legend from "./Legend";
+//import CallApi from "./Api.js"
 
+export default function Home(props) {
+    // Map Setup
+    /*const startLocation = {
+        lat: 45.47745556,
+        lng: -122.4487024,
+        zoom: 11,
+    }
+    
+
+    const position = [startLocation.lat, startLocation.lng]
+*/
+    const mapMarker = L.icon({
+        iconUrl: marker,
+        iconSize: [25, 25],
+    })
+    // Data from sites.json
+    //const coodinates = [[gages[0].longitude, gages[0].latitude], [gages[1].longitude, gages[1].latitude], [gages[2].longitude, gages[2].latitude], [gages[3].longitude, gages[3].latitude], [gages[4].longitude, gages[4].latitude], [gages[5].longitude, gages[5].latitude]]
+    //const coordinates = [[]]
+    const items = []
+
+    for(let i = 0; i < gages.length; i++){
+        var coordinates = [gages[i].longitude, gages[i].latitude]
+        items.push(<Marker position={coordinates} icon={mapMarker}>
+                        <Popup>
+                            <div><b>{gages[i].name}</b></div>
+                            <div>Site: {gages[i].site}</div>
+                            <a href={gages[i].website}>https://waterdata.usgs.gov</a>
+                        </Popup>
+                    </Marker>);
+    }
+    for(let i = 0; i < temperatures.length; i++){
+        coordinates = [temperatures[i].longitude, temperatures[i].latitude]
+        items.push(<Marker position={coordinates} icon={mapMarker}>
+                        <Popup>
+                            <div><b>{temperatures[i].name}</b></div>
+                            <div>Site: {temperatures[i].site}</div>
+                            <a href={temperatures[i].website}>https://waterdata.usgs.gov</a>
+                        </Popup>
+                    </Marker>);
+    }
+    return (
+        <>
+            <LayerGroup>
+                {items}
+            </LayerGroup>
+        </>
+    )
+}
 
 // Future improvement: Pull and dynmically create markers for Gage houses
 /*
@@ -94,26 +142,8 @@ export default function Home(props) {
 
 */
 
-export default function Home(props) {
-    // Map Setup
-    const startLocation = {
-        lat: 45.5051,
-        lng: -122.6750,
-        zoom: 11,
-    }
-    const mapMarker = L.icon({
-        iconUrl: marker,
-        iconSize: [25, 25],
-    })
 
-    const position = [startLocation.lat, startLocation.lng]
-
-    // Data from sites.json
-    const coodinates = [[gages[0].longitude, gages[0].latitude], [gages[1].longitude, gages[1].latitude], [gages[2].longitude, gages[2].latitude], [gages[3].longitude, gages[3].latitude], [gages[4].longitude, gages[4].latitude], [gages[5].longitude, gages[5].latitude]]
-
-    return (
-        <>
-            <LayerGroup>
+/*
                 <Marker position={coodinates[0]} icon={mapMarker}>
                     <Popup>
                         <div><b>{gages[0].name}</b></div>
@@ -194,4 +224,4 @@ export default function Home(props) {
             </LayerGroup>
         </>
     )
-}
+}*/
