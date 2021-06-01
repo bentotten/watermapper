@@ -42,6 +42,7 @@ export default function Routing(props) {
                             <h3 className='small1'>Portland Water Usage Data Dashboard</h3>
                             <h3 className='small2'>Portland Water Usage Data </h3><h3 className='small2'>Dashboard</h3>
                             <h3 className='small3'>Portland Water Usage </h3><h3 className='small3'>Data Dashboard</h3>
+                            <h4 className='small4'>Portland Water Usage </h4><h4 className='small4'>Data Dashboard</h4>
                         </Navbar.Brand>
                     </div>
                     <Navbar.Toggle />
