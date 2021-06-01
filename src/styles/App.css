@@ -1,4 +1,3 @@
-/* Map */
 body {
   margin: 0px;
   padding: 0px;
@@ -15,8 +14,7 @@ body {
   height: calc(100vh);
   z-index: 1;
 }
-
-.pull-right {
+/ .pull-right {
   margin-left: 20%;
   color: white;
 }
@@ -77,10 +75,6 @@ input.btn.btn-primary {
 .small3,
 .small4 {
   display: none;
-  color: white;
-}
-
-h1 {
   color: white;
 }
 
