@@ -99,7 +99,7 @@ export default function Home(props) {
     const startLocation = {
         lat: 45.5051,
         lng: -122.6750,
-        zoom: 200,
+        zoom: 11,
     }
     const mapMarker = L.icon({
         iconUrl: marker,

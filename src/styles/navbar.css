@@ -23,6 +23,14 @@
   color: white;
 }
 
+/* Heading */
+h1,
+h2,
+h3,
+h4 {
+  color: white;
+}
+
 /* Link */
 .link {
   color: white;
@@ -30,6 +38,7 @@
 
 .link:hover {
   color: gold;
+  text-decoration: underline;
 }
 
 /* Chart Link */
@@ -48,6 +57,7 @@
 }
 
 /* Display Specifics */
+
 .small1,
 .small2,
 .small3,
