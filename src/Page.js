@@ -346,7 +346,7 @@ export default function Page(props) {
                         </Circle>
                         
                         <Circle
-                            color={'white'}
+                            //color={'white'}
                             center={CRV}
                             radius={obj[0] && changeRadius(obj[0].quantity)}
                         >
