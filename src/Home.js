@@ -3,6 +3,7 @@ import L, { layerGroup } from 'leaflet'
 import { Map, TileLayer, Marker, Popup, ZoomControl, LayersControl, LayerGroup } from 'react-leaflet'
 import marker from './img/map-marker.png'
 import gages from './data/sites.json'
+import tempgages from './data/temp_gage_urls.json'
 import Legend from "./Legend";
 import CallApi from "./Api.js"
 
@@ -98,7 +99,7 @@ export default function Home(props) {
     const startLocation = {
         lat: 45.5051,
         lng: -122.6750,
-        zoom: 11,
+        zoom: 200,
     }
     const mapMarker = L.icon({
         iconUrl: marker,
@@ -153,6 +154,41 @@ export default function Home(props) {
                         <div><b>{gages[5].name}</b></div>
                         <div>Site: {gages[5].site}</div>
                         <a href={gages[5].website}>https://waterdata.usgs.gov</a>
+                    </Popup>
+                </Marker>
+                <Marker position={[tempgages[0].longitude, tempgages[0].latitude]} icon={mapMarker}>
+                    <Popup>
+                        <div><b>{tempgages[0].name}</b></div>
+                        <div>Site: {gages[0].site}</div>
+                        <a href={gages[0].website}>https://waterdata.usgs.gov</a>
+                    </Popup>
+                </Marker>
+                <Marker position={[tempgages[1].longitude, tempgages[1].latitude]} icon={mapMarker}>
+                    <Popup>
+                        <div><b>{tempgages[1].name}</b></div>
+                        <div>Site: {gages[1].site}</div>
+                        <a href={gages[1].website}>https://waterdata.usgs.gov</a>
+                    </Popup>
+                </Marker>
+                <Marker position={[tempgages[2].longitude, tempgages[2].latitude]} icon={mapMarker}>
+                    <Popup>
+                        <div><b>{tempgages[2].name}</b></div>
+                        <div>Site: {gages[2].site}</div>
+                        <a href={gages[2].website}>https://waterdata.usgs.gov</a>
+                    </Popup>
+                </Marker>
+                <Marker position={[tempgages[3].longitude, tempgages[3].latitude]} icon={mapMarker}>
+                    <Popup>
+                        <div><b>{tempgages[3].name}</b></div>
+                        <div>Site: {gages[3].site}</div>
+                        <a href={gages[3].website}>https://waterdata.usgs.gov</a>
+                    </Popup>
+                </Marker>
+                <Marker position={[tempgages[4].longitude, tempgages[4].latitude]} icon={mapMarker}>
+                    <Popup>
+                        <div><b>{tempgages[4].name}</b></div>
+                        <div>Site: {gages[4].site}</div>
+                        <a href={gages[4].website}>https://waterdata.usgs.gov</a>
                     </Popup>
                 </Marker>
             </LayerGroup>
