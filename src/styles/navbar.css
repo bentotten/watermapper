@@ -1,0 +1,11 @@
+.link {
+  color: white;
+}
+
+.link:hover {
+  color: gold;
+}
+
+.chart:hover {
+  color: gold;
+}
