@@ -23,8 +23,10 @@ export default function Page(props) {
             let WRP = [0, 0]; //WILLAMETTE RIVER AT PORTLAND
             let BCB = [0, 0]; //BEVERTON CREEK AT BEAVERTO
             let obj =[{}];
+    //discharge gage houses
     let url =
         "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14211820,%2014144700,%2014211315,%2014206900,%2014211550 ";
+    //temperature gage houses
     let url2 =
         "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14211720,%2014211542,%2014207200,%2014202000,%20453004122510301 ";
     let url3 =
