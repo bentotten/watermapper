@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+/*import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles/chart.css';
 import React from 'react';
@@ -35,7 +35,7 @@ export default function NavBar() {
                                     <Route>
                                         <Chart />
                                     </Route>
-                                    {/*<img id="graph" src={dummyChart} alt="graph"/>*/}
+                                    {<img id="graph" src={dummyChart} alt="graph"/>}
                                 </div>
                             </NavDropdown>
                         </h2>
@@ -44,4 +44,4 @@ export default function NavBar() {
             </Navbar>
         </Router>
     )
-}
+}*/

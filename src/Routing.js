@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles/chart.css';
 import React from 'react';
-import { Navbar, Nav, NavItem, NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav, NavItem, NavDropdown, ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
 import Home from './Home.js';
 import Page from './Page.js';
 import Chart1 from './Chart1.js';
@@ -30,8 +30,10 @@ export default function Routing(props) {
     })
 
     const position = [startLocation.lat, startLocation.lng]
+    const [displayDischarge, setDischarge] = React.useState(true);
+    const [displayTemperature, setTemperature] = React.useState(false);
 
-
+    
     // Do for each loop to reach in each gage from json file then save all six data
     return (
         <>
@@ -76,123 +78,79 @@ export default function Routing(props) {
                         </Nav>
                         <Nav>
                             <h2 className='big1'>
-                            <NavDropdown className="drop" drop='left' title="Chart" id="basic-nav-dropdown">
-                                    <Navbar collapseOnSelect className="navbar">
-                                        <NavbarCollapse>
-                                            <Nav>
-                                                <NavItem className="pull-right">
-                                                    <h2 className="big">Discharge Data</h2>
-                                                    <div className="chart1">
-                                                        <Route>
-                                                            <Chart1 />
-                                                        </Route>
-                                                    </div>
-                                                </NavItem>
-                                            </Nav>
-                                        </NavbarCollapse>
-                                        <NavbarCollapse>
-                                            <Nav>
-                                                <NavItem className="pull-right">
-                                                    <h2 className="big">Temperature Data</h2>
-                                                    <div className="chart2">
-                                                        <Route>
-                                                            <Chart2 />
-                                                        </Route>
-                                                    </div>
-                                                </NavItem>
-                                            </Nav>
-                                        </NavbarCollapse>
-                                    </Navbar>
+                                <NavDropdown className="drop" drop='left' title="Chart" id="basic-nav-dropdown">
+                                    <ToggleButtonGroup type="radio" name="options" defaultValue={1}>
+                                        <ToggleButton value={1} onClick={() => {setDischarge(true); setTemperature(false);}}>Discharge Data</ToggleButton>
+                                        <ToggleButton value={2} onClick={() => {setDischarge(false); setTemperature(true);}}>Temperature Data</ToggleButton>
+                                    </ToggleButtonGroup>
+                                    <div className="chart1" style={{display: displayDischarge ? 'block': 'none'}}>
+                                        <Route>
+                                            <Chart1 />
+                                        </Route>
+                                    </div>
+                                
+                                    <div className="chart2" style={{display: displayTemperature ? 'block': 'none'}}>
+                                        <Route>
+                                            <Chart2 />
+                                        </Route>
+                                    </div>
                                 </NavDropdown>
                             </h2>
                             <h2 className='big2'>
                                 <NavDropdown className="drop" drop='down' title="Chart" id="basic-nav-dropdown">
-                                <Navbar collapseOnSelect className="navbar">
-                                        <NavbarCollapse>
-                                            <Nav>
-                                                <NavItem className="pull-right">
-                                                    <h2 className="big">Discharge Data</h2>
-                                                    <div className="chart1">
-                                                        <Route>
-                                                            <Chart1 />
-                                                        </Route>
-                                                    </div>
-                                                </NavItem>
-                                            </Nav>
-                                        </NavbarCollapse>
-                                        <NavbarCollapse>
-                                            <Nav>
-                                                <NavItem className="pull-right">
-                                                    <h2 className="big">Temperature Data</h2>
-                                                    <div className="chart2">
-                                                        <Route>
-                                                            <Chart2 />
-                                                        </Route>
-                                                    </div>
-                                                </NavItem>
-                                            </Nav>
-                                        </NavbarCollapse>
-                                    </Navbar>
+                                    <ToggleButtonGroup type="radio" name="options" defaultValue={1}>
+                                        <ToggleButton value={1} onClick={() => {setDischarge(true); setTemperature(false);}}>Discharge Data</ToggleButton>
+                                        <ToggleButton value={2} onClick={() => {setDischarge(false); setTemperature(true);}}>Temperature Data</ToggleButton>
+                                    </ToggleButtonGroup>
+                                    <div className="chart1" style={{display: displayDischarge ? 'block': 'none'}}>
+                                        <Route>
+                                            <Chart1 />
+                                        </Route>
+                                    </div>
+                                
+                                    <div className="chart2" style={{display: displayTemperature ? 'block': 'none'}}>
+                                        <Route>
+                                            <Chart2 />
+                                        </Route>
+                                    </div>
                                 </NavDropdown>
                             </h2>
                             <h3 className='med'>
                                 <NavDropdown className="drop" drop='down' title="Chart" id="basic-nav-dropdown">
-                                    <Navbar collapseOnSelect className="navbar">
-                                            <NavbarCollapse>
-                                                <Nav>
-                                                    <NavItem className="pull-right">
-                                                        <h3 className="med">Discharge Data</h3>
-                                                        <div className="chart1">
-                                                            <Route>
-                                                                <Chart1 />
-                                                            </Route>
-                                                        </div>
-                                                    </NavItem>
-                                                </Nav>
-                                            </NavbarCollapse>
-                                            <NavbarCollapse>
-                                                <Nav>
-                                                    <NavItem className="pull-right">
-                                                        <h3 className="med">Temperature Data</h3>
-                                                        <div className="chart2">
-                                                            <Route>
-                                                                <Chart2 />
-                                                            </Route>
-                                                        </div>
-                                                    </NavItem>
-                                                </Nav>
-                                            </NavbarCollapse>
-                                        </Navbar>
+                                    <ToggleButtonGroup type="radio" name="options" defaultValue={1}>
+                                        <ToggleButton value={1} onClick={() => {setDischarge(true); setTemperature(false);}}>Discharge Data</ToggleButton>
+                                        <ToggleButton value={2} onClick={() => {setDischarge(false); setTemperature(true);}}>Temperature Data</ToggleButton>
+                                    </ToggleButtonGroup>
+                                    <div className="chart1" style={{display: displayDischarge ? 'block': 'none'}}>
+                                        <Route>
+                                            <Chart1 />
+                                        </Route>
+                                    </div>
+                                
+                                    <div className="chart2" style={{display: displayTemperature ? 'block': 'none'}}>
+                                        <Route>
+                                            <Chart2 />
+                                        </Route>
+                                    </div>
                                 </NavDropdown>
                             </h3>
                             <h4 className='small'>
                                 <NavDropdown className="drop" drop='down' title="Chart" id="basic-nav-dropdown">
-                                <Navbar collapseOnSelect className="navbar">
-                                            <NavbarCollapse>
-                                                <Nav>
-                                                    <NavItem className="pull-right">
-                                                        <h4 className="small">Discharge Data</h4>
-                                                        <div className="chart1">
-                                                            <Route>
-                                                                <Chart1 />
-                                                            </Route>
-                                                        </div>
-                                                    </NavItem>
-                                                </Nav>
-                                            </NavbarCollapse>
-                                            <NavbarCollapse>
-                                                <Nav>
-                                                    <NavItem className="pull-right">
-                                                        <h4 className="small">Temperature Data</h4>
-                                                        <div className="chart2">
-                                                            <Route>
-                                                                <Chart2 />
-                                                            </Route>
-                                                        </div>
-                                                    </NavItem>
-                                                </Nav>
-                                            </NavbarCollapse>
-                                        </Navbar>
+                                    <ToggleButtonGroup type="radio" name="options" defaultValue={1}>
+                                        <ToggleButton value={1} onClick={() => {setDischarge(true); setTemperature(false);}}>Discharge Data</ToggleButton>
+                                        <ToggleButton value={2} onClick={() => {setDischarge(false); setTemperature(true);}}>Temperature Data</ToggleButton>
+                                    </ToggleButtonGroup>
+                                    <div className="chart1" style={{display: displayDischarge ? 'block': 'none'}}>
+                                        <Route>
+                                            <Chart1 />
+                                        </Route>
+                                    </div>
+                                
+                                    <div className="chart2" style={{display: displayTemperature ? 'block': 'none'}}>
+                                        <Route>
+                                            <Chart2 />
+                                        </Route>
+                                    </div>
                                 </NavDropdown>
                             </h4>
                         </Nav>
