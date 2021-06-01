@@ -30,25 +30,14 @@ a {
 #basic-nav-dropdown{
   color: white;
 }
-.drop{
-  color: white;
-  margin-left: 99%;;
-}
-.dropdown-menu {
-  background: rgba(0,100,0,.3);
-  width: 100%;
-  color: white;
-  box-shadow: 1px 1px 10px black;
-  text-shadow: 2px 2px 10px black;
-  transform: translateY(100px);
-  width: 900px;
-  height: 500px;
-}
+
+
+/*
 #graph{
   
   height: 100px;
   width: 1000px;
-}
+}*/
 .h-box {
   border: solid white;
   padding: .5%;
@@ -67,6 +56,7 @@ input.btn.btn-primary {
   height: calc(100vh);
   z-index: 1;
 }
+
 .small1, .small2, .small3, .small4, .h-box h2, .drop1, .big2, .med, .small{
   display: none;
   color: white;

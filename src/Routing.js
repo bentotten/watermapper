@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles/chart.css';
+import './styles/App.css';
 import React from 'react';
 import { Navbar, Nav, NavItem, NavDropdown, ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
 import Home from './Home.js';
@@ -8,10 +9,10 @@ import Page from './Page.js';
 import Chart1 from './Chart1.js';
 import Chart2 from './Chart2.js';
 import Test from './Test.js';
-import L, { layerGroup } from 'leaflet'
+//import L, { layerGroup } from 'leaflet'
 import { Map, TileLayer, Marker, Popup, ZoomControl, LayersControl, LayerGroup } from 'react-leaflet'
-import marker from './img/map-marker.png'
-import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
+//import marker from './img/map-marker.png'
+//import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
 
 //import gages from './data/sites.json'
 
@@ -24,10 +25,10 @@ export default function Routing(props) {
         lng: -122.421757,
         zoom: 11,
     }
-    const mapMarker = L.icon({
+    /*const mapMarker = L.icon({
         iconUrl: marker,
         iconSize: [25, 25],
-    })
+    })*/
 
     const position = [startLocation.lat, startLocation.lng]
     const [displayDischarge, setDischarge] = React.useState(true);
@@ -43,10 +44,10 @@ export default function Routing(props) {
                         <Navbar.Brand>
                             <h1>Portland Water Usage Data Dashboard</h1>
                             <h2>Portland Water Usage Data Dashboard</h2>
-                            <h3 className='small1'>Portland Water Usage Data Dashboard</h3>
-                            <h3 className='small2'>Portland Water Usage Data </h3><h3 className='small2'>Dashboard</h3>
-                            <h3 className='small3'>Portland Water Usage </h3><h3 className='small3'>Data Dashboard</h3>
-                            <h4 className='small4'>Portland Water Usage </h4><h4 className='small4'>Data Dashboard</h4>
+                            <h3 className='small1'>Portland Watershed Data Dashboard</h3>
+                            <h3 className='small2'>Portland Watershed Data </h3><h3 className='small2'>Dashboard</h3>
+                            <h3 className='small3'>Portland Watershed </h3><h3 className='small3'>Data Dashboard</h3>
+                            <h4 className='small4'>Portland Watershed </h4><h4 className='small4'>Data Dashboard</h4>
                         </Navbar.Brand>
                     </div>
                     <Navbar.Toggle />
@@ -78,7 +79,7 @@ export default function Routing(props) {
                         </Nav>
                         <Nav>
                             <h2 className='big1'>
-                                <NavDropdown className="drop" drop='left' title="Chart" id="basic-nav-dropdown">
+                                <NavDropdown className="drop" drop='down' title="Chart" id="basic-nav-dropdown">
                                     <ToggleButtonGroup type="radio" name="options" defaultValue={1}>
                                         <ToggleButton value={1} onClick={() => {setDischarge(true); setTemperature(false);}}>Discharge Data</ToggleButton>
                                         <ToggleButton value={2} onClick={() => {setDischarge(false); setTemperature(true);}}>Temperature Data</ToggleButton>

@@ -1,12 +1,22 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import { Bar, defaults } from 'react-chartjs-2';
+import gauges from './data/sites.json'
 
 
 
-export default function Chart(props) {
+export default function Chart1(props) {
     
-  const url = 'https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14211720,%2014211542,%2014207200,%2014202000,%20453004122510301';
+  var url = 'https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites='
+  for(let i = 0; i < gauges.length; i++){
+    if(gauges[i].site !== 14144700 && gauges[i].site !== 14211720){
+      if(i === 0)
+        url += gauges[i].site
+      else
+        url += ",%20" + gauges[i].site 
+    }
+  }
+
   const [water, setData] = useState(null);
   useEffect(() => {
     getData();
@@ -21,11 +31,13 @@ export default function Chart(props) {
       console.error(err);
     }
   }
-  var data = []
+  var riverData = []
   var options = []
+  var creekData = []
   if(water){
     console.log('hello world');
     defaults.color = 'white';
+    defaults.maintainAspectRatio = false
     let backgroundColors = [
       'rgba(54, 162, 235, 0.8)',
       'rgba(255, 206, 86, 0.8)',
@@ -52,32 +64,50 @@ export default function Chart(props) {
       'rgba(210, 199, 199, 1)',
     ];
     
-    var gauges = [{}]
-    for(let i = 0; i < 5; i++){
-      gauges[i] = {
+    var Gauges = [{}]
+    for(let i = 0; i < water.value.timeSeries.length; i++){
+      Gauges[i] = {
         name: water.value.timeSeries[i].sourceInfo.siteName,
-        temp: water.value.timeSeries[i].values[0].value[0].value
+        discharge: water.value.timeSeries[i].values[0].value[0].value
       }
-      console.log(gauges[i].temp);
+      console.log(Gauges[i].temp);
     }
-    var gaugeNames = [];
-    var gaugeTemp = [];
+    var riverNames = [];
+    var creekNames = [];
+    var riverDischarge = [];
+    var creekDischarge = [];
     
-    for(let i = 0; i < gauges.length; i++){
-      gaugeNames.push(gauges[i].name);
-      gaugeTemp.push(gauges[i].temp);
+    for(let i = 0; i < Gauges.length; i++){
+      if(Gauges[i].discharge > 30){
+        riverNames.push(Gauges[i].name)
+        riverDischarge.push(Gauges[i].discharge)
+      }
+      else{
+        creekNames.push(Gauges[i].name)
+        creekDischarge.push(Gauges[i].discharge)
+      }
     }
-    data =  {
-      labels: gaugeNames,
+    riverData =  {
+      labels: riverNames,
       datasets: [{
-          label: 'Gauge Temperatures',
-          data: gaugeTemp,
+          label: 'River Discharge Rate (cubic feet per second)',
+          data: riverDischarge,
           backgroundColor: backgroundColors,
           borderColor: borderColors,
           borderWidth: 1,
           
       }],
-      
+    }
+    creekData = {
+      labels: creekNames,
+      datasets: [{
+          label: 'Creek Discharge Rate (cubic feet per second)',
+          data: creekDischarge,
+          backgroundColor: backgroundColors,
+          borderColor: borderColors,
+          borderWidth: 1,
+          
+      }],
     }
     options = {
       scales: {
@@ -103,7 +133,10 @@ export default function Chart(props) {
   return(
     
     <div>
-      <Bar data={data} options={options} />
+    <article className="canvas-container">
+      <Bar data={riverData} options={options} />
+    </article>
+    
     </div>
   );
 }

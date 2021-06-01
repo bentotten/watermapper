@@ -36,8 +36,8 @@ export default function Page(props) {
 
     
     const startLocation = {
-        lat: 45.5051,
-        lng: -122.6750,
+        lat: 45.4865092,
+        lng: -122.421757,
         zoom: 11,
     }
     function colorChange(temp) {
