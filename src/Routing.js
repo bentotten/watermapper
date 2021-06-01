@@ -16,7 +16,6 @@ import marker from './img/map-marker.png'
 
 export default function Routing(props) {
 
-    // Setup map
     const startLocation = {
         lat: 45.5051,
         lng: -122.6750,
@@ -39,7 +38,10 @@ export default function Routing(props) {
                         <Navbar.Brand>
                             <h1>Portland Water Usage Data Dashboard</h1>
                             <h2>Portland Water Usage Data Dashboard</h2>
-                            <h3>Portland Water Usage</h3><h3>Data Dashboard</h3>
+                            <h3 className='small1'>Portland Water Usage Data Dashboard</h3>
+                            <h3 className='small2'>Portland Water Usage Data </h3><h3 className='small2'>Dashboard</h3>
+                            <h3 className='small3'>Portland Water Usage </h3><h3 className='small3'>Data Dashboard</h3>
+                            <h4 className='small4'>Portland Water Usage </h4><h4 className='small4'>Data Dashboard</h4>
                         </Navbar.Brand>
                     </div>
                     <Navbar.Toggle />

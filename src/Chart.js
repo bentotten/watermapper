@@ -24,6 +24,7 @@ export default function Chart(props) {
   var data = []
   var options = []
   if(water){
+    console.log('hello world');
     defaults.color = 'white';
     let backgroundColors = [
       'rgba(54, 162, 235, 0.8)',
@@ -52,14 +53,12 @@ export default function Chart(props) {
     ];
     
     var gauges = [{}]
-    for(let i = 0; i < water.length; i++){
+    for(let i = 0; i < 5; i++){
       gauges[i] = {
         name: water.value.timeSeries[i].sourceInfo.siteName,
-        site: water.value.timeSeries[i].sourceInfo.siteCode[0].value,
-        lat:  water.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.latitude,
-        long: water.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.longitude,
         temp: water.value.timeSeries[i].values[0].value[0].value
       }
+      console.log(gauges[i].temp);
     }
     var gaugeNames = [];
     var gaugeTemp = [];
