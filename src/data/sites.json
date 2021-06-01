@@ -52,5 +52,104 @@
       "longitude": "45.4878958",
       "latitude": "-122.7348194",
       "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14206900"
+    },
+    {
+      "site": 14211814,
+      "name": "FAIRVIEW CREEK AT GLISAN ST NEAR GRESHAM, OR",
+      "type": "Stream",
+      "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14211814",
+      "longitude": "45.52761968",
+      "latitude": "-122.4487024",
+      "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14211814"
+    },
+    {
+      "site": 14211400,
+      "name": "JOHNSON CREEK AT REGNER ROAD, AT GRESHAM, OR",
+      "type": "Stream",
+      "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14211400",
+      "longitude": "45.4865092",
+      "latitude": "-122.421757",
+      "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14211400"
+    },
+    {
+      "site": 14142800,
+      "name": "BEAVER CREEK AT TROUTDALE, OR",
+      "type": "Stream",
+      "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14142800",
+      "longitude": "45.5192866",
+      "latitude": "-122.3889798",
+      "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14142800"
+    },
+    {
+      "site": 14140500,
+      "name": "LITTLE SANDY RIVER NEAR MARMOT, OR",
+      "type": "Stream",
+      "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14140500",
+      "longitude": "45.41928636",
+      "latitude": "-122.1261958",
+      "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14140500"
+    },
+    {
+      "site": 14139500,
+      "name": "BULL RUN RIVER BLW LAKE BEN MORROW, OR",
+      "type": "Stream",
+      "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14139500",
+      "longitude": "45.48317488",
+      "latitude": "-122.0817513",
+      "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14139500"
+    },
+    {
+      "site": 14138900,
+      "name": "NORTH FORK BULL RUN RIVER NEAR MULTNOMAH FALLS, OR",
+      "type": "Stream",
+      "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14138900",
+      "longitude": "45.4942856",
+      "latitude": "-122.0359167",
+      "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14138900"
+    },
+    {
+      "site": 14139700,
+      "name": "CEDAR CREEK NEAR BRIGHTWOOD, OR",
+      "type": "Stream",
+      "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14139700",
+      "longitude": "45.4581745",
+      "latitude": "-122.0317495",
+      "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14139700"
+    },
+    {
+      "site": 14138870,
+      "name": "FIR CREEK NEAR BRIGHTWOOD, OR",
+      "type": "Stream",
+      "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14138870",
+      "longitude": "45.48011889",
+      "latitude": "-122.0256385",
+      "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14138870"
+    },
+    {
+      "site": 14138850,
+      "name": "BULL RUN RIVER NEAR MULTNOMAH FALLS, OR",
+      "type": "Stream",
+      "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14138850",
+      "longitude": "45.4981743",
+      "latitude": "-122.0123049",
+      "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14138850"
+    },
+    {
+      "site": 14138720,
+      "name": "BULL RUN RIVER AT LOWER FLUME NR BRIGHTWOOD, OR",
+      "type": "Stream",
+      "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14138720",
+      "longitude": "45.4709515",
+      "latitude": "-121.8653567",
+      "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14138720"
+    },
+    {
+      "site": 14202000,
+      "name": "TUALATIN RIVER AT OSWEGO DAM, NEAR WEST LINN, OR",
+      "type": "Stream",
+      "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14202000",
+      "longitude": "45.23317586",
+      "latitude": "-122.7500933",
+      "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14202000"
     }
   ]
