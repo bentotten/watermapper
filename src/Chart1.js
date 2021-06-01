@@ -136,7 +136,9 @@ export default function Chart1(props) {
     <article className="canvas-container">
       <Bar data={riverData} options={options} />
     </article>
-    
+    <article className="canvas-container">
+      <Bar data={creekData} options={options} />
+    </article>
     </div>
   );
 }
