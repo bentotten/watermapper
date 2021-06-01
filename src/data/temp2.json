@@ -80,7 +80,25 @@
     "longitude": "45.452897",
     "latitude": "-122.6431496",
     "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14211550"
-  }
+  },
+	{
+		"site": 14207200,
+		"type": "Stream",
+		"name": "TUALATIN RIVER AT OSWEGO DAM, NEAR WEST LINN, OR",
+		"website": "https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=14207200",
+		"longitude": "45.35650877",
+		"latitude": "-122.6850937",
+		"daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14207200"
+	},
+	{
+		"site": 14211542,
+		"type": "Stream",
+		"name": "CRYSTAL SPRINGS CREEK AT BYBEE ST, PORTLAND, OR",
+		"website": "https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=14211542",
+		"longitude": "45.4740079",
+		"latitude": "-122.6420388",
+		"daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14211542"
+	}
   
   
   
