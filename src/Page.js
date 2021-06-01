@@ -20,12 +20,12 @@ export default function Page(props) {
             let PRA = [0, 0]; //PUDDING RIVER AT AURORA
             let TRL = [0, 0]; //TUALITIN RIVER NEAR WEST LINN
             let CSC = [0, 0]; //CRYSTAL SPRINGS CREEK
-            let WRP = [0, 0]; //WILLAMETTE RIVER AT PORTLAND
+            let WRPT = [0, 0]; //WILLAMETTE RIVER AT PORTLAND
             let BCB = [0, 0]; //BEVERTON CREEK AT BEAVERTO
             let obj =[{}];
     //discharge gage houses
     let url =
-        "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14211820,%2014144700,%2014211315,%2014206900,%2014211550 ";
+        "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14211820,%2014144700,%2014211315,%2014206900,%2014211550,%2014211720";
     //temperature gage houses
     let url2 =
         "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14211720,%2014211542,%2014207200,%2014202000,%20453004122510301 ";
@@ -174,7 +174,7 @@ export default function Page(props) {
         PRA = [obj2[0].lat, obj2[0].long]; //PUDDING RIVER AT AURORA
         TRL = [obj2[1].lat, obj2[1].long]; //TUALITIN RIVER NEAR WEST LINN
         CSC = [obj2[2].lat, obj2[2].long]; //CRYSTAL SPRINGS CREEK
-        WRP = [obj2[3].lat, obj2[3].long]; //WILLAMETTE RIVER AT PORTLAND
+        WRPT = [obj2[3].lat, obj2[3].long]; //WILLAMETTE RIVER AT PORTLAND
         BCB = [obj2[4].lat, obj2[4].long]; //BEVERTON CREEK AT BEAVERTO
         console.log(obj2[0].name)
         console.log(obj2[1].name)
@@ -196,7 +196,7 @@ export default function Page(props) {
       }
       if(discharge){
           console.log(discharge);
-          for(let i = 0; i < 5; ++i){
+          for(let i = 0; i < 6; ++i){
             obj[i] ={
                 name: discharge.value.timeSeries[i].sourceInfo.siteName,
                 site: discharge.value.timeSeries[i].sourceInfo.siteCode[0].value,
@@ -310,11 +310,14 @@ export default function Page(props) {
     const BCL = [obj[2].long, obj[2].lat]; //BRONSON CREEK AT LAIDLAW
     const CSP = [obj[3].long, obj[3].lat]; //WILLAMETTE RIVER AT PORTLAND OR
     const BCB = [obj[4].long, obj[4].lat]; //BEAVERTON CREEK AT 170TH AVE BEAVERTON OR
-    const FCP = [obj[5].long, obj[5].lat]; //BEAVERTON CREEK AT 170TH AVE BEAVERTON OR
+    const FCP = [obj[5].long, obj[5].lat]; //FANNO CREEK AT 56TH AVE, AT PORTLAND, OR
     */
     const CSP = [gages[0].longitude, gages[0].latitude]; //COLUMBIA SLOUGH AT PORTLAND OR
     const CRV = [gages[1].longitude, gages[1].latitude] //COLUMBIA RIVER AT VANCOUVER WAA
-    const BCL = [gages[2].longitude, gages[2].latitude]; //BRONSON CREEK AT LAIDLAW
+    const JCW = [gages[2].longitude, gages[2].latitude]; //JOHNSON CREEK AT MILWAUKIE OR
+    const WRP = [gages[3].longitude, gages[3].latitude] //WILLAMETTE RIVER AT PORTLAND OR
+    const TCL = [gages[4].longitude, gages[4].latitude] //TRYON CREEK NEAR LAKE OSWEGO OR
+    const FCP = [gages[5].longitude, gages[5].latitude]; //FANNO CREEK AT 56TH AVE, AT PORTLAND, OR
     //const WRP = [gages[3].longitude, gages[3].latitude] //WILLAMETTE RIVER AT PORTLAND OR
     //const BCB = [gages[4].longitude, gages[4].latitude] //BEAVERTON CREEK AT 170TH AVE BEAVERTON OR
     const mapMarker = L.icon({
@@ -334,11 +337,11 @@ export default function Page(props) {
                         <Circle
                             color={'white'}
                             center={CSP}
-                            radius={obj[4] && changeRadius(obj[4].quantity)}
+                            radius={obj[5] && changeRadius(obj[5].quantity)}
                         >
                             <Popup>
-                                <div>{obj[4] && obj[4].name}</div>
-                                <div>discharge: {obj[4] && obj[4].quantity}</div>
+                                <div>{obj[5] && obj[5].name}</div>
+                                <div>discharge: {obj[5] && obj[5].quantity}</div>
                             </Popup>
                         </Circle>
                         
@@ -353,23 +356,44 @@ export default function Page(props) {
                             </Popup>
                         </Circle>
                         <Circle
-                            center={BCL}
-                            radius={600}
+                            color={'white'}
+                            center={FCP}
+                            radius={obj[1] && changeRadius(obj[1].quantity)}
                         >
                               <Popup>
-                                <div>{obj[0] && obj[0].name}</div>
-                                <div>discharge: {obj[0] && obj[0].quantity}</div>
+                                <div>{obj[1] && obj[1].name}</div>
+                                <div>discharge: {obj[1] && obj[1].quantity}</div>
                             </Popup>
                         </Circle>
                         <Circle
-                            center={WRP}
-                            radius={600}
+                            color={'white'}
+                            center={JCW}
+                            radius={obj[3] && changeRadius(obj[3].quantity)}
                         >
+                              <Popup>
+                                <div>{obj[3] && obj[3].name}</div>
+                                <div>discharge: {obj[3] && obj[3].quantity}</div>
+                            </Popup>
                         </Circle>
                         <Circle
-                            center={BCB}
-                            radius={600}
+                            color={'white'}
+                            center={TCL}
+                            radius={obj[2] && changeRadius(obj[2].quantity)}
                         >
+                            <Popup>
+                                <div>{obj[2] && obj[2].name}</div>
+                                <div>discharge: {obj[2] && obj[2].quantity}</div>
+                            </Popup>
+                        </Circle>
+                        <Circle
+                            color={'white'}
+                            center={WRP}
+                            radius={obj[4] && changeRadius(obj[4].quantity)}
+                        >
+                             <Popup>
+                                <div>{obj[4] && obj[4].name}</div>
+                                <div>discharge: {obj[4] && obj[4].quantity}</div>
+                            </Popup>
                         </Circle>
                     </LayerGroup>
                 </LayersControl.Overlay>
@@ -434,7 +458,7 @@ export default function Page(props) {
                             </Popup>
                         <Circle
                             color={obj2[3] && colorChange(obj2[3].temp)}
-                            center={WRP}
+                            center={WRPT}
                             radius={7000}
                             >
                                 <Popup>
