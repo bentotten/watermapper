@@ -1,18 +1,19 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import { Bar, defaults } from 'react-chartjs-2';
+import './styles/chart.css'
 
 
 
 export default function Chart(props) {
-    
+
   const url = 'https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14211720,%2014211542,%2014207200,%2014202000,%20453004122510301';
   const [water, setData] = useState(null);
   useEffect(() => {
     getData();
-    
+
   }, [])
-  async function getData(){
+  async function getData() {
     try {
       const response = await axios.get(url);
       console.log(response.data);
@@ -23,7 +24,7 @@ export default function Chart(props) {
   }
   var data = []
   var options = []
-  if(water){
+  if (water) {
     console.log('hello world');
     defaults.color = 'white';
     let backgroundColors = [
@@ -38,7 +39,7 @@ export default function Chart(props) {
       'rgba(40, 159, 64, 0.8)',
       'rgba(210, 199, 199, 0.8)',
     ];
-    
+
     let borderColors = [
       'rgba(54, 162, 235, 1)',
       'rgba(255, 206, 86, 1)',
@@ -51,9 +52,9 @@ export default function Chart(props) {
       'rgba(40, 159, 64, 1)',
       'rgba(210, 199, 199, 1)',
     ];
-    
+
     var gauges = [{}]
-    for(let i = 0; i < 5; i++){
+    for (let i = 0; i < 5; i++) {
       gauges[i] = {
         name: water.value.timeSeries[i].sourceInfo.siteName,
         temp: water.value.timeSeries[i].values[0].value[0].value
@@ -62,22 +63,22 @@ export default function Chart(props) {
     }
     var gaugeNames = [];
     var gaugeTemp = [];
-    
-    for(let i = 0; i < gauges.length; i++){
+
+    for (let i = 0; i < gauges.length; i++) {
       gaugeNames.push(gauges[i].name);
       gaugeTemp.push(gauges[i].temp);
     }
-    data =  {
+    data = {
       labels: gaugeNames,
       datasets: [{
-          label: 'Gauge Temperatures',
-          data: gaugeTemp,
-          backgroundColor: backgroundColors,
-          borderColor: borderColors,
-          borderWidth: 1,
-          
+        label: 'Gauge Temperatures',
+        data: gaugeTemp,
+        backgroundColor: backgroundColors,
+        borderColor: borderColors,
+        borderWidth: 1,
+
       }],
-      
+
     }
     options = {
       scales: {
@@ -96,12 +97,12 @@ export default function Chart(props) {
           }
         }]
       }
-      
+
     }
-    
+
   }
-  return(
-    
+  return (
+
     <div>
       <Bar data={data} options={options} />
     </div>

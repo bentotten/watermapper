@@ -1,102 +1,75 @@
-body {
-  margin: 0px;
-  padding: 0px;
-}
-
-.header {
-  height: 45px;
-  position: fixed;
-  top: 0;
-}
-
-/* change vh to is the combined height of the map and whatever else you would like to display to not have a scroll bar*/
-.map {
-  height: calc(100vh);
-  z-index: 1;
-}
-
-/*
-.pull-right{
-  margin-left: 20%;
-  color: white;
-}
-
-.navbar{
+/* Navbar */
+.navbar {
   left: 0;
   position: fixed;
   top: 0;
   z-index: 2;
-  background: rgba(0,100,0,.3);
+  background: rgba(0, 100, 0, 0.3);
   width: 100%;
   box-shadow: 1px 1px 10px black;
   text-shadow: 2px 2px 10px black;
 }
-h1 {
-  color: white;
-}
-a {
-  color: white;
-  text-decoration: underline;
-}
-#basic-nav-dropdown{
-  color: white;
-}
-.drop{
-  color: white;
-  margin-left: 99%;;
-}
-.dropdown-menu {
-  background: rgba(0,100,0,.3);
-  width: 100%;
-  color: white;
-  box-shadow: 1px 1px 10px black;
-  text-shadow: 2px 2px 10px black;
-  transform: translateY(100px);
-  width: 900px;
-  height: 500px;
-}
-#graph{
-  
-  height: 100px;
-  width: 1000px;
-}
+
 .h-box {
   border: solid white;
-  padding: .5%;
+  padding: 0.5%;
   padding-left: 2%;
-  box-sizing:border-box;
+  box-sizing: border-box;
   box-shadow: 2px 2px 10px black;
 }
-*/
 
-/*
-input.btn.btn-primary {
-  background-color: #654321;
-  color: wheat;
+.pull-right {
+  margin-left: 20%;
+  color: white;
 }
-*/
 
-/*
+/* Heading */
+h1,
+h2,
+h3,
+h4 {
+  color: white;
+}
+
+/* Link */
+.link {
+  color: white;
+}
+
+.link:hover {
+  color: gold;
+  text-decoration: underline;
+}
+
+/* Chart Link */
+#basic-nav-dropdown {
+  color: white;
+}
+
+#basic-nav-dropdown:hover {
+  color: gold;
+  text-decoration: underline;
+}
+
+.drop {
+  color: white;
+  margin-left: 99%;
+}
+
+/* Display Specifics */
+
 .small1,
 .small2,
 .small3,
 .small4 {
   display: none;
-  color: white;
 }
 
-*/
-h1 {
-  color: white;
-}
-/*
 .h-box h2 {
   display: none;
-  color: white;
 }
 .drop1 {
   display: none;
-  color: white;
 }
 .big2 {
   display: none;
@@ -107,6 +80,9 @@ h1 {
 .small {
   display: none;
 }
+
+/* Media Sizes */
+/* Big 2 */
 @media screen and (min-width: 800px) and (max-width: 1199px) {
   .h-box h1 {
     display: none;
@@ -152,6 +128,8 @@ h1 {
     width: 100%;
   }
 }
+
+/* Med */
 @media screen and (min-width: 625px) and (max-width: 799px) {
   .h-box h1 {
     display: none;
@@ -197,6 +175,8 @@ h1 {
     width: 100%;
   }
 }
+
+/* Small 1 */
 @media screen and (min-width: 550px) and (max-width: 624px) {
   .big1 {
     display: none;
@@ -245,6 +225,8 @@ h1 {
     width: 100%;
   }
 }
+
+/* Small 2 */
 @media screen and (min-width: 400px) and (max-width: 549px) {
   .big1 {
     display: none;
@@ -293,6 +275,8 @@ h1 {
     width: 100%;
   }
 }
+
+/* Small 3 */
 @media screen and (min-width: 325px) and (max-width: 399px) {
   .big1 {
     display: none;
@@ -341,6 +325,8 @@ h1 {
     width: 100%;
   }
 }
+
+/* Small 4 */
 @media screen and (max-width: 324px) {
   .big1 {
     display: none;
@@ -389,4 +375,3 @@ h1 {
     width: 100%;
   }
 }
-*/

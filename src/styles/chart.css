@@ -1,0 +1,14 @@
+.dropdown-menu {
+  background: rgba(0, 100, 0, 0.3);
+  width: 100%;
+  color: white;
+  box-shadow: 1px 1px 10px black;
+  text-shadow: 2px 2px 10px black;
+  transform: translateY(100px);
+  width: 900px;
+  height: 500px;
+}
+#graph {
+  height: 100px;
+  width: 1000px;
+}
