@@ -1,119 +1,87 @@
 [
-    {
+  
+  {
+    "site": 14144700,
+    "name": "COLUMBIA RIVER AT VANCOUVER WA",
+    "type": "Stream",
+    "website": "https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=14144700",
+    "longitude": "45.62067265",
+    "latitude": "-122.6734306",
+    "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14144700"
+  },
+  {
+    "site": 14211720,
+    "name": "WILLAMETTE RIVER AT PORTLAND OR",
+    "type": "Stream",
+    "website": "https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=14211720",
+    "longitude": "45.517500",
+    "latitude": "-122.669167",
+    "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14211720"
+  },
+  {
+    "site": 14138720,
+    "name": "BULL RUN RIVER AT LOWER FLUME NR BRIGHTWOOD, OR",
+    "type": "Stream",
+    "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14138720",
+    "longitude": "45.4709515",
+    "latitude": "-121.8653567",
+    "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14138720"
+  },
+  {
+    "site": 14138850,
+    "name": "BULL RUN RIVER NEAR MULTNOMAH FALLS, OR",
+    "type": "Stream",
+    "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14138850",
+    "longitude": "45.4981743",
+    "latitude": "-122.0123049",
+    "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14138850"
+  },
+  {
     "site": 14207200,
     "name": "PUDDING RIVER AT AURORA, OR",
     "type": "Stream",
     "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14207200",
     "longitude": "45.35650877",
     "latitude": "-122.6850937",
-    "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&sites=14207200"
+    "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14207200"
   },
   {
-    "site": 453004122510301,
-    "name": "BEAVERTON CREEK AT 170TH AVE, BEAVERTON, OR",
+    "site": 14138870,
+    "name": "FIR CREEK NEAR BRIGHTWOOD, OR",
     "type": "Stream",
-    "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=453004122510301",
-    "longitude": "45.5009505",
-    "latitude": "-122.852045",
-    "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&sites=453004122510301"
+    "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14138870",
+    "longitude": "45.48011889",
+    "latitude": "-122.0256385",
+    "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14138870"
   },
   {
-    "site": 14128860,
-    "name": "COLUMBIA RIVER AT BONNEVILLE DAM,OR",
+    "site": 14138900,
+    "name": "NORTH FORK BULL RUN RIVER NEAR MULTNOMAH FALLS, OR",
     "type": "Stream",
-    "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14128860",
-    "longitude": "45.6378949",
-    "latitude": "-121.947026",
-    "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&sites=14128860"
+    "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14138900",
+    "longitude": "45.4942856",
+    "latitude": "-122.0359167",
+    "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14138900"
   },
   {
-    "site": 14128870,
-    "name": "COLUMBIA RIVER BELOW BONNEVILLE DAM, OR",
+    "site": 14211400,
+    "name": "JOHNSON CREEK AT REGNER ROAD, AT GRESHAM, OR",
     "type": "Stream",
-    "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14128870",
-    "longitude": "45.63305556",
-    "latitude": "-121.9608333",
-    "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&sites=14128870"
+    "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14211400",
+    "longitude": "45.4865092",
+    "latitude": "-122.421757",
+    "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14211400"
   },
   {
-    "site": 14128910,
-    "name": "COLUMBIA RIVER AT WARRENDALE, OR",
+    "site": 14211550,
+    "name": "JOHNSON CREEK AT MILWAUKIE OR",
     "type": "Stream",
-    "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14128910",
-    "longitude": "45.6123396",
-    "latitude": "-122.0275838",
-    "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&sites=14128910"
-  },
-  {
-    "site": 453630122021400,
-    "name": "COLUMBIA RIVER, LEFT BANK, NEAR DODSON, OR",
-    "type": "Stream",
-    "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=453630122021400",
-    "longitude": "45.48317488",
-    "latitude": "-122.0817513",
-    "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&sites=453630122021400"
-  },
-  {
-    "site": 14128950,
-    "name": "COLUMBIA RIVER AT MULTNOMAH FALLS, OR",
-    "type": "Stream",
-    "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14128950",
-    "longitude": "45.57984039",
-    "latitude": "-122.1136974",
-    "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&sites=14128950"
-  },
-  {
-    "site": 14142000,
-    "name": "BULL RUN RIVER AT BULL RUN, OR",
-    "type": "Stream",
-    "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14142000",
-    "longitude": "45.433176",
-    "latitude": "-122.2345322",
-    "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&sites=14142000"
-  },
-  {
-    "site": 452753122233100,
-    "name": "JOHNSON CREEK AT TELFORD ROAD NEAR GRESHAM, OR",
-    "type": "Stream",
-    "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=452753122233100",
-    "longitude": "45.46456496",
-    "latitude": "-122.3931454",
-    "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&sites=452753122233100"
-  },
-  {
-    "site": 452758122234300,
-    "name": "N FK JOHNSON CR AT SPRINGWATER CORR NR GRESHAM, OR",
-    "type": "Stream",
-    "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=452758122234300",
-    "longitude": "45.4661944",
-    "latitude": "-122.3953889",
-    "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&sites=452758122234300"
-  },
-  {
-    "site": 14211500,
-    "name": "JOHNSON CREEK AT SYCAMORE, OR",
-    "type": "Stream",
-    "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14211500",
-    "longitude": "45.47745556",
-    "latitude": "-122.5080194",
-    "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&sites=114211500"
-  },
-  {
-    "site": 14211542,
-    "name": "CRYSTAL SPRINGS CREEK AT BYBEE ST, PORTLAND, OR",
-    "type": "Stream",
-    "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14211542",
-    "longitude": "45.4740079",
-    "latitude": "-122.6420388",
-    "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&sites=14211542"
-  },
-  {
-    "site": 14211546,
-    "name": "CRYSTAL SPRINGS CREEK AT MOUTH AT PORTLAND, OR",
-    "type": "Stream",
-    "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14211546",
-    "longitude": "45.4606747",
-    "latitude": "-122.642872",
-    "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&sites=14211546"
+    "website": "https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=14211550",
+    "longitude": "45.452897",
+    "latitude": "-122.6431496",
+    "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14211550"
   }
+  
+  
+  
 ]

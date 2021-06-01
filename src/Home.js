@@ -4,6 +4,7 @@ import { Map, TileLayer, Marker, Popup, ZoomControl, LayersControl, LayerGroup }
 import marker from './img/map-marker.png'
 import gages from './data/sites.json'
 import temperatures from './data/temp2.json'
+import noData from './data/no-data.json'
 //import Legend from "./Legend";
 //import CallApi from "./Api.js"
 
@@ -44,6 +45,16 @@ export default function Home(props) {
                             <div><b>{temperatures[i].name}</b></div>
                             <div>Site: {temperatures[i].site}</div>
                             <a href={temperatures[i].website}>https://waterdata.usgs.gov</a>
+                        </Popup>
+                    </Marker>);
+    }
+    for(let i = 0; i < noData.length; i++){
+        coordinates = [noData[i].longitude, noData[i].latitude]
+        items.push(<Marker position={coordinates} icon={mapMarker}>
+                        <Popup>
+                            <div><b>{noData[i].name}</b></div>
+                            <div>Site: {noData[i].site}</div>
+                            <a href={noData[i].website}>https://waterdata.usgs.gov</a>
                         </Popup>
                     </Marker>);
     }

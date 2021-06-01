@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import { Bar, defaults } from 'react-chartjs-2';
+import './styles/chart.css'
 import gauges from './data/sites.json'
 
 
@@ -21,7 +22,7 @@ export default function Chart1(props) {
   useEffect(() => {
     getData();
     
-  }, [])
+  },[])
   async function getData(){
     try {
       const response = await axios.get(url);
@@ -31,13 +32,14 @@ export default function Chart1(props) {
       console.error(err);
     }
   }
+  
   var riverData = []
   var options = []
   var creekData = []
   if(water){
     console.log('hello world');
     defaults.color = 'white';
-    defaults.maintainAspectRatio = false
+    defaults.maintainAspectRatio = false;
     let backgroundColors = [
       'rgba(54, 162, 235, 0.8)',
       'rgba(255, 206, 86, 0.8)',
@@ -78,7 +80,12 @@ export default function Chart1(props) {
     var creekDischarge = [];
     
     for(let i = 0; i < Gauges.length; i++){
+      //var longName = 0
+      Gauges[i].name = Gauges[i].name.replace(', OREG', '')
+      Gauges[i].name = Gauges[i].name.replace(', OR', '')
       if(Gauges[i].discharge > 30){
+        //if(Gauges[i].name === 'NORTH FORK BULL RUN RIVER NEAR MULTNOMAH FALLS')
+          //longName = i;
         riverNames.push(Gauges[i].name)
         riverDischarge.push(Gauges[i].discharge)
       }
@@ -87,6 +94,9 @@ export default function Chart1(props) {
         creekDischarge.push(Gauges[i].discharge)
       }
     }
+    //riverNames.push(Gauges[longName].name)
+    //riverDischarge.push(Gauges[longName].name)
+
     riverData =  {
       labels: riverNames,
       datasets: [{
@@ -133,10 +143,12 @@ export default function Chart1(props) {
   return(
     
     <div>
-    <article className="canvas-container">
+    <article className="canvas-container" id="riverFlow">
       <Bar data={riverData} options={options} />
     </article>
-    
+    <article className="canvas-container" id="creekFlow">
+      <Bar data={creekData} options={options} />
+    </article>
     </div>
   );
 }
