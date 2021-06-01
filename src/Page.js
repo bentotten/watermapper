@@ -81,7 +81,6 @@ export default function Page(props) {
     }
 
     //discharge api call
-    let discharge = [{}];
     /*
     for (let i in gages) {
         discharge[i] = CallApi(gages[i].daily_url);
@@ -91,32 +90,35 @@ export default function Page(props) {
         console.log(discharge[0].siteName)
     }
     */
+    /*
     (function(){
         async function getDischarge(){
           let response = await fetch(url);
           let data = await response.json();
-          return data.value;
+          return data;
         }
       
         getDischarge().then((discharge) => {
-            if(discharge){
           console.log(discharge);
-          console.log(discharge[0])
- 
-            }
-          /*
-            
-            obj[i] ={
-                name: discharge.timeSeries[i].sourceInfo.siteName,
-                site: discharge.timeSeries[i].sourceInfo.siteCode[0].value,
-                lat:  discharge.timeSeries[i].sourceInfo.geoLocation.geogLocation.latitude,
-                long: discharge.timeSeries[i].sourceInfo.geoLocation.geogLocation.longitude,
-                quantity: discharge.value.timeSeries[i].values[0].value[0].value
-            };
-          }
-          */
+           for(let i = 0; i < 5; ++i){
+                obj[i] ={
+                    name: discharge.value.timeSeries[i].sourceInfo.siteName,
+                    site: discharge.value.timeSeries[i].sourceInfo.siteCode[0].value,
+                    lat:  discharge.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.latitude,
+                    long: discharge.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.longitude,
+                    quantity: discharge.value.timeSeries[i].values[0].value[0].value
+                };
+            }   
+
+            console.log(obj[0])
+            test_discharge = obj[0].quantity;
+            console.log(test_discharge);
         });
       })();
+
+      if(discharge)
+        console.log(test_discharge)
+        */
 
     /*j
     function LocationMarker() {
@@ -174,6 +176,35 @@ export default function Page(props) {
         console.log(obj2[0].name)
         console.log(obj2[1].name)
       }   
+     
+      //discharge api call
+      const[discharge, setDischarge] = useState(null);
+      useEffect(() =>{
+          getDischarge();
+      }, [])
+      async function getDischarge(){
+          try{
+              const response = await axios.get(url);
+              console.log(response);
+              setDischarge(response.data)
+          } catch (err){
+              console.log(err);
+          }
+      }
+      if(discharge){
+          console.log(discharge);
+          for(let i = 0; i < 5; ++i){
+            obj[i] ={
+                name: discharge.value.timeSeries[i].sourceInfo.siteName,
+                site: discharge.value.timeSeries[i].sourceInfo.siteCode[0].value,
+                lat:  discharge.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.latitude,
+                long: discharge.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.longitude,
+                quantity: discharge.value.timeSeries[i].values[0].value[0].value
+            };
+        }
+        console.log(obj);
+      }
+
 
       //dicharge api call
       /*
@@ -300,24 +331,32 @@ export default function Page(props) {
                         <Circle
                             color={'white'}
                             center={CSP}
-                            radius={changeRadius(discharge[0] && discharge[0].value)}
+                            radius={obj[4] && changeRadius(obj[4].quantity)}
                         >
                             <Popup>
-                                <div><b>{discharge[0] && discharge[0].siteName}</b></div>
-                                <div>Discharge: {discharge[0] && discharge[0].value} </div>
+                                <div>{obj[4] && obj[4].name}</div>
+                                <div>discharge: {obj[4] && obj[4].quantity}</div>
                             </Popup>
                         </Circle>
                         
                         <Circle
-                            color={'pink'}
+                            color={'white'}
                             center={CRV}
-                            //radius={changeRadius(discharge[1].value)}
+                            radius={obj[0] && changeRadius(obj[0].quantity)}
                         >
+                            <Popup>
+                                <div>{obj[0] && obj[0].name}</div>
+                                <div>discharge: {obj[0] && obj[0].quantity}</div>
+                            </Popup>
                         </Circle>
                         <Circle
                             center={BCL}
                             radius={600}
                         >
+                              <Popup>
+                                <div>{obj[0] && obj[0].name}</div>
+                                <div>discharge: {obj[0] && obj[0].quantity}</div>
+                            </Popup>
                         </Circle>
                         <Circle
                             center={WRP}
