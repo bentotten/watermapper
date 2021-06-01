@@ -61,10 +61,9 @@ export default function Routing(props) {
                                 <Link to="/page"><h3 className="med link">Gradient</h3></Link>
                                 <Link to="/page"><h4 className="small link">Gradient</h4></Link>
                             </Nav.Link>
-                            <NavDropdown.Divider />
 
-                            <h2 className='big1'>
-                                <NavDropdown className="drop" drop='left' title="Chart" id="basic-nav-dropdown">
+                            <h2 className="big1">
+                                <NavDropdown drop='left' title="Chart" id="basic-nav-dropdown">
                                     <Navbar collapseOnSelect className="navbar">
                                         <NavbarCollapse>
                                             <Nav>
@@ -93,8 +92,9 @@ export default function Routing(props) {
                                     </Navbar>
                                 </NavDropdown>
                             </h2>
+
                             <h2 className='big2'>
-                                <NavDropdown className="drop" drop='down' title="Chart" id="basic-nav-dropdown">
+                                <NavDropdown drop='down' title="Chart" id="basic-nav-dropdown">
                                     <Navbar collapseOnSelect className="navbar">
                                         <NavbarCollapse>
                                             <Nav>
@@ -183,6 +183,7 @@ export default function Routing(props) {
                                     </Navbar>
                                 </NavDropdown>
                             </h4>
+
                         </Nav>
 
 
