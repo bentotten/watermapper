@@ -16,7 +16,6 @@ import marker from './img/map-marker.png'
 
 export default function Routing(props) {
 
-    // Setup map
     const startLocation = {
         lat: 45.5051,
         lng: -122.6750,
