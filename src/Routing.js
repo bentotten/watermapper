@@ -20,8 +20,8 @@ export default function Routing(props) {
 
     // Setup map
     const startLocation = {
-        lat: 45.5051,
-        lng: -122.6750,
+        lat: 45.4865092,
+        lng: -122.421757,
         zoom: 11,
     }
     const mapMarker = L.icon({
@@ -76,7 +76,7 @@ export default function Routing(props) {
                         </Nav>
                         <Nav>
                             <h2 className='big1'>
-                            <NavDropdown className="drop" drop='left' title="Chart" id="basic-nav-dropdown">
+                                <NavDropdown className="drop" drop='left' title="Chart" id="basic-nav-dropdown">
                                     <Navbar collapseOnSelect className="navbar">
                                         <NavbarCollapse>
                                             <Nav>
@@ -107,7 +107,7 @@ export default function Routing(props) {
                             </h2>
                             <h2 className='big2'>
                                 <NavDropdown className="drop" drop='down' title="Chart" id="basic-nav-dropdown">
-                                <Navbar collapseOnSelect className="navbar">
+                                    <Navbar collapseOnSelect className="navbar">
                                         <NavbarCollapse>
                                             <Nav>
                                                 <NavItem className="pull-right">
@@ -138,61 +138,61 @@ export default function Routing(props) {
                             <h3 className='med'>
                                 <NavDropdown className="drop" drop='down' title="Chart" id="basic-nav-dropdown">
                                     <Navbar collapseOnSelect className="navbar">
-                                            <NavbarCollapse>
-                                                <Nav>
-                                                    <NavItem className="pull-right">
-                                                        <h3 className="med">Discharge Data</h3>
-                                                        <div className="chart1">
-                                                            <Route>
-                                                                <Chart1 />
-                                                            </Route>
-                                                        </div>
-                                                    </NavItem>
-                                                </Nav>
-                                            </NavbarCollapse>
-                                            <NavbarCollapse>
-                                                <Nav>
-                                                    <NavItem className="pull-right">
-                                                        <h3 className="med">Temperature Data</h3>
-                                                        <div className="chart2">
-                                                            <Route>
-                                                                <Chart2 />
-                                                            </Route>
-                                                        </div>
-                                                    </NavItem>
-                                                </Nav>
-                                            </NavbarCollapse>
-                                        </Navbar>
+                                        <NavbarCollapse>
+                                            <Nav>
+                                                <NavItem className="pull-right">
+                                                    <h3 className="med">Discharge Data</h3>
+                                                    <div className="chart1">
+                                                        <Route>
+                                                            <Chart1 />
+                                                        </Route>
+                                                    </div>
+                                                </NavItem>
+                                            </Nav>
+                                        </NavbarCollapse>
+                                        <NavbarCollapse>
+                                            <Nav>
+                                                <NavItem className="pull-right">
+                                                    <h3 className="med">Temperature Data</h3>
+                                                    <div className="chart2">
+                                                        <Route>
+                                                            <Chart2 />
+                                                        </Route>
+                                                    </div>
+                                                </NavItem>
+                                            </Nav>
+                                        </NavbarCollapse>
+                                    </Navbar>
                                 </NavDropdown>
                             </h3>
                             <h4 className='small'>
                                 <NavDropdown className="drop" drop='down' title="Chart" id="basic-nav-dropdown">
-                                <Navbar collapseOnSelect className="navbar">
-                                            <NavbarCollapse>
-                                                <Nav>
-                                                    <NavItem className="pull-right">
-                                                        <h4 className="small">Discharge Data</h4>
-                                                        <div className="chart1">
-                                                            <Route>
-                                                                <Chart1 />
-                                                            </Route>
-                                                        </div>
-                                                    </NavItem>
-                                                </Nav>
-                                            </NavbarCollapse>
-                                            <NavbarCollapse>
-                                                <Nav>
-                                                    <NavItem className="pull-right">
-                                                        <h4 className="small">Temperature Data</h4>
-                                                        <div className="chart2">
-                                                            <Route>
-                                                                <Chart2 />
-                                                            </Route>
-                                                        </div>
-                                                    </NavItem>
-                                                </Nav>
-                                            </NavbarCollapse>
-                                        </Navbar>
+                                    <Navbar collapseOnSelect className="navbar">
+                                        <NavbarCollapse>
+                                            <Nav>
+                                                <NavItem className="pull-right">
+                                                    <h4 className="small">Discharge Data</h4>
+                                                    <div className="chart1">
+                                                        <Route>
+                                                            <Chart1 />
+                                                        </Route>
+                                                    </div>
+                                                </NavItem>
+                                            </Nav>
+                                        </NavbarCollapse>
+                                        <NavbarCollapse>
+                                            <Nav>
+                                                <NavItem className="pull-right">
+                                                    <h4 className="small">Temperature Data</h4>
+                                                    <div className="chart2">
+                                                        <Route>
+                                                            <Chart2 />
+                                                        </Route>
+                                                    </div>
+                                                </NavItem>
+                                            </Nav>
+                                        </NavbarCollapse>
+                                    </Navbar>
                                 </NavDropdown>
                             </h4>
                         </Nav>
