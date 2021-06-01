@@ -1,13 +1,21 @@
-
 body {
   margin: 0px;
   padding: 0px;
 }
+
 .header {
   height: 45px;
   position: fixed;
   top: 0;
 }
+
+/* change vh to is the combined height of the map and whatever else you would like to display to not have a scroll bar*/
+.map {
+  height: calc(100vh);
+  z-index: 1;
+}
+
+/*
 .pull-right{
   margin-left: 20%;
   color: white;
@@ -59,25 +67,29 @@ a {
   box-sizing:border-box;
   box-shadow: 2px 2px 10px black;
 }
+*/
+
 /*
 input.btn.btn-primary {
   background-color: #654321;
   color: wheat;
-}*/
-
-/* 143px is the combined height of navbar above the map, will need to adjust if that size changes */
-.map {
-  height: calc(100vh);
-  z-index: 1;
 }
-.small1, .small2, .small3, .small4{
+*/
+
+/*
+.small1,
+.small2,
+.small3,
+.small4 {
   display: none;
   color: white;
 }
 
-h1{
+*/
+h1 {
   color: white;
 }
+/*
 .h-box h2 {
   display: none;
   color: white;
@@ -88,7 +100,7 @@ h1{
 }
 .big2 {
   display: none;
-} 
+}
 .med {
   display: none;
 }
@@ -111,7 +123,7 @@ h1{
   .small3 {
     display: none;
   }
-  .small4{
+  .small4 {
     display: none;
   }
   .navbar {
@@ -156,10 +168,10 @@ h1{
   .small3 {
     display: none;
   }
-  .small4{
+  .small4 {
     display: none;
   }
-  .navbar{
+  .navbar {
     display: block;
   }
   .big1 {
@@ -216,13 +228,13 @@ h1{
   .small3 {
     display: none;
   }
-  .small4{
+  .small4 {
     display: none;
   }
-  .navbar{
+  .navbar {
     display: block;
   }
-  .drop{
+  .drop {
     display: block;
   }
   .dropdown-menu {
@@ -264,13 +276,13 @@ h1{
   .small3 {
     display: none;
   }
-  .small4{
+  .small4 {
     display: none;
   }
-  .navbar{
-  display: block;
+  .navbar {
+    display: block;
   }
-  .drop{
+  .drop {
     display: block;
   }
   .dropdown-menu {
@@ -309,16 +321,16 @@ h1{
   .small2 {
     display: none;
   }
-  .small3{
+  .small3 {
     display: block;
   }
-  .small4{
+  .small4 {
     display: none;
   }
-  .navbar{
-  display: block;
+  .navbar {
+    display: block;
   }
-  .drop{
+  .drop {
     display: block;
   }
   .dropdown-menu {
@@ -360,13 +372,13 @@ h1{
   .small3 {
     display: none;
   }
-  .small4{
+  .small4 {
     display: block;
   }
-  .navbar{
-  display: block;
+  .navbar {
+    display: block;
   }
-  .drop{
+  .drop {
     display: block;
   }
   .dropdown-menu {
@@ -377,3 +389,4 @@ h1{
     width: 100%;
   }
 }
+*/
