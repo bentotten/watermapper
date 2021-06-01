@@ -45,8 +45,8 @@ export default function Routing(props) {
                 <Navbar collapseOnSelect className="navbar">
                     <div className="h-box">
                         <Navbar.Brand>
-                            <h1>Portland Water Usage Data Dashboard</h1>
-                            <h2>Portland Water Usage Data Dashboard</h2>
+                            <h1>Portland Watershed Data Dashboard</h1>
+                            <h2>Portland Watershed Data Dashboard</h2>
                             <h3 className='small1'>Portland Watershed Data Dashboard</h3>
                             <h3 className='small2'>Portland Watershed Data </h3><h3 className='small2'>Dashboard</h3>
                             <h3 className='small3'>Portland Watershed </h3><h3 className='small3'>Data Dashboard</h3>
