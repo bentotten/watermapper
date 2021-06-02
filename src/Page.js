@@ -32,8 +32,6 @@ export default function Page(props) {
     //test url
     let url3 =
         "https://waterservices.usgs.gov/nwis/dv/?format=json&sites=14211720,%2014211542,%2014207200,%2014202000,%20453004122510301&parameterCd=00010&siteType=FA-CI&siteStatus=active";
-    let url4 =
-        "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14211820,%2014144700,%2014211315,%2014206900,%2014211550,%2014211720,%2014211814,%2014211400,%2014142800,%2014140500,%2014139500,%2014138900,%2014139700,%2014138870,%2014138850,%2014138720,%2014202000 "
 
 
     
@@ -189,7 +187,7 @@ export default function Page(props) {
       }, [])
       async function getDischarge(){
           try{
-              const response = await axios.get(url4);
+              const response = await axios.get(url);
               console.log(response);
               setDischarge(response.data)
           } catch (err){
@@ -198,7 +196,7 @@ export default function Page(props) {
       }
       if(discharge){
           console.log(discharge);
-          for(let i = 0; i < 17; ++i){
+          for(let i = 0; i < 6; ++i){
             obj[i] ={
                 name: discharge.value.timeSeries[i].sourceInfo.siteName,
                 site: discharge.value.timeSeries[i].sourceInfo.siteCode[0].value,
