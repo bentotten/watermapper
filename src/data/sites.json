@@ -40,8 +40,8 @@
       "name": "TRYON CREEK NEAR LAKE OSWEGO OR",
       "type": "Stream",
       "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14211315",
-      "longitude": "45.43067476",
-      "latitude": "-122.6737057",
+      "longitude": "45.5175",
+      "latitude": "-122.6691667",
       "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14211315"
     },
     {
@@ -153,3 +153,4 @@
       "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14202000"
     }
   ]
+    
