@@ -3,7 +3,7 @@
     color: white;
     box-shadow: 1px 1px 10px black;
     text-shadow: 2px 2px 10px black;
-    transform: translateY(18vh) translateX(10vh);
+    transform: translateY(10vh) translateX(-161vh);
     margin: auto;
     width: 170vh;
     height: 73vh;
@@ -32,6 +32,7 @@
   height: 50vh;
 }
 #temperature{
+  margin-left: 3vh;
   margin-top: 3vh;
   width: 160vh;
   height: 55vh;

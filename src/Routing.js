@@ -70,7 +70,7 @@ export default function Routing(props) {
                             </Nav.Link>
 
                             <h2 className="big">
-                                <NavDropdown drop='left' title="Chart" id="basic-nav-dropdown">
+                                <NavDropdown drop='down' title="Chart" id="basic-nav-dropdown">
                                     <ToggleButtonGroup className="border border-dark" type="radio" name="options" defaultValue={1}>
                                         <ToggleButton className="chartSelect" value={1} onClick={() => {setDischarge(true); setTemperature(false);}}>Discharge Data</ToggleButton>
                                         <ToggleButton className="chartSelect" value={2} onClick={() => {setDischarge(false); setTemperature(true);}}>Temperature Data</ToggleButton>
@@ -90,7 +90,7 @@ export default function Routing(props) {
                                 </NavDropdown>
                             </h2>
                             <h3 className='med'>
-                                <NavDropdown drop='left' title="Chart" id="basic-nav-dropdown">
+                                <NavDropdown drop='down' title="Chart" id="basic-nav-dropdown">
                                     <ToggleButtonGroup className="border border-dark" type="radio" name="options" defaultValue={1}>
                                         <ToggleButton className="chartSelect" value={1} onClick={() => {setDischarge(true); setTemperature(false);}}>Discharge Data</ToggleButton>
                                         <ToggleButton className="chartSelect" value={2} onClick={() => {setDischarge(false); setTemperature(true);}}>Temperature Data</ToggleButton>
@@ -110,7 +110,7 @@ export default function Routing(props) {
                                 </NavDropdown>
                             </h3>
                             <h4 className='little'>
-                                <NavDropdown drop='left' title="Chart" id="basic-nav-dropdown">
+                                <NavDropdown drop='down' title="Chart" id="basic-nav-dropdown">
                                     <ToggleButtonGroup className="border border-dark" type="radio" name="options" defaultValue={1}>
                                         <ToggleButton className="chartSelect" value={1} onClick={() => {setDischarge(true); setTemperature(false);}}>Discharge Data</ToggleButton>
                                         <ToggleButton className="chartSelect" value={2} onClick={() => {setDischarge(false); setTemperature(true);}}>Temperature Data</ToggleButton>
@@ -130,7 +130,7 @@ export default function Routing(props) {
                                 </NavDropdown>
                             </h4>
                             <h5 className='tiny'>
-                                <NavDropdown drop='left' title="Chart" id="basic-nav-dropdown">
+                                <NavDropdown drop='down' title="Chart" id="basic-nav-dropdown">
                                     <ToggleButtonGroup className="border border-dark" type="radio" name="options" defaultValue={1}>
                                         <ToggleButton className="chartSelect" value={1} onClick={() => {setDischarge(true); setTemperature(false);}}>Discharge Data</ToggleButton>
                                         <ToggleButton className="chartSelect" value={2} onClick={() => {setDischarge(false); setTemperature(true);}}>Temperature Data</ToggleButton>
