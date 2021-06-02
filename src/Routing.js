@@ -15,7 +15,7 @@ import marker from './img/map-marker.png'
 //import L, { layerGroup } from 'leaflet'
 import { Map, TileLayer, Marker, Popup, ZoomControl, LayersControl, LayerGroup } from 'react-leaflet'
 //import marker from './img/map-marker.png'
-//import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
+import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
 
 //import gages from './data/sites.json'
 
@@ -47,28 +47,29 @@ export default function Routing(props) {
                         <Navbar.Brand>
                             <h1>Portland Watershed Data Dashboard</h1>
                             <h2>Portland Watershed Data Dashboard</h2>
-                            <h3 className='small1'>Portland Watershed Data Dashboard</h3>
-                            <h3 className='small2'>Portland Watershed Data </h3><h3 className='small2'>Dashboard</h3>
-                            <h3 className='small3'>Portland Watershed </h3><h3 className='small3'>Data Dashboard</h3>
-                            <h4 className='small4'>Portland Watershed </h4><h4 className='small4'>Data Dashboard</h4>
+                            <h3>Portland Watershed Data Dashboard</h3>
+                            <h4 className = "text-wrap">Portland Watershed Data Dashboard</h4>
+                            <h5>Portland Watershed </h5><h5>Data Dashboard</h5>
                         </Navbar.Brand>
                     </div>
                     {/* <Navbar.Toggle /> */}
 
                     <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="mr-auto align-items-center">
+                        <Nav className="ml-auto align-items-center">
                             <Nav.Link>
                                 <Link to="/"><h2 className="big link">Home</h2></Link>
                                 <Link to="/"><h3 className="med link">Home</h3></Link>
-                                <Link to="/"><h4 className="small link">Home</h4></Link>
+                                <Link to="/"><h4 className="little link">Home</h4></Link>
+                                <Link to="/"><h5 className="tiny link">Home</h5></Link>
                             </Nav.Link>
                             <Nav.Link>
                                 <Link to="/page"><h2 className="big link">Gradient</h2></Link>
                                 <Link to="/page"><h3 className="med link">Gradient</h3></Link>
-                                <Link to="/page"><h4 className="small link">Gradient</h4></Link>
+                                <Link to="/page"><h4 className="little link">Gradient</h4></Link>
+                                <Link to="/page"><h5 className="tiny link">Gradient</h5></Link>
                             </Nav.Link>
 
-                            <h2 className="big1">
+                            <h2 className="big">
                                 <NavDropdown drop='left' title="Chart" id="basic-nav-dropdown">
                                     <ToggleButtonGroup className="border border-dark" type="radio" name="options" defaultValue={1}>
                                         <ToggleButton className="chartSelect" value={1} onClick={() => {setDischarge(true); setTemperature(false);}}>Discharge Data</ToggleButton>
@@ -88,30 +89,8 @@ export default function Routing(props) {
 
                                 </NavDropdown>
                             </h2>
-
-                            <h2 className='big2'>
-                                <NavDropdown drop='down' title="Chart" id="basic-nav-dropdown">
-                                    <ToggleButtonGroup className="border border-dark" type="radio" name="options" defaultValue={1}>
-                                        <ToggleButton className="chartSelect" value={1} onClick={() => {setDischarge(true); setTemperature(false);}}>Discharge Data</ToggleButton>
-                                        <ToggleButton className="chartSelect" value={2} onClick={() => {setDischarge(false); setTemperature(true);}}>Temperature Data</ToggleButton>
-                                    </ToggleButtonGroup>
-                                    <div className="chart1" style={{display: displayDischarge ? 'block': 'none'}}>
-                                        <Route>
-                                            <Chart1 />
-                                        </Route>
-                                    </div>
-                                
-                                    <div className="chart2" style={{display: displayTemperature ? 'block': 'none'}}>
-                                        <Route>
-                                            <Chart2 />
-                                        </Route>
-                                    </div>
-
-                                </NavDropdown>
-
-                            </h2>
                             <h3 className='med'>
-                                <NavDropdown drop='down' title="Chart" id="basic-nav-dropdown">
+                                <NavDropdown drop='left' title="Chart" id="basic-nav-dropdown">
                                     <ToggleButtonGroup className="border border-dark" type="radio" name="options" defaultValue={1}>
                                         <ToggleButton className="chartSelect" value={1} onClick={() => {setDischarge(true); setTemperature(false);}}>Discharge Data</ToggleButton>
                                         <ToggleButton className="chartSelect" value={2} onClick={() => {setDischarge(false); setTemperature(true);}}>Temperature Data</ToggleButton>
@@ -130,8 +109,8 @@ export default function Routing(props) {
 
                                 </NavDropdown>
                             </h3>
-                            <h4 className='small'>
-                                <NavDropdown drop='down' title="Chart" id="basic-nav-dropdown">
+                            <h4 className='little'>
+                                <NavDropdown drop='left' title="Chart" id="basic-nav-dropdown">
                                     <ToggleButtonGroup className="border border-dark" type="radio" name="options" defaultValue={1}>
                                         <ToggleButton className="chartSelect" value={1} onClick={() => {setDischarge(true); setTemperature(false);}}>Discharge Data</ToggleButton>
                                         <ToggleButton className="chartSelect" value={2} onClick={() => {setDischarge(false); setTemperature(true);}}>Temperature Data</ToggleButton>
@@ -150,7 +129,26 @@ export default function Routing(props) {
 
                                 </NavDropdown>
                             </h4>
+                            <h5 className='tiny'>
+                                <NavDropdown drop='left' title="Chart" id="basic-nav-dropdown">
+                                    <ToggleButtonGroup className="border border-dark" type="radio" name="options" defaultValue={1}>
+                                        <ToggleButton className="chartSelect" value={1} onClick={() => {setDischarge(true); setTemperature(false);}}>Discharge Data</ToggleButton>
+                                        <ToggleButton className="chartSelect" value={2} onClick={() => {setDischarge(false); setTemperature(true);}}>Temperature Data</ToggleButton>
+                                    </ToggleButtonGroup>
+                                    <div className="chart1" style={{display: displayDischarge ? 'block': 'none'}}>
+                                        <Route>
+                                            <Chart1 />
+                                        </Route>
+                                    </div>
+                                
+                                    <div className="chart2" style={{display: displayTemperature ? 'block': 'none'}}>
+                                        <Route>
+                                            <Chart2 />
+                                        </Route>
+                                    </div>
 
+                                </NavDropdown>
+                            </h5>
                         </Nav>
 
 
