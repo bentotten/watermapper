@@ -22,6 +22,25 @@ export default function Page(props) {
             let CSC = [0, 0]; //CRYSTAL SPRINGS CREEK
             let WRPT = [0, 0]; //WILLAMETTE RIVER AT PORTLAND
             let BCB = [0, 0]; //BEVERTON CREEK AT BEAVERTO
+        //discharge gage houses
+       let BRB = [0, 0]; //BULL RUN RIVER NEAR MULTNOMAH FALLS, OR
+       let BRM = [0, 0]; //BULL RUN RIVER NEAR MULTNOMAH FALLS, OR
+       let FCB = [0, 0]; //FIR CREEK NEAR BRIGHTWOOD, OR
+       let NFM = [0, 0]; //NORTH FORK BULL RUN RIVER NEAR MULTNOMAH FALLS, OR
+       let BRL = [0, 0]; //BULL RUN RIVER BLW LAKE BEN MORROW, OREG
+       let CCB = [0, 0]; //CEDAR CREEK NEAR BRIGHTWOOD, OREG
+       let LSM = [0, 0]; //LITTLE SANDY RIVER NEAR MARMOT, OREG
+       let BRT = [0, 0]; //BEAVER CREEK AT TROUTDALE, OR
+       let CRV = [0, 0]; //COLUMBIA RIVER AT VANCOUVER, WA
+       let PDA = [0, 0]; //PUDDING RIVER AT AURORA, OR
+       let FCP = [0, 0]; //FANNO CREEK AT 56TH AVE, AT PORTLAND, OR
+       let TCL = [0, 0]; //TRYON CREEK NEAR LAKE OSWEGO, O
+       let JCR = [0, 0]; //JOHNSON CREEK AT REGNER ROAD, AT GRESHAM, OR
+       let JCM = [0, 0]; //JOHNSON CREEK AT MILWAUKIE, OR
+       let WRP = [0, 0]; //WILLAMETTE RIVER AT PORTLAND, OR
+       let FCG = [0, 0]; //FAIRVIEW CREEK AT GLISAN ST NEAR GRESHAM, OR
+       let CSP = [0, 0]; //COLUMBIA SLOUGH AT PORTLAND, OR
+
             let obj =[{}];
     //discharge gage houses
     let url =
@@ -83,6 +102,15 @@ export default function Page(props) {
             return 2000;
         else
             return 1000;
+    }
+
+    function notNull(coordinate){
+        while(coordinate == [0, 0]){
+            if(coordinate != [0,0]){
+                break;
+                return;
+            }
+        }
     }
 
     //discharge api call
@@ -206,8 +234,24 @@ export default function Page(props) {
                 long: discharge.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.longitude,
                 quantity: discharge.value.timeSeries[i].values[0].value[0].value
             };
-        }
-        console.log(obj);
+          }
+       BRB = [obj[0].lat, obj[0].long];
+       BRM = [obj[1].lat, obj[1].long];
+       FCB = [obj[2].lat, obj[2].long];
+       NFM = [obj[3].lat, obj[3].long];
+       BRL = [obj[4].lat, obj[4].long];
+       CCB = [obj[5].lat, obj[5].long];
+       LSM = [obj[6].lat, obj[6].long];
+       BRT = [obj[7].lat, obj[7].long];
+       CRV = [obj[8].lat, obj[8].long];
+       PDA = [obj[9].lat, obj[9].long];
+       FCP = [obj[10].lat, obj[10].long];
+       TCL = [obj[11].lat, obj[11].long];
+       JCR = [obj[12].lat, obj[12].long];
+       JCM = [obj[13].lat, obj[13].long];
+       WRP = [obj[14].lat, obj[14].long];
+       FCG = [obj[15].lat, obj[15].long];
+       CSP = [obj[16].lat, obj[16].long];
       }
 
 
@@ -314,12 +358,12 @@ export default function Page(props) {
     const BCB = [obj[4].long, obj[4].lat]; //BEAVERTON CREEK AT 170TH AVE BEAVERTON OR
     const FCP = [obj[5].long, obj[5].lat]; //FANNO CREEK AT 56TH AVE, AT PORTLAND, OR
     */
-    const CSP = [gages[0].longitude, gages[0].latitude]; //COLUMBIA SLOUGH AT PORTLAND OR
-    const CRV = [gages[1].longitude, gages[1].latitude] //COLUMBIA RIVER AT VANCOUVER WAA
+   // const CSP = [gages[0].longitude, gages[0].latitude]; //COLUMBIA SLOUGH AT PORTLAND OR
+  //  const CRV = [gages[1].longitude, gages[1].latitude] //COLUMBIA RIVER AT VANCOUVER WAA
     const JCW = [gages[2].longitude, gages[2].latitude]; //JOHNSON CREEK AT MILWAUKIE OR
-    const WRP = [gages[3].longitude, gages[3].latitude] //WILLAMETTE RIVER AT PORTLAND OR
-    const TCL = [gages[4].longitude, gages[4].latitude] //TRYON CREEK NEAR LAKE OSWEGO OR
-    const FCP = [gages[5].longitude, gages[5].latitude]; //FANNO CREEK AT 56TH AVE, AT PORTLAND, OR
+    //const WRP = [gages[3].longitude, gages[3].latitude] //WILLAMETTE RIVER AT PORTLAND OR
+    //const TCL = [gages[4].longitude, gages[4].latitude] //TRYON CREEK NEAR LAKE OSWEGO OR
+    //const FCP = [gages[5].longitude, gages[5].latitude]; //FANNO CREEK AT 56TH AVE, AT PORTLAND, OR
     //const WRP = [gages[3].longitude, gages[3].latitude] //WILLAMETTE RIVER AT PORTLAND OR
     //const BCB = [gages[4].longitude, gages[4].latitude] //BEAVERTON CREEK AT 170TH AVE BEAVERTON OR
     const mapMarker = L.icon({
@@ -328,29 +372,20 @@ export default function Page(props) {
     })
     //const WRPS = [obj[0].lat, obj[0].long]; //WILLAMETTE RIVER AT PORTLAND OR
     //console.log(obj);
+    console.log(obj)
     const test = [45.6391, -122.7619]
     const coodinates = [[gages[0].longitude, gages[0].latitude], [gages[1].longitude, gages[1].latitude], [gages[2].longitude, gages[2].latitude], [gages[3].longitude, gages[3].latitude], [gages[4].longitude, gages[4].latitude], [gages[5].longitude, gages[5].latitude]]
     return (
         <>
             <Home />
             <LayersControl position="topright">
-                <LayersControl.Overlay checked name="Stream Discharge">
+                <LayersControl.BaseLayer checked name="Stream Discharge">
                     <LayerGroup>
                         <Circle
-                            color={'white'}
-                            center={CSP}
-                            radius={obj[5] && changeRadius(obj[5].quantity)}
-                        >
-                            <Popup>
-                                <div>{obj[5] && obj[5].name}</div>
-                                <div>discharge: {obj[5] && obj[5].quantity}</div>
-                            </Popup>
-                        </Circle>
-                        
-                        <Circle
-                            //color={'white'}
-                            center={CRV}
+                            color={'blue'}
+                            center={BRB}
                             radius={obj[0] && changeRadius(obj[0].quantity)}
+                            pathOptions={{ color: 'blue', fillColor: 'blue' }}
                         >
                             <Popup>
                                 <div>{obj[0] && obj[0].name}</div>
@@ -358,48 +393,184 @@ export default function Page(props) {
                             </Popup>
                         </Circle>
                         <Circle
-                            color={'white'}
-                            center={FCP}
+                            color={'blue'}
+                            center={BRM}
                             radius={obj[1] && changeRadius(obj[1].quantity)}
+                            pathOptions={{ color: 'blue', fillColor: 'blue' }}
                         >
-                              <Popup>
+                            <Popup>
                                 <div>{obj[1] && obj[1].name}</div>
                                 <div>discharge: {obj[1] && obj[1].quantity}</div>
                             </Popup>
                         </Circle>
                         <Circle
-                            color={'white'}
-                            center={JCW}
-                            radius={obj[3] && changeRadius(obj[3].quantity)}
+                            color={'blue'}
+                            center={FCB}
+                            radius={obj[2] && changeRadius(obj[2].quantity)}
+                            pathOptions={{ color: 'blue', fillColor: 'blue' }}
                         >
-                              <Popup>
+                            <Popup>
+                                <div>{obj[0] && obj[0].name}</div>
+                                <div>discharge: {obj[0] && obj[0].quantity}</div>
+                            </Popup>
+                        </Circle>
+                        <Circle
+                            color={'blue'}
+                            center={NFM}
+                            radius={obj[3] && changeRadius(obj[3].quantity)}
+                            pathOptions={{ color: 'blue', fillColor: 'blue' }}
+                        >
+                            <Popup>
                                 <div>{obj[3] && obj[3].name}</div>
                                 <div>discharge: {obj[3] && obj[3].quantity}</div>
                             </Popup>
                         </Circle>
                         <Circle
-                            color={'white'}
-                            center={TCL}
-                            radius={obj[2] && changeRadius(obj[2].quantity)}
+                            color={'blue'}
+                            center={BRL}
+                            radius={obj[4] && changeRadius(obj[4].quantity)}
+                            pathOptions={{ color: 'blue', fillColor: 'blue' }}
                         >
                             <Popup>
-                                <div>{obj[2] && obj[2].name}</div>
-                                <div>discharge: {obj[2] && obj[2].quantity}</div>
-                            </Popup>
-                        </Circle>
-                        <Circle
-                            color={'white'}
-                            center={WRP}
-                            radius={obj[4] && changeRadius(obj[4].quantity)}
-                        >
-                             <Popup>
                                 <div>{obj[4] && obj[4].name}</div>
                                 <div>discharge: {obj[4] && obj[4].quantity}</div>
                             </Popup>
                         </Circle>
+                        <Circle
+                            color={'blue'}
+                            center={CCB}
+                            radius={obj[5] && changeRadius(obj[5].quantity)}
+                            pathOptions={{ color: 'blue', fillColor: 'blue' }}
+                        >
+                            <Popup>
+                                <div>{obj[5] && obj[5].name}</div>
+                                <div>discharge: {obj[5] && obj[5].quantity}</div>
+                            </Popup>
+                        </Circle>
+                        <Circle
+                            color={'blue'}
+                            center={LSM}
+                            radius={obj[6] && changeRadius(obj[6].quantity)}
+                            pathOptions={{ color: 'blue', fillColor: 'blue' }}
+                        >
+                            <Popup>
+                                <div>{obj[6] && obj[6].name}</div>
+                                <div>discharge: {obj[6] && obj[6].quantity}</div>
+                            </Popup>
+                        </Circle>
+                        <Circle
+                            color={'blue'}
+                            center={BRT}
+                            radius={obj[7] && changeRadius(obj[7].quantity)}
+                            pathOptions={{ color: 'blue', fillColor: 'blue' }}
+                        >
+                            <Popup>
+                                <div>{obj[7] && obj[7].name}</div>
+                                <div>discharge: {obj[7] && obj[7].quantity}</div>
+                            </Popup>
+                        </Circle>
+                        <Circle
+                            color={'blue'}
+                            center={CRV}
+                            radius={obj[8] && changeRadius(obj[8].quantity)}
+                            pathOptions={{ color: 'blue', fillColor: 'blue' }}
+                        >
+                            <Popup>
+                                <div>{obj[8] && obj[8].name}</div>
+                                <div>discharge: {obj[8] && obj[8].quantity}</div>
+                            </Popup>
+                        </Circle>
+                        <Circle
+                            color={'blue'}
+                            center={PDA}
+                            radius={obj[9] && changeRadius(obj[9].quantity)}
+                            pathOptions={{ color: 'blue', fillColor: 'blue' }}
+                        >
+                            <Popup>
+                                <div>{obj[9] && obj[9].name}</div>
+                                <div>discharge: {obj[9] && obj[9].quantity}</div>
+                            </Popup>
+                        </Circle>
+                        <Circle
+                            color={'blue'}
+                            center={FCP}
+                            radius={obj[10] && changeRadius(obj[10].quantity)}
+                            pathOptions={{ color: 'blue', fillColor: 'blue' }}
+                        >
+                            <Popup>
+                                <div>{obj[10] && obj[10].name}</div>
+                                <div>discharge: {obj[10] && obj[10].quantity}</div>
+                            </Popup>
+                        </Circle>
+                        <Circle
+                            color={'blue'}
+                            center={TCL}
+                            radius={obj[11] && changeRadius(obj[11].quantity)}
+                            pathOptions={{ color: 'blue', fillColor: 'blue' }}
+                        >
+                            <Popup>
+                                <div>{obj[11] && obj[11].name}</div>
+                                <div>discharge: {obj[11] && obj[11].quantity}</div>
+                            </Popup>
+                        </Circle>
+                        <Circle
+                            color={'blue'}
+                            center={JCR}
+                            radius={obj[12] && changeRadius(obj[12].quantity)}
+                            pathOptions={{ color: 'blue', fillColor: 'blue' }}
+                        >
+                            <Popup>
+                                <div>{obj[12] && obj[12].name}</div>
+                                <div>discharge: {obj[12] && obj[12].quantity}</div>
+                            </Popup>
+                        </Circle>
+                        <Circle
+                            color={'blue'}
+                            center={JCM}
+                            radius={obj[13] && changeRadius(obj[13].quantity)}
+                            pathOptions={{ color: 'blue', fillColor: 'blue' }}
+                        >
+                            <Popup>
+                                <div>{obj[13] && obj[13].name}</div>
+                                <div>discharge: {obj[13] && obj[13].quantity}</div>
+                            </Popup>
+                        </Circle>
+                        <Circle
+                            color={'blue'}
+                            center={WRP}
+                            radius={obj[14] && changeRadius(obj[14].quantity)}
+                            pathOptions={{ color: 'blue', fillColor: 'blue' }}
+                        >
+                            <Popup>
+                                <div>{obj[14] && obj[14].name}</div>
+                                <div>discharge: {obj[14] && obj[14].quantity}</div>
+                            </Popup>
+                        </Circle>
+                        <Circle
+                            color={'blue'}
+                            center={FCG}
+                            radius={obj[15] && changeRadius(obj[15].quantity)}
+                            pathOptions={{ color: 'blue', fillColor: 'blue' }}
+                        >
+                            <Popup>
+                                <div>{obj[15] && obj[15].name}</div>
+                                <div>discharge: {obj[15] && obj[15].quantity}</div>
+                            </Popup>
+                        </Circle>
+                        <Circle
+                            color={'blue'}
+                            center={CSP}
+                            radius={obj[16] && changeRadius(obj[16].quantity)}
+                            pathOptions={{ color: 'blue', fillColor: 'blue' }}
+                        >
+                            <Popup>
+                                <div>{obj[16] && obj[16].name}</div>
+                                <div>discharge: {obj[16] && obj[16].quantity}</div>
+                            </Popup>
+                        </Circle>
                     </LayerGroup>
-                </LayersControl.Overlay>
-                <LayersControl.Overlay name="Tempearture">
+                </LayersControl.BaseLayer>
+                <LayersControl.BaseLayer name="Tempearture">
                     <LayerGroup>
                         <Marker position={PRA} icon={mapMarker}>
                             <Popup>
@@ -487,7 +658,7 @@ export default function Page(props) {
                             </Circle>
                         </Marker>
                     </LayerGroup>
-                </LayersControl.Overlay>
+                </LayersControl.BaseLayer>
             </LayersControl>
         </>
     )
