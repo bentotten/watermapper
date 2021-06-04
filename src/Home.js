@@ -5,6 +5,7 @@ import marker from './img/map-marker.png'
 import gages from './data/sites.json'
 import temperatures from './data/temp2.json'
 import noData from './data/no-data.json'
+import lane from './data/lane.json'
 //import Legend from "./Legend";
 //import CallApi from "./Api.js"
 
@@ -55,6 +56,16 @@ export default function Home(props) {
                             <div><b>{noData[i].name}</b></div>
                             <div>Site: {noData[i].site}</div>
                             <a href={noData[i].website}>https://waterdata.usgs.gov</a>
+                        </Popup>
+                    </Marker>);
+    }
+    for(let i = 0; i < lane.length; i++){
+        coordinates = [lane[i].longitude, lane[i].latitude]
+        items.push(<Marker position={coordinates} icon={mapMarker}>
+                        <Popup>
+                            <div><b>{lane[i].name}</b></div>
+                            <div>Site: {lane[i].site}</div>
+                            <a href={lane[i].website}>https://waterdata.usgs.gov</a>
                         </Popup>
                     </Marker>);
     }

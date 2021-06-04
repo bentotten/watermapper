@@ -1,0 +1,110 @@
+[
+    {
+        "site": 14158100,
+        "name": "WILLAMETTE RIVER AT OWOSSO BRIDGE AT EUGENE, OR",
+        "type": "Stream",
+        "website": "https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=14158100",
+        "longitude": "44.09166667",
+        "latitude": "-123.116111",
+        "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14158100"
+    },
+    {
+        "site": 14165500,
+        "name": "MCKENZIE RIVER NEAR COBURG, OR",
+        "type": "Stream",
+        "website": "https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=14165500",
+        "longitude": "44.11305556",
+        "latitude": "-123.0469722",
+        "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14165500"
+    },
+    {
+        "site": 14164900,
+        "name": "McKENZIE RIVER ABV HAYDEN BR, AT SPRINGFIELD,OR",
+        "type": "Stream",
+        "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14164900",
+        "longitude": "44.0712365",
+        "latitude": "-122.9645273",
+        "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14164900"
+    },
+    {
+        "site": 14171600,
+        "name": "WILLAMETTE RIVER AT CORVALLIS, OR",
+        "type": "Stream",
+        "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14171600",
+        "longitude": "44.5663611",
+        "latitude": "-123.2568056",
+        "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14171600"
+    },
+    {
+        "site": 14165500,
+        "name": "MCKENZIE RIVER NEAR COBURG, OR",
+        "type": "Stream",
+        "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14165500",
+        "longitude": "44.11305556",
+        "latitude": "-123.0469722",
+        "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14165500"
+      },
+      {
+        "site": 14164900,
+        "name": "McKENZIE RIVER ABV HAYDEN BR, AT SPRINGFIELD,OR",
+        "type": "Stream",
+        "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14164900",
+        "longitude": "44.0712365",
+        "latitude": "-122.9645273",
+        "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14164900"
+      },
+      {
+        "site": 14157500,
+        "name": "COAST FORK WILLAMETTE RIVER NEAR GOSHEN, OR",
+        "type": "Stream",
+        "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14157500",
+        "longitude": "43.98040324",
+        "latitude": "-122.96647",
+        "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14157500"
+      },
+      {
+        "site": 14164550,
+        "name": "CAMP CRK AT CAMP CRK RD BRIDGE, NR SPRINGFIELD, OR",
+        "type": "Stream",
+        "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14164550",
+        "longitude": "44.07066667",
+        "latitude": "-122.8846667",
+        "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14164550"
+      },
+      {
+        "site": 14165000,
+        "name": "MOHAWK RIVER NEAR SPRINGFIELD, OR",
+        "type": "Stream",
+        "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14165000",
+        "longitude": "44.09290317",
+        "latitude": "-122.9573052",
+        "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14165000"
+      },
+	    {
+        "site": 14174000,
+        "name": "WILLAMETTE RIVER AT ALBANY, OR",
+        "type": "Stream",
+        "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14174000",
+        "longitude": "44.6387328",
+        "latitude": "-123.1067616",
+        "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14174000"
+      },
+      {
+        "site": 14301500,
+        "name": "WILSON RIVER NEAR TILLAMOOK, OR",
+        "type": "Stream",
+        "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14301500",
+        "longitude": "45.47593996",
+        "latitude": "-123.7251209",
+        "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14301500"
+      },
+      {
+        "site": 14206694 ,
+        "name": "TUALATIN RIVER AT RIVER MILE 24.5, NR SCHOLLS, OR",
+        "type": "Stream",
+        "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14206694 ",
+        "longitude": "45.40150659",
+        "latitude": "-122.8951003",
+        "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14206694 "
+      }
+]
