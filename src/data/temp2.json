@@ -19,6 +19,15 @@
     "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14211720"
   },
   {
+      "site": 453630122021400,
+      "name": "COLUMBIA RIVER, LEFT BANK, NEAR DODSON, OR",
+      "type": "Stream",
+      "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=453630122021400",
+      "longitude": "45.48317488",
+      "latitude": "-122.0817513",
+      "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=453630122021400"
+  },
+  {
     "site": 14138720,
     "name": "BULL RUN RIVER AT LOWER FLUME NR BRIGHTWOOD, OR",
     "type": "Stream",
