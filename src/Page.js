@@ -201,7 +201,7 @@ export default function Page(props) {
       let obj2 =[{}];
       if(water){
         console.log(water);
-        for(let i = 0; i < 12; ++i){
+        for(let i = 0; i < water.value.timeSeries.length; ++i){
             obj2[i] ={
                 name: water.value.timeSeries[i].sourceInfo.siteName,
                 site: water.value.timeSeries[i].sourceInfo.siteCode[0].value,
@@ -241,7 +241,7 @@ export default function Page(props) {
       }
       if(discharge){
           console.log(discharge);
-          for(let i = 0; i < 6; ++i){
+          for(let i = 0; i < discharge.value.timeSeries.length; ++i){
             obj[i] ={
                 name: discharge.value.timeSeries[i].sourceInfo.siteName,
                 site: discharge.value.timeSeries[i].sourceInfo.siteCode[0].value,
