@@ -1,4 +1,4 @@
-/* Navbar */
+
 .navbar {
   left: 0;
   position: fixed;
@@ -12,28 +12,29 @@
 
 .h-box {
   border: solid white;
-  padding: 0.5%;
-  padding-left: 2%;
+  padding: 0.5vh;
+  padding-left: 2vh;
+  padding-right: 1vh;
   box-sizing: border-box;
   box-shadow: 2px 2px 10px black;
 }
-
-.pull-right {
-  margin-left: 20%;
+a {
   color: white;
+  text-decoration: underline;
 }
-
 /* Heading */
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5 {
   color: white;
 }
 
 /* Link */
 .link {
   color: white;
+  margin-right: 2vh;
 }
 
 .link:hover {
@@ -41,22 +42,74 @@ h4 {
   text-decoration: underline;
 }
 
-/* Chart Link */
-#basic-nav-dropdown {
+#basic-nav-dropdown{
   color: white;
+  margin-right: 1vh;
 }
+/* Chart Link */
 
 #basic-nav-dropdown:hover {
   color: gold;
   text-decoration: underline;
 }
 
+.h-box h2,
+.h-box h3,
+.h-box h4,
+.h-box h5,
+.med, 
+.little,
+.tiny {
+  display: none;
+}
+
+
+@media screen and (max-width: 1200px) {
+   .big, .h-box h1{
+     display: none;
+   }
+   .med, .h-box h2{
+     display: block;
+   }
+ }
+ @media screen and (max-width: 975px) {
+   .med, .h-box h2{
+     display: none;
+   }
+   .little, .h-box h3 {
+     display: block;
+   }
+ }
+ @media screen and (max-width: 875px) {
+   .navbar{
+     display: block;
+   }
+   .h-box{
+     text-align: center;
+   }
+ }
+ @media screen and (max-width: 540px) {
+   .h-box h3, .little{
+     display: none;
+   }
+   .tiny, .h-box h4 {
+     display: block;
+     margin-top: .5vh;
+   }
+   .link {
+     margin-right: 1vh;
+   }
+ }
+ @media screen and (max-width: 300px) {
+  .tiny {
+    font-size: smaller;
+  }
+ }
+/*
 .drop {
   color: white;
   margin-left: 99%;
 }
-
-/* Display Specifics */
 
 .small1,
 .small2,
@@ -80,9 +133,6 @@ h4 {
 .small {
   display: none;
 }
-
-/* Media Sizes */
-/* Big 2 */
 @media screen and (min-width: 800px) and (max-width: 1199px) {
   .h-box h1 {
     display: none;
@@ -128,8 +178,6 @@ h4 {
     width: 100%;
   }
 }
-
-/* Med */
 @media screen and (min-width: 625px) and (max-width: 799px) {
   .h-box h1 {
     display: none;
@@ -176,7 +224,6 @@ h4 {
   }
 }
 
-/* Small 1 */
 @media screen and (min-width: 550px) and (max-width: 624px) {
   .big1 {
     display: none;
@@ -226,7 +273,6 @@ h4 {
   }
 }
 
-/* Small 2 */
 @media screen and (min-width: 400px) and (max-width: 549px) {
   .big1 {
     display: none;
@@ -275,8 +321,6 @@ h4 {
     width: 100%;
   }
 }
-
-/* Small 3 */
 @media screen and (min-width: 325px) and (max-width: 399px) {
   .big1 {
     display: none;
@@ -325,8 +369,6 @@ h4 {
     width: 100%;
   }
 }
-
-/* Small 4 */
 @media screen and (max-width: 324px) {
   .big1 {
     display: none;
@@ -374,4 +416,4 @@ h4 {
     height: 100%;
     width: 100%;
   }
-}
+}*/

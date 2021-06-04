@@ -18,7 +18,6 @@ export default function Chart2(props) {
   const [water, setData] = useState(null);
   useEffect(() => {
     getData();
-
   }, [])
   async function getData() {
     try {
@@ -30,9 +29,9 @@ export default function Chart2(props) {
     }
   }
   var data = []
+  var dataSmall = []
   var options = []
   if (water) {
-    console.log('hello world');
     defaults.color = 'white';
     defaults.maintainAspectRatio = false;
     let backgroundColors = [
@@ -67,16 +66,20 @@ export default function Chart2(props) {
         name: water.value.timeSeries[i].sourceInfo.siteName,
         temp: water.value.timeSeries[i].values[0].value[0].value
       }
-      console.log(Gauges[i].temp);
     }
     var gaugeNames = [];
     var gaugeTemp = [];
+    var temperatureLabels = [];
+    var temperatureNumbers = [];
+    var count = 1;
 
     for (let i = 0; i < Gauges.length; i++) {
       Gauges[i].name = Gauges[i].name.replace(', OREG', '')
       Gauges[i].name = Gauges[i].name.replace(', OR', '')
       gaugeNames.push(Gauges[i].name);
       gaugeTemp.push(Gauges[i].temp);
+      temperatureLabels.push(<li>{Gauges[i].name}</li>);
+      temperatureNumbers.push(count++);
     }
     data = {
       labels: gaugeNames,
@@ -86,9 +89,17 @@ export default function Chart2(props) {
         backgroundColor: backgroundColors,
         borderColor: borderColors,
         borderWidth: 1,
-
       }],
-
+    }
+    dataSmall = {
+      labels: temperatureNumbers,
+      datasets: [{
+        label: 'Gauge Temperatures (Degrees Celsius)',
+        data: gaugeTemp,
+        backgroundColor: backgroundColors,
+        borderColor: borderColors,
+        borderWidth: 1,
+      }],
     }
     options = {
       scales: {
@@ -116,6 +127,14 @@ export default function Chart2(props) {
     <div>
       <article className="canvas-container" id="temperature">
         <Bar data={data} options={options} />
+      </article>
+      <article className="canvas-container" id="temperatureSmall">
+        <Bar data={dataSmall} options={options} />
+        <div className="labels">
+          <ol>
+            {temperatureLabels}
+          </ol>
+        </div>
       </article>
     </div>
   );

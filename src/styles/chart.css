@@ -3,11 +3,10 @@
     color: white;
     box-shadow: 1px 1px 10px black;
     text-shadow: 2px 2px 10px black;
-    transform: translateY(18vh) translateX(30vh);
+    transform: translateY(5vh) translateX(-88vw);
     margin: auto;
-    width: 170vh;
+    width: 95vw;
     height: 73vh;
-    padding: 5vh;
   }
 .chartSelect {
   background: rgba(0,100,0,.3);
@@ -17,27 +16,104 @@
 }
 
 .canvas-container {
+  padding-left: 2vw;
+  padding-bottom: 2vw;
   display: flex;
   float: left;
+  margin: auto;
 }
 #riverFlow{
-  padding-left: 2vh;
   margin-top: 5vh;
-  width: 70vh;
+  width: 40vw;
   height: 50vh;
 }
 #creekFlow{
   margin-top: 5vh;
-  width: 90vh;
+  width: 50vw;
   height: 50vh;
 }
-#temperature{
+#temperature, #onlyRiverFlow, #onlyCreekFlow{
   margin-top: 3vh;
-  width: 160vh;
+  width: 90vw;
   height: 55vh;
 }
-
+#onlyRiverFlowSmall, #onlyCreekFlowSmall{
+  margin-top: 3vh;
+  width: 90vw;
+  height: 35vh;
+  
+}
+#temperatureSmall {
+  margin-top: 3vh;
+  width: 85vw;
+  height: 30vh;
+}
+#onlyRiverFlowSmall, #onlyCreekFlowSmall, #temperatureSmall{
+  display: none;
+}
+.combined {
+  display: block;
+}
+.dischargeRadio {
+  display: none;
+}
+.labels {
+  margin: auto;
+  font-size: smaller;
+}
+/*
 .chart1, .chart2 {
-    width: 170vh;
+    width: 90vw;
     height: 70vh;
+    margin: auto;
+}*/
+@media screen and (max-width: 1300px) {
+  .dropdown-menu {
+    transform: translateY(5vh) translateX(-86vw);
+  }
+}
+@media screen and (max-width: 1000px) {
+  .dischargeRadio {
+    display: block;
+  }
+  .combined {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .dropdown-menu {
+    transform: translateY(5vh) translateX(-83vw);
+  }
+}
+@media screen and (max-width: 600px) {
+  .dropdown-menu {
+    transform: translateY(5vh) translateX(-80vw);
+  }
+}
+@media screen and (max-width: 500px) {
+  .dropdown-menu {
+    transform: translateY(5vh) translateX(-79vw);
+  }
+  #onlyCreekFlow, #onlyRiverFlow, #temperature {
+    display: none;
+  }
+  #onlyRiverFlowSmall, #onlyCreekFlowSmall, #temperatureSmall {
+    display: block;
+  }
+}
+@media screen and (max-width: 450px) {
+  .dropdown-menu {
+    transform: translateY(5vh) translateX(-76vw);
+  }
+}
+@media screen and (max-width: 410px) {
+  .dropdown-menu {
+    transform: translateY(5vh) translateX(-74vw);
+  }
+}
+@media screen and (max-width: 380px) {
+  .dropdown-menu {
+    transform: translateY(5vh) translateX(-73vw);
+  }
 }
