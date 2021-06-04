@@ -131,45 +131,16 @@ export default function Page(props) {
 
     //discharge api call
     /*
-    for (let i in gages) {
-        discharge[i] = CallApi(gages[i].daily_url);
-    }
-    if(discharge){
-        console.log(discharge);
-        console.log(discharge[0].siteName)
+    var url = 'https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites='
+    for(let i = 0; i < gauges.length; i++){
+    if(i === 0)
+      url += gauges[i].site
+    else
+      url += ",%20" + gauges[i].site
     }
     */
-    /*
-    (function(){
-        async function getDischarge(){
-          let response = await fetch(url);
-          let data = await response.json();
-          return data;
-        }
-      
-        getDischarge().then((discharge) => {
-          console.log(discharge);
-           for(let i = 0; i < 5; ++i){
-                discharge_obj[i] ={
-                    name: discharge.value.timeSeries[i].sourceInfo.siteName,
-                    site: discharge.value.timeSeries[i].sourceInfo.siteCode[0].value,
-                    lat:  discharge.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.latitude,
-                    long: discharge.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.longitude,
-                    quantity: discharge.value.timeSeries[i].values[0].value[0].value
-                };
-            }   
 
-            console.log(discharge_obj[0])
-            test_discharge = discharge_obj[0].quantity;
-            console.log(test_discharge);
-        });
-      })();
-
-      if(discharge)
-        console.log(test_discharge)
-        */
-
-    /*j
+   /*
     function LocationMarker() {
         const [position, setPosition] = useState(null)
         const map = useMapEvents({
@@ -189,6 +160,7 @@ export default function Page(props) {
         )
       }
      */
+
       //temperature api call
       const [water, setData] = useState(null);
       useEffect(() => {
@@ -216,7 +188,7 @@ export default function Page(props) {
                 temp: water.value.timeSeries[i].values[0].value[0].value
             };
         }
-        console.log(temp_obj);
+         //  console.log(temp_obj);
         BRF = [temp_obj[0].lat, temp_obj[0].long];
         BRMT = [temp_obj[1].lat, temp_obj[1].long];
         FCBT = [temp_obj[2].lat, temp_obj[2].long];
@@ -231,6 +203,7 @@ export default function Page(props) {
         BCB = [temp_obj[11].lat, temp_obj[11].long];
       }   
      
+
       //discharge api call
       const[discharge, setDischarge] = useState(null);
       useEffect(() =>{
@@ -256,56 +229,28 @@ export default function Page(props) {
                 quantity: discharge.value.timeSeries[i].values[0].value[0].value
             };
           }
-       BRB = [discharge_obj[0].lat, discharge_obj[0].long];
-       BRM = [discharge_obj[1].lat, discharge_obj[1].long];
-       FCB = [discharge_obj[2].lat, discharge_obj[2].long];
-       NFM = [discharge_obj[3].lat, discharge_obj[3].long];
-       BRL = [discharge_obj[4].lat, discharge_obj[4].long];
-       CCB = [discharge_obj[5].lat, discharge_obj[5].long];
-       LSM = [discharge_obj[6].lat, discharge_obj[6].long];
-       BRT = [discharge_obj[7].lat, discharge_obj[7].long];
-       CRV = [discharge_obj[8].lat, discharge_obj[8].long];
-       PDA = [discharge_obj[9].lat, discharge_obj[9].long];
-       FCP = [discharge_obj[10].lat, discharge_obj[10].long];
-       TCL = [discharge_obj[11].lat, discharge_obj[11].long];
-       JCR = [discharge_obj[12].lat, discharge_obj[12].long];
-       JCM = [discharge_obj[13].lat, discharge_obj[13].long];
-       WRP = [discharge_obj[14].lat, discharge_obj[14].long];
-       FCG = [discharge_obj[15].lat, discharge_obj[15].long];
-       CSP = [discharge_obj[16].lat, discharge_obj[16].long];
+         BRB = [discharge_obj[0].lat, discharge_obj[0].long];
+         BRM = [discharge_obj[1].lat, discharge_obj[1].long];
+         FCB = [discharge_obj[2].lat, discharge_obj[2].long];
+         NFM = [discharge_obj[3].lat, discharge_obj[3].long];
+         BRL = [discharge_obj[4].lat, discharge_obj[4].long];
+         CCB = [discharge_obj[5].lat, discharge_obj[5].long];
+         LSM = [discharge_obj[6].lat, discharge_obj[6].long];
+         BRT = [discharge_obj[7].lat, discharge_obj[7].long];
+         CRV = [discharge_obj[8].lat, discharge_obj[8].long];
+         PDA = [discharge_obj[9].lat, discharge_obj[9].long];
+         FCP = [discharge_obj[10].lat, discharge_obj[10].long];
+         TCL = [discharge_obj[11].lat, discharge_obj[11].long];
+         JCR = [discharge_obj[12].lat, discharge_obj[12].long];
+         JCM = [discharge_obj[13].lat, discharge_obj[13].long];
+         WRP = [discharge_obj[14].lat, discharge_obj[14].long];
+         FCG = [discharge_obj[15].lat, discharge_obj[15].long];
+         CSP = [discharge_obj[16].lat, discharge_obj[16].long];
       }
 
 
-      //dicharge api call
-      /*
-      const [discharge, SetData] = useState(null);
-      useEffect(() => {
-        getData2();
-        
-      }, [])
-      async function getData2(){
-        try {
-          const response2 = await axios.get(url2);
-          console.log(response2);
-          setData(response2.data2);
-        } catch (err) {
-          console.error(err);
-        }
-      }
-      if(discharge){
-        console.log(discharge);
-        for(let i = 0; i < 5; ++i){
-            discharge_obj[i] ={
-                name: discharge.value.timeSeries[i].sourceInfo.siteName,
-                site: discharge.value.timeSeries[i].sourceInfo.siteCode[0].value,
-                lat:  discharge.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.latitude,
-                long: discharge.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.longitude,
-                quantity: discharge.value.timeSeries[i].values[0].value[0].value
-            };
-        }
-        console.log(discharge_obj);
-    }
-    */
+
+
     //let temp_obj = [[]]
    // console.log(data.value.timeSeries[0].sourceInfo.siteName)
    /*
@@ -346,17 +291,6 @@ export default function Page(props) {
         }
     };
     getData();
-        /*
-            const PRA = [45.23317586, -122.7500933]; //= [discharge_obj[0].lat, discharge_obj[0].long]; //PUDDING RIVER AT AURORA
-            const TRL = [45.35650877, -122.6850937]; //TUALITIN RIVER NEAR WEST LINN
-            const CSC = [45.4740079, -122.6420388]; //CRYSTAL SPRINGS CREEK
-            const WRP = [45.5175, -122.6691667]; //WILLAMETTE RIVER AT PORTLAND
-            const BCB = [45.5009505, -122.852045]; //BEVERTON CREEK AT BEAVERTO
-            const TRL//= [discharge_obj[1].lat, discharge_obj[1].long]; //TUALITIN RIVER NEAR WEST LINN
-            const CSC//= [discharge_obj[2].lat, discharge_obj[2].long]; //CRYSTAL SPRINGS CREEK
-            const WRP//= [discharge_obj[3].lat, discharge_obj[3].long]; //WILLAMETTE RIVER AT PORTLAND
-            const BCB//= [discharge_obj[4].lat, discharge_obj[4].long]; //BEVERTON CREEK AT BEAVERTO
-    console.log(PRA);
     console.log(discharge_obj);
     console.log(Array.isArray(discharge_obj));
     console.log(discharge_obj[0].name);
@@ -370,7 +304,6 @@ export default function Page(props) {
     */
     //console.log(result);
     //console.log(water.value.timeSeries[0].sourceInfo.siteName);
-    const position = [startLocation.lat, startLocation.lng]
     /*
     const WRP = [discharge_obj[0].long, discharge_obj[0].lat]; //WILLAMETTE RIVER AT PORTLAND OR
     const CRV = [discharge_obj[1].long, discharge_obj[1].lat]; //COLUMBIA RIVER AT VANCOUVER WAA
@@ -378,22 +311,24 @@ export default function Page(props) {
     const CSP = [discharge_obj[3].long, discharge_obj[3].lat]; //WILLAMETTE RIVER AT PORTLAND OR
     const BCB = [discharge_obj[4].long, discharge_obj[4].lat]; //BEAVERTON CREEK AT 170TH AVE BEAVERTON OR
     const FCP = [discharge_obj[5].long, discharge_obj[5].lat]; //FANNO CREEK AT 56TH AVE, AT PORTLAND, OR
-    */
-   // const CSP = [gages[0].longitude, gages[0].latitude]; //COLUMBIA SLOUGH AT PORTLAND OR
-  //  const CRV = [gages[1].longitude, gages[1].latitude] //COLUMBIA RIVER AT VANCOUVER WAA
+    
+    const CSP = [gages[0].longitude, gages[0].latitude]; //COLUMBIA SLOUGH AT PORTLAND OR
+     const CRV = [gages[1].longitude, gages[1].latitude] //COLUMBIA RIVER AT VANCOUVER WAA
     const JCW = [gages[2].longitude, gages[2].latitude]; //JOHNSON CREEK AT MILWAUKIE OR
     //const WRP = [gages[3].longitude, gages[3].latitude] //WILLAMETTE RIVER AT PORTLAND OR
     //const TCL = [gages[4].longitude, gages[4].latitude] //TRYON CREEK NEAR LAKE OSWEGO OR
     //const FCP = [gages[5].longitude, gages[5].latitude]; //FANNO CREEK AT 56TH AVE, AT PORTLAND, OR
     //const WRP = [gages[3].longitude, gages[3].latitude] //WILLAMETTE RIVER AT PORTLAND OR
     //const BCB = [gages[4].longitude, gages[4].latitude] //BEAVERTON CREEK AT 170TH AVE BEAVERTON OR
+    */
+
+    const position = [startLocation.lat, startLocation.lng]
+
     const mapMarker = L.icon({
         iconUrl: marker,
         iconSize: [25, 25],
     })
-    //const WRPS = [discharge_obj[0].lat, discharge_obj[0].long]; //WILLAMETTE RIVER AT PORTLAND OR
-    //console.log(discharge_obj);
-    console.log(discharge_obj)
+    //console.log(discharge_obj)
     const test = [45.6391, -122.7619]
     const coodinates = [[gages[0].longitude, gages[0].latitude], [gages[1].longitude, gages[1].latitude], [gages[2].longitude, gages[2].latitude], [gages[3].longitude, gages[3].latitude], [gages[4].longitude, gages[4].latitude], [gages[5].longitude, gages[5].latitude]]
     return (
