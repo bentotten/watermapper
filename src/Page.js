@@ -260,7 +260,7 @@ export default function Page(props) {
             site: water.value.timeSeries[i].sourceInfo.siteCode[0].value,
             lat:  water.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.latitude,
             long: water.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.longitude,
-            temp: water.value.timeSeries[i].values[0].value[0].value
+            Daily Temperature Reading: water.value.timeSeries[i].values[0].value[0].value
         };
     }
     */
@@ -278,7 +278,7 @@ export default function Page(props) {
                     site: data.value.timeSeries[i].sourceInfo.siteCode[0].value,
                     lat:  data.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.latitude,
                     long: data.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.longitude,
-                    temp: data.value.timeSeries[i].values[0].value[0].value
+                    Daily Temperature Reading: data.value.timeSeries[i].values[0].value[0].value
                 };
             }
             console.log(discharge_obj[0].name);
@@ -299,7 +299,7 @@ export default function Page(props) {
         site: gage.site,
         lat: gage.lat,
         long: gage.long,
-        temp: gage.temp
+        Daily Temperature Reading: gage.temp
     }));
     */
     //console.log(result);
@@ -345,7 +345,7 @@ export default function Page(props) {
                         >
                             <Popup>
                                 <div>{discharge_obj[0] && discharge_obj[0].name}</div>
-                                <div>discharge: {discharge_obj[0] && discharge_obj[0].quantity} ft<sup>3</sup>/s</div>
+                                <div>Daily Discharge Volume: {discharge_obj[0] && discharge_obj[0].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
@@ -356,7 +356,7 @@ export default function Page(props) {
                         >
                             <Popup>
                                 <div>{discharge_obj[1] && discharge_obj[1].name}</div>
-                                <div>discharge: {discharge_obj[1] && discharge_obj[1].quantity} ft<sup>3</sup>/s</div>
+                                <div>Daily Discharge Volume: {discharge_obj[1] && discharge_obj[1].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
@@ -367,7 +367,7 @@ export default function Page(props) {
                         >
                             <Popup>
                                 <div>{discharge_obj[0] && discharge_obj[0].name}</div>
-                                <div>discharge: {discharge_obj[0] && discharge_obj[0].quantity} ft<sup>3</sup>/s</div>
+                                <div>Daily Discharge Volume: {discharge_obj[0] && discharge_obj[0].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
@@ -378,7 +378,7 @@ export default function Page(props) {
                         >
                             <Popup>
                                 <div>{discharge_obj[3] && discharge_obj[3].name}</div>
-                                <div>discharge: {discharge_obj[3] && discharge_obj[3].quantity} ft<sup>3</sup>/s</div>
+                                <div>Daily Discharge Volume: {discharge_obj[3] && discharge_obj[3].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
@@ -389,7 +389,7 @@ export default function Page(props) {
                         >
                             <Popup>
                                 <div>{discharge_obj[4] && discharge_obj[4].name}</div>
-                                <div>discharge: {discharge_obj[4] && discharge_obj[4].quantity} ft<sup>3</sup>/s</div>
+                                <div>Daily Discharge Volume: {discharge_obj[4] && discharge_obj[4].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
@@ -400,7 +400,7 @@ export default function Page(props) {
                         >
                             <Popup>
                                 <div>{discharge_obj[5] && discharge_obj[5].name}</div>
-                                <div>discharge: {discharge_obj[5] && discharge_obj[5].quantity} ft<sup>3</sup>/s</div>
+                                <div>Daily Discharge Volume: {discharge_obj[5] && discharge_obj[5].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
@@ -411,7 +411,7 @@ export default function Page(props) {
                         >
                             <Popup>
                                 <div>{discharge_obj[6] && discharge_obj[6].name}</div>
-                                <div>discharge: {discharge_obj[6] && discharge_obj[6].quantity} ft<sup>3</sup>/s</div>
+                                <div>Daily Discharge Volume: {discharge_obj[6] && discharge_obj[6].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
@@ -422,7 +422,7 @@ export default function Page(props) {
                         >
                             <Popup>
                                 <div>{discharge_obj[7] && discharge_obj[7].name}</div>
-                                <div>discharge: {discharge_obj[7] && discharge_obj[7].quantity} ft<sup>3</sup>/s</div>
+                                <div>Daily Discharge Volume: {discharge_obj[7] && discharge_obj[7].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
@@ -433,7 +433,7 @@ export default function Page(props) {
                         >
                             <Popup>
                                 <div>{discharge_obj[8] && discharge_obj[8].name}</div>
-                                <div>discharge: {discharge_obj[8] && discharge_obj[8].quantity} ft<sup>3</sup>/s</div>
+                                <div>Daily Discharge Volume: {discharge_obj[8] && discharge_obj[8].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
@@ -444,7 +444,7 @@ export default function Page(props) {
                         >
                             <Popup>
                                 <div>{discharge_obj[9] && discharge_obj[9].name}</div>
-                                <div>discharge: {discharge_obj[9] && discharge_obj[9].quantity} ft<sup>3</sup>/s</div>
+                                <div>Daily Discharge Volume: {discharge_obj[9] && discharge_obj[9].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
@@ -455,7 +455,7 @@ export default function Page(props) {
                         >
                             <Popup>
                                 <div>{discharge_obj[10] && discharge_obj[10].name}</div>
-                                <div>discharge: {discharge_obj[10] && discharge_obj[10].quantity} ft<sup>3</sup>/s</div>
+                                <div>Daily Discharge Volume: {discharge_obj[10] && discharge_obj[10].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
@@ -466,7 +466,7 @@ export default function Page(props) {
                         >
                             <Popup>
                                 <div>{discharge_obj[11] && discharge_obj[11].name}</div>
-                                <div>discharge: {discharge_obj[11] && discharge_obj[11].quantity} ft<sup>3</sup>/s</div>
+                                <div>Daily Discharge Volume: {discharge_obj[11] && discharge_obj[11].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
@@ -477,7 +477,7 @@ export default function Page(props) {
                         >
                             <Popup>
                                 <div>{discharge_obj[12] && discharge_obj[12].name}</div>
-                                <div>discharge: {discharge_obj[12] && discharge_obj[12].quantity} ft<sup>3</sup>/s</div>
+                                <div>Daily Discharge Volume: {discharge_obj[12] && discharge_obj[12].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
@@ -488,7 +488,7 @@ export default function Page(props) {
                         >
                             <Popup>
                                 <div>{discharge_obj[13] && discharge_obj[13].name}</div>
-                                <div>discharge: {discharge_obj[13] && discharge_obj[13].quantity} ft<sup>3</sup>/s</div>
+                                <div>Daily Discharge Volume: {discharge_obj[13] && discharge_obj[13].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
@@ -499,7 +499,7 @@ export default function Page(props) {
                         >
                             <Popup>
                                 <div>{discharge_obj[14] && discharge_obj[14].name}</div>
-                                <div>discharge: {discharge_obj[14] && discharge_obj[14].quantity} ft<sup>3</sup>/s</div>
+                                <div>Daily Discharge Volume: {discharge_obj[14] && discharge_obj[14].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
@@ -510,7 +510,7 @@ export default function Page(props) {
                         >
                             <Popup>
                                 <div>{discharge_obj[15] && discharge_obj[15].name}</div>
-                                <div>discharge: {discharge_obj[15] && discharge_obj[15].quantity} ft<sup>3</sup>/s</div>
+                                <div>Daily Discharge Volume: {discharge_obj[15] && discharge_obj[15].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
@@ -521,7 +521,7 @@ export default function Page(props) {
                         >
                             <Popup>
                                 <div>{discharge_obj[16] && discharge_obj[16].name}</div>
-                                <div>discharge: {discharge_obj[16] && discharge_obj[16].quantity} ft<sup>3</sup>/s</div>
+                                <div>Daily Discharge Volume: {discharge_obj[16] && discharge_obj[16].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                     </LayerGroup>
@@ -532,7 +532,7 @@ export default function Page(props) {
                             <Popup>
                                 <div><b>{temp_obj[0].name}</b></div>
                                 <div>Site: {temp_obj[0].site}</div>
-                                <div>Temp: {temp_obj[0] && temp_obj[0].temp} {'\u00B0'}C</div>
+                                <div>Daily Temperature Reading: {temp_obj[0] && temp_obj[0].temp} {'\u00B0'}C</div>
                                 <a href={add_TempURLS[2].website}>https://waterdata.usgs.gov</a>
                             </Popup>
                             <Circle
@@ -542,7 +542,7 @@ export default function Page(props) {
                             >
                                 <Popup>
                                     <div><b>{temp_obj[0].name}</b></div>
-                                    <div>Temp: {temp_obj[0].temp} {'\u00B0'}C</div>
+                                    <div>Daily Temperature Reading: {temp_obj[0].temp} {'\u00B0'}C</div>
                                 </Popup>
                             </Circle>
                         </Marker>
@@ -550,7 +550,7 @@ export default function Page(props) {
                             <Popup>
                                 <div><b>{temp_obj[1] && temp_obj[1].name}</b></div>
                                 <div>Site: {temp_obj[1] && temp_obj[1].site}</div>
-                                <div>Temp: {temp_obj[1] && temp_obj[1].temp} {'\u00B0'}C</div>
+                                <div>Daily Temperature Reading: {temp_obj[1] && temp_obj[1].temp} {'\u00B0'}C</div>
                                 <a href={add_TempURLS[3].website}>https://waterdata.usgs.gov</a>
                             </Popup>
                             <Circle
@@ -560,7 +560,7 @@ export default function Page(props) {
                             >
                                 <Popup>
                                     <div><b>{temp_obj[1] && temp_obj[1].name}</b></div>
-                                    <div>Temp: {temp_obj[1] && temp_obj[1].temp} {'\u00B0'}C</div>
+                                    <div>Daily Temperature Reading: {temp_obj[1] && temp_obj[1].temp} {'\u00B0'}C</div>
                                 </Popup>
                             </Circle>
                         </Marker>
@@ -568,7 +568,7 @@ export default function Page(props) {
                             <Popup>
                                 <div><b>{temp_obj[2] && temp_obj[2].name}</b></div>
                                 <div>Site: {temp_obj[2] && temp_obj[2].site}</div>
-                                <div>Temp: {temp_obj[2] && temp_obj[2].temp} {'\u00B0'}C</div>
+                                <div>Daily Temperature Reading: {temp_obj[2] && temp_obj[2].temp} {'\u00B0'}C</div>
 
                                 <a href={add_TempURLS[5].website}>https://waterdata.usgs.gov</a>
                             </Popup>
@@ -579,7 +579,7 @@ export default function Page(props) {
                             >
                                 <Popup>
                                     <div><b>{temp_obj[2] && temp_obj[2].name}</b></div>
-                                    <div>Temp: {temp_obj[2] && temp_obj[2].temp} {'\u00B0'}C</div>
+                                    <div>Daily Temperature Reading: {temp_obj[2] && temp_obj[2].temp} {'\u00B0'}C</div>
                                 </Popup>
                             </Circle>
                         </Marker>
@@ -587,7 +587,7 @@ export default function Page(props) {
                             <Popup>
                                 <div><b>{temp_obj[3] && temp_obj[3].name}</b></div>
                                 <div>Site: {temp_obj[3] && temp_obj[3].site}</div>
-                                <div>Temp: {temp_obj[3] && temp_obj[3].temp} {'\u00B0'}C</div>
+                                <div>Daily Temperature Reading: {temp_obj[3] && temp_obj[3].temp} {'\u00B0'}C</div>
                                 <a href={add_TempURLS[6].website}>https://waterdata.usgs.gov</a>
                             </Popup>
                             <Circle
@@ -597,7 +597,7 @@ export default function Page(props) {
                             >
                                 <Popup>
                                     <div><b>{temp_obj[3] && temp_obj[3].name}</b></div>
-                                    <div>Temp: {temp_obj[3] && temp_obj[3].temp} {'\u00B0'}C</div>
+                                    <div>Daily Temperature Reading: {temp_obj[3] && temp_obj[3].temp} {'\u00B0'}C</div>
                                 </Popup>
                             </Circle>
                         </Marker>
@@ -605,7 +605,7 @@ export default function Page(props) {
                             <Popup>
                                 <div><b>{temp_obj[4] && temp_obj[4].name}</b></div>
                                 <div>Site: {temp_obj[4] && temp_obj[4].site}</div>
-                                <div>Temp: {temp_obj[4] && temp_obj[4].temp} {'\u00B0'}C</div>
+                                <div>Daily Temperature Reading: {temp_obj[4] && temp_obj[4].temp} {'\u00B0'}C</div>
                                 <a href={add_TempURLS[0].website}>https://waterdata.usgs.gov</a>
                             </Popup>
                             <Circle
@@ -615,7 +615,7 @@ export default function Page(props) {
                             >
                                 <Popup>
                                     <div><b>{temp_obj[4] && temp_obj[4].name}</b></div>
-                                    <div>Temp: {temp_obj[4] && temp_obj[4].temp} {'\u00B0'}C</div>
+                                    <div>Daily Temperature Reading: {temp_obj[4] && temp_obj[4].temp} {'\u00B0'}C</div>
                                 </Popup>
                             </Circle>
                         </Marker>
@@ -623,7 +623,7 @@ export default function Page(props) {
                             <Popup>
                                 <div><b>{temp_obj[5] && temp_obj[5].name}</b></div>
                                 <div>Site: {temp_obj[5] && temp_obj[5].site}</div>
-                                <div>Temp: {temp_obj[5] && temp_obj[5].temp} {'\u00B0'}C</div>
+                                <div>Daily Temperature Reading: {temp_obj[5] && temp_obj[5].temp} {'\u00B0'}C</div>
                                 <a href={add_TempURLS[4].website}>https://waterdata.usgs.gov</a>
                             </Popup>
                             <Circle
@@ -633,7 +633,7 @@ export default function Page(props) {
                             >
                                 <Popup>
                                     <div><b>{temp_obj[5] && temp_obj[5].name}</b></div>
-                                    <div>Temp: {temp_obj[5] && temp_obj[5].temp} {'\u00B0'}C</div>
+                                    <div>Daily Temperature Reading: {temp_obj[5] && temp_obj[5].temp} {'\u00B0'}C</div>
                                 </Popup>
                             </Circle>
                         </Marker>
@@ -641,7 +641,7 @@ export default function Page(props) {
                             <Popup>
                                 <div><b>{temp_obj[6] && temp_obj[6].name}</b></div>
                                 <div>Site: {temp_obj[6] && temp_obj[6].site}</div>
-                                <div>Temp: {temp_obj[6] && temp_obj[6].temp} {'\u00B0'}C</div>
+                                <div>Daily Temperature Reading: {temp_obj[6] && temp_obj[6].temp} {'\u00B0'}C</div>
                                 <a href={add_TempURLS[10].website}>https://waterdata.usgs.gov</a>
                             </Popup>
                             <Circle
@@ -651,7 +651,7 @@ export default function Page(props) {
                             >
                                 <Popup>
                                     <div><b>{temp_obj[6] && temp_obj[6].name}</b></div>
-                                    <div>Temp: {temp_obj[6] && temp_obj[6].temp} {'\u00B0'}C</div>
+                                    <div>Daily Temperature Reading: {temp_obj[6] && temp_obj[6].temp} {'\u00B0'}C</div>
                                 </Popup>
                             </Circle>
                         </Marker>
@@ -659,7 +659,7 @@ export default function Page(props) {
                             <Popup>
                                 <div><b>{temp_obj[7] && temp_obj[7].name}</b></div>
                                 <div>Site: {temp_obj[7] && temp_obj[7].site}</div>
-                                <div>Temp: {temp_obj[7] && temp_obj[7].temp} {'\u00B0'}C</div>
+                                <div>Daily Temperature Reading: {temp_obj[7] && temp_obj[7].temp} {'\u00B0'}C</div>
                                 <a href={add_TempURLS[7].website}>https://waterdata.usgs.gov</a>
                             </Popup>
                             <Circle
@@ -669,7 +669,7 @@ export default function Page(props) {
                             >
                                 <Popup>
                                     <div><b>{temp_obj[7] && temp_obj[7].name}</b></div>
-                                    <div>Temp: {temp_obj[7] && temp_obj[7].temp} {'\u00B0'}C</div>
+                                    <div>Daily Temperature Reading: {temp_obj[7] && temp_obj[7].temp} {'\u00B0'}C</div>
                                 </Popup>
                             </Circle>
                         </Marker>
@@ -677,7 +677,7 @@ export default function Page(props) {
                             <Popup>
                                 <div><b>{temp_obj[8] && temp_obj[8].name}</b></div>
                                 <div>Site: {temp_obj[8] && temp_obj[8].site}</div>
-                                <div>Temp: {temp_obj[8] && temp_obj[8].temp} {'\u00B0'}C</div>
+                                <div>Daily Temperature Reading: {temp_obj[8] && temp_obj[8].temp} {'\u00B0'}C</div>
                                 <a href={add_TempURLS[10].website}>https://waterdata.usgs.gov</a>
                             </Popup>
                             <Circle
@@ -687,7 +687,7 @@ export default function Page(props) {
                             >
                                 <Popup>
                                     <div><b>{temp_obj[8] && temp_obj[8].name}</b></div>
-                                    <div>Temp: {temp_obj[8] && temp_obj[8].temp} {'\u00B0'}C</div>
+                                    <div>Daily Temperature Reading: {temp_obj[8] && temp_obj[8].temp} {'\u00B0'}C</div>
                                 </Popup>
                             </Circle>
                         </Marker>
@@ -695,7 +695,7 @@ export default function Page(props) {
                             <Popup>
                                 <div><b>{temp_obj[9] && temp_obj[9].name}</b></div>
                                 <div>Site: {temp_obj[9] && temp_obj[9].site}</div>
-                                <div>Temp: {temp_obj[9] && temp_obj[9].temp} {'\u00B0'}C</div>
+                                <div>Daily Temperature Reading: {temp_obj[9] && temp_obj[9].temp} {'\u00B0'}C</div>
                                 <a href={add_TempURLS[8].website}>https://waterdata.usgs.gov</a>
                             </Popup>
                             <Circle
@@ -705,7 +705,7 @@ export default function Page(props) {
                             >
                                 <Popup>
                                     <div><b>{temp_obj[9] && temp_obj[9].name}</b></div>
-                                    <div>Temp: {temp_obj[9] && temp_obj[9].temp} {'\u00B0'}C</div>
+                                    <div>Daily Temperature Reading: {temp_obj[9] && temp_obj[9].temp} {'\u00B0'}C</div>
                                 </Popup>
                             </Circle>
                         </Marker>
@@ -713,7 +713,7 @@ export default function Page(props) {
                             <Popup>
                                 <div><b>{temp_obj[10] && temp_obj[10].name}</b></div>
                                 <div>Site: {temp_obj[10] && temp_obj[10].site}</div>
-                                <div>Temp: {temp_obj[10] && temp_obj[10].temp} {'\u00B0'}C</div>
+                                <div>Daily Temperature Reading: {temp_obj[10] && temp_obj[10].temp} {'\u00B0'}C</div>
                                 <a href={add_TempURLS[1].website}>https://waterdata.usgs.gov</a>
                             </Popup>
                             <Circle
@@ -723,7 +723,7 @@ export default function Page(props) {
                             >
                                 <Popup>
                                     <div><b>{temp_obj[10] && temp_obj[10].name}</b></div>
-                                    <div>Temp: {temp_obj[10] && temp_obj[10].temp} {'\u00B0'}C</div>
+                                    <div>Daily Temperature Reading: {temp_obj[10] && temp_obj[10].temp} {'\u00B0'}C</div>
                                 </Popup>
                             </Circle>
                         </Marker>
@@ -731,7 +731,7 @@ export default function Page(props) {
                             <Popup>
                                 <div><b>{temp_obj[11] && temp_obj[11].name}</b></div>
                                 <div>Site: {temp_obj[11] && temp_obj[11].site}</div>
-                                <div>Temp: {temp_obj[11] && temp_obj[11].temp} {'\u00B0'}C</div>
+                                <div>Daily Temperature Reading: {temp_obj[11] && temp_obj[11].temp} {'\u00B0'}C</div>
                                 <a href={tempSiteURLS[4].website}>https://waterdata.usgs.gov</a>
                             </Popup>
                             <Circle
@@ -741,7 +741,7 @@ export default function Page(props) {
                             >
                                 <Popup>
                                     <div><b>{temp_obj[11] && temp_obj[11].name}</b></div>
-                                    <div>Temp: {temp_obj[11] && temp_obj[11].temp} {'\u00B0'}C</div>
+                                    <div>Daily Temperature Reading: {temp_obj[11] && temp_obj[11].temp} {'\u00B0'}C</div>
                                 </Popup>
                             </Circle>
                         </Marker>

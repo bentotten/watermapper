@@ -84,8 +84,8 @@ export default function Home(props) {
                                     <Popup>
                                         <div><b>{discharge.value.timeSeries[i].sourceInfo.siteName}</b></div>
                                         <div>Site: {discharge.value.timeSeries[i].sourceInfo.siteCode[0].value}</div>
-                                        <div>Daily Discharge Volume: {discharge.value.timeSeries[i].values[0].value[0].value}</div>
-                                        <div>Daily Temperature Reading: {temperature.value.timeSeries[j].values[0].value[0].value}</div>
+                                        <div>Daily Discharge Volume: {discharge.value.timeSeries[i].values[0].value[0].value}ft<sup>3</sup>/s</div>
+                                        <div>Daily Temperature Reading: {temperature.value.timeSeries[j].values[0].value[0].value}{'\u00B0'}C</div>
                                         <a href={href2}>https://waterdata.usgs.gov</a>
                                     </Popup>
                                 </Marker>);
@@ -100,7 +100,7 @@ export default function Home(props) {
                                 <Popup>
                                 <div><b>{discharge.value.timeSeries[i].sourceInfo.siteName}</b></div>
                                 <div>Site: {discharge.value.timeSeries[i].sourceInfo.siteCode[0].value}</div>
-                                <div>Daily Discharge Volume: {discharge.value.timeSeries[i].values[0].value[0].value}</div>
+                                <div>Daily Discharge Volume: {discharge.value.timeSeries[i].values[0].value[0].value}ft<sup>3</sup>/s</div>
                                 <a href={href}>https://waterdata.usgs.gov</a>
                                 </Popup>
                             </Marker>);
@@ -122,7 +122,7 @@ export default function Home(props) {
                                 <Popup>
                                     <div><b>{temperature.value.timeSeries[i].sourceInfo.siteName}</b></div>
                                     <div>Site: {temperature.value.timeSeries[i].sourceInfo.siteCode[0].value}</div>
-                                    <div>Daily Temperature Reading: {temperature.value.timeSeries[i].values[0].value[0].value}</div>
+                                    <div>Daily Temperature Reading: {temperature.value.timeSeries[i].values[0].value[0].value}{'\u00B0'}C</div>
                                     <a href={href}>https://waterdata.usgs.gov</a>
                                 </Popup>
                             </Marker>);
