@@ -170,7 +170,7 @@ export default function Page(props) {
       async function getData(){
         try {
           const response = await axios.get(url5);
-          console.log(response);
+   //       console.log(response);
           setData(response.data);
         } catch (err) {
           console.error(err);
@@ -178,7 +178,7 @@ export default function Page(props) {
       }
      
       if(water){
-        console.log(water);
+       // console.log(water);
         for(let i = 0; i < water.value.timeSeries.length; ++i){
             temp_obj[i] ={
                 name: water.value.timeSeries[i].sourceInfo.siteName,
@@ -212,14 +212,14 @@ export default function Page(props) {
       async function getDischarge(){
           try{
               const response = await axios.get(url4);
-              console.log(response);
+      //        console.log(response);
               setDischarge(response.data)
           } catch (err){
               console.log(err);
           }
       }
       if(discharge){
-          console.log(discharge);
+         // console.log(discharge);
           for(let i = 0; i < discharge.value.timeSeries.length; ++i){
             discharge_obj[i] ={
                 name: discharge.value.timeSeries[i].sourceInfo.siteName,
