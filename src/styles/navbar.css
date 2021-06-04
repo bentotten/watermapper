@@ -63,6 +63,7 @@ h5 {
   display: none;
 }
 
+
 @media screen and (max-width: 1200px) {
    .big, .h-box h1{
      display: none;
