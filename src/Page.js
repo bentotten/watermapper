@@ -12,45 +12,46 @@ import CallApi from "./Api.js"
 import add_TempURLS from './data/temp2.json'
 
 export default function Page(props) {
-    /*
-    data.value.timeSeries.forEach(element =>{
-        console.log(element)
-    })
-    */
     //gage site coordinate variables
-            let BRF = [0, 0]; //BULL RUN RIVER AT LOWER FLUME NR 
-            let BRMT = [0, 0]; //BULL RUN RIVER NEAR MULTNOMAH FALLS, OR
-            let FCBT = [0, 0]; //FIR CREEK NEAR BRIGHTWOOD, OR
-            let NFMT = [0, 0]; //NORTH FORK BULL RUN RIVER NEAR MULTNOMAH FALLS, OR
-            let CRVT = [0, 0]; //COLUMBIA RIVER AT VANCOUVER, WA
-            let PRA = [0, 0]; //PUDDING RIVER AT AURORA
-            let TRL = [0, 0]; //TUALITIN RIVER NEAR WEST LINN
-            let JCRT = [0, 0]; //JOHNSON CREEK AT REGNER ROAD, AT GRESHAM, OR
-            let CSC = [0, 0]; //CRYSTAL SPRINGS CREEK
-            let JCMT = [0, 0]; //JOHNSON CREEK AT MILWAUKIE, OR
-            let WRPT = [0, 0]; //WILLAMETTE RIVER AT PORTLAND
-            let BCB = [0, 0]; //BEVERTON CREEK AT BEAVERTON
+    //temp gage houses
 
-        //discharge gage houses
-       let BRB = [0, 0]; //BULL RUN RIVER NEAR MULTNOMAH FALLS, OR
-       let BRM = [0, 0]; //BULL RUN RIVER NEAR MULTNOMAH FALLS, OR
-       let FCB = [0, 0]; //FIR CREEK NEAR BRIGHTWOOD, OR
-       let NFM = [0, 0]; //NORTH FORK BULL RUN RIVER NEAR MULTNOMAH FALLS, OR
-       let BRL = [0, 0]; //BULL RUN RIVER BLW LAKE BEN MORROW, OREG
-       let CCB = [0, 0]; //CEDAR CREEK NEAR BRIGHTWOOD, OREG
-       let LSM = [0, 0]; //LITTLE SANDY RIVER NEAR MARMOT, OREG
-       let BRT = [0, 0]; //BEAVER CREEK AT TROUTDALE, OR
-       let CRV = [0, 0]; //COLUMBIA RIVER AT VANCOUVER, WA
-       let PDA = [0, 0]; //PUDDING RIVER AT AURORA, OR
-       let FCP = [0, 0]; //FANNO CREEK AT 56TH AVE, AT PORTLAND, OR
-       let TCL = [0, 0]; //TRYON CREEK NEAR LAKE OSWEGO, O
-       let JCR = [0, 0]; //JOHNSON CREEK AT REGNER ROAD, AT GRESHAM, OR
-       let JCM = [0, 0]; //JOHNSON CREEK AT MILWAUKIE, OR
-       let WRP = [0, 0]; //WILLAMETTE RIVER AT PORTLAND, OR
-       let FCG = [0, 0]; //FAIRVIEW CREEK AT GLISAN ST NEAR GRESHAM, OR
-       let CSP = [0, 0]; //COLUMBIA SLOUGH AT PORTLAND, OR
+    let BRF = [0, 0]; //BULL RUN RIVER AT LOWER FLUME NR 
+    let BRMT = [0, 0]; //BULL RUN RIVER NEAR MULTNOMAH FALLS, OR
+    let FCBT = [0, 0]; //FIR CREEK NEAR BRIGHTWOOD, OR
+    let NFMT = [0, 0]; //NORTH FORK BULL RUN RIVER NEAR MULTNOMAH FALLS, OR
+    let CRVT = [0, 0]; //COLUMBIA RIVER AT VANCOUVER, WA
+    let PRA = [0, 0]; //PUDDING RIVER AT AURORA
+    let TRL = [0, 0]; //TUALITIN RIVER NEAR WEST LINN
+    let JCRT = [0, 0]; //JOHNSON CREEK AT REGNER ROAD, AT GRESHAM, OR
+    let CSC = [0, 0]; //CRYSTAL SPRINGS CREEK
+    let JCMT = [0, 0]; //JOHNSON CREEK AT MILWAUKIE, OR
+    let WRPT = [0, 0]; //WILLAMETTE RIVER AT PORTLAND
+    let BCB = [0, 0]; //BEVERTON CREEK AT BEAVERTON
 
-            let obj =[{}];
+    //discharge gage houses
+
+    let BRB = [0, 0]; //BULL RUN RIVER NEAR MULTNOMAH FALLS, OR
+    let BRM = [0, 0]; //BULL RUN RIVER NEAR MULTNOMAH FALLS, OR
+    let FCB = [0, 0]; //FIR CREEK NEAR BRIGHTWOOD, OR
+    let NFM = [0, 0]; //NORTH FORK BULL RUN RIVER NEAR MULTNOMAH FALLS, OR
+    let BRL = [0, 0]; //BULL RUN RIVER BLW LAKE BEN MORROW, OREG
+    let CCB = [0, 0]; //CEDAR CREEK NEAR BRIGHTWOOD, OREG
+    let LSM = [0, 0]; //LITTLE SANDY RIVER NEAR MARMOT, OREG
+    let BRT = [0, 0]; //BEAVER CREEK AT TROUTDALE, OR
+    let CRV = [0, 0]; //COLUMBIA RIVER AT VANCOUVER, WA
+    let PDA = [0, 0]; //PUDDING RIVER AT AURORA, OR
+    let FCP = [0, 0]; //FANNO CREEK AT 56TH AVE, AT PORTLAND, OR
+    let TCL = [0, 0]; //TRYON CREEK NEAR LAKE OSWEGO, O
+    let JCR = [0, 0]; //JOHNSON CREEK AT REGNER ROAD, AT GRESHAM, OR
+    let JCM = [0, 0]; //JOHNSON CREEK AT MILWAUKIE, OR
+    let WRP = [0, 0]; //WILLAMETTE RIVER AT PORTLAND, OR
+    let FCG = [0, 0]; //FAIRVIEW CREEK AT GLISAN ST NEAR GRESHAM, OR
+    let CSP = [0, 0]; //COLUMBIA SLOUGH AT PORTLAND, OR
+
+    let discharge_obj =[{}]; //discharge gage data
+
+    let temp_obj =[{}];//temp gage data
+
     //discharge gage houses
     let url =
         "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14211820,%2014144700,%2014211315,%2014206900,%2014211550,%2014211720";
@@ -71,6 +72,8 @@ export default function Page(props) {
         lng: -122.421757,
         zoom: 11,
     }
+
+
     function colorChange(temp) {
         if (temp < 5 )
             return '#1652CB';
@@ -91,6 +94,8 @@ export default function Page(props) {
         else
             return '#E90606'
     }
+
+
     function changeRadius(discharge) {
         if(discharge >= 500000)
             return 10000;
@@ -114,6 +119,7 @@ export default function Page(props) {
             return 1000;
     }
 
+    
     function notNull(coordinate){
         while(coordinate == [0, 0]){
             if(coordinate != [0,0]){
@@ -125,45 +131,16 @@ export default function Page(props) {
 
     //discharge api call
     /*
-    for (let i in gages) {
-        discharge[i] = CallApi(gages[i].daily_url);
-    }
-    if(discharge){
-        console.log(discharge);
-        console.log(discharge[0].siteName)
+    var url = 'https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites='
+    for(let i = 0; i < gauges.length; i++){
+    if(i === 0)
+      url += gauges[i].site
+    else
+      url += ",%20" + gauges[i].site
     }
     */
-    /*
-    (function(){
-        async function getDischarge(){
-          let response = await fetch(url);
-          let data = await response.json();
-          return data;
-        }
-      
-        getDischarge().then((discharge) => {
-          console.log(discharge);
-           for(let i = 0; i < 5; ++i){
-                obj[i] ={
-                    name: discharge.value.timeSeries[i].sourceInfo.siteName,
-                    site: discharge.value.timeSeries[i].sourceInfo.siteCode[0].value,
-                    lat:  discharge.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.latitude,
-                    long: discharge.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.longitude,
-                    quantity: discharge.value.timeSeries[i].values[0].value[0].value
-                };
-            }   
 
-            console.log(obj[0])
-            test_discharge = obj[0].quantity;
-            console.log(test_discharge);
-        });
-      })();
-
-      if(discharge)
-        console.log(test_discharge)
-        */
-
-    /*j
+   /*
     function LocationMarker() {
         const [position, setPosition] = useState(null)
         const map = useMapEvents({
@@ -183,6 +160,7 @@ export default function Page(props) {
         )
       }
      */
+
       //temperature api call
       const [water, setData] = useState(null);
       useEffect(() => {
@@ -192,17 +170,17 @@ export default function Page(props) {
       async function getData(){
         try {
           const response = await axios.get(url5);
-          console.log(response);
+   //       console.log(response);
           setData(response.data);
         } catch (err) {
           console.error(err);
         }
       }
-      let obj2 =[{}];
+     
       if(water){
-        console.log(water);
+       // console.log(water);
         for(let i = 0; i < water.value.timeSeries.length; ++i){
-            obj2[i] ={
+            temp_obj[i] ={
                 name: water.value.timeSeries[i].sourceInfo.siteName,
                 site: water.value.timeSeries[i].sourceInfo.siteCode[0].value,
                 lat:  water.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.latitude,
@@ -210,21 +188,22 @@ export default function Page(props) {
                 temp: water.value.timeSeries[i].values[0].value[0].value
             };
         }
-        console.log(obj2);
-        BRF = [obj2[0].lat, obj2[0].long];
-        BRMT = [obj2[1].lat, obj2[1].long];
-        FCBT = [obj2[2].lat, obj2[2].long];
-        NFMT = [obj2[3].lat, obj2[3].long];
-        CRVT = [obj2[4].lat, obj2[4].long];
-        PRA = [obj2[5].lat, obj2[5].long];
-        TRL = [obj2[6].lat, obj2[6].long];
-        JCRT = [obj2[7].lat, obj2[7].long];
-        CSC = [obj2[8].lat, obj2[8].long];
-        JCMT = [obj2[9].lat, obj2[9].long];
-        WRPT = [obj2[10].lat, obj2[10].long];
-        BCB = [obj2[11].lat, obj2[11].long];
+         //  console.log(temp_obj);
+        BRF = [temp_obj[0].lat, temp_obj[0].long];
+        BRMT = [temp_obj[1].lat, temp_obj[1].long];
+        FCBT = [temp_obj[2].lat, temp_obj[2].long];
+        NFMT = [temp_obj[3].lat, temp_obj[3].long];
+        CRVT = [temp_obj[4].lat, temp_obj[4].long];
+        PRA = [temp_obj[5].lat, temp_obj[5].long];
+        TRL = [temp_obj[6].lat, temp_obj[6].long];
+        JCRT = [temp_obj[7].lat, temp_obj[7].long];
+        CSC = [temp_obj[8].lat, temp_obj[8].long];
+        JCMT = [temp_obj[9].lat, temp_obj[9].long];
+        WRPT = [temp_obj[10].lat, temp_obj[10].long];
+        BCB = [temp_obj[11].lat, temp_obj[11].long];
       }   
      
+
       //discharge api call
       const[discharge, setDischarge] = useState(null);
       useEffect(() =>{
@@ -233,16 +212,16 @@ export default function Page(props) {
       async function getDischarge(){
           try{
               const response = await axios.get(url4);
-              console.log(response);
+             console.log(response);
               setDischarge(response.data)
           } catch (err){
               console.log(err);
           }
       }
       if(discharge){
-          console.log(discharge);
+         // console.log(discharge);
           for(let i = 0; i < discharge.value.timeSeries.length; ++i){
-            obj[i] ={
+            discharge_obj[i] ={
                 name: discharge.value.timeSeries[i].sourceInfo.siteName,
                 site: discharge.value.timeSeries[i].sourceInfo.siteCode[0].value,
                 lat:  discharge.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.latitude,
@@ -250,61 +229,33 @@ export default function Page(props) {
                 quantity: discharge.value.timeSeries[i].values[0].value[0].value
             };
           }
-       BRB = [obj[0].lat, obj[0].long];
-       BRM = [obj[1].lat, obj[1].long];
-       FCB = [obj[2].lat, obj[2].long];
-       NFM = [obj[3].lat, obj[3].long];
-       BRL = [obj[4].lat, obj[4].long];
-       CCB = [obj[5].lat, obj[5].long];
-       LSM = [obj[6].lat, obj[6].long];
-       BRT = [obj[7].lat, obj[7].long];
-       CRV = [obj[8].lat, obj[8].long];
-       PDA = [obj[9].lat, obj[9].long];
-       FCP = [obj[10].lat, obj[10].long];
-       TCL = [obj[11].lat, obj[11].long];
-       JCR = [obj[12].lat, obj[12].long];
-       JCM = [obj[13].lat, obj[13].long];
-       WRP = [obj[14].lat, obj[14].long];
-       FCG = [obj[15].lat, obj[15].long];
-       CSP = [obj[16].lat, obj[16].long];
+         BRB = [discharge_obj[0].lat, discharge_obj[0].long];
+         BRM = [discharge_obj[1].lat, discharge_obj[1].long];
+         FCB = [discharge_obj[2].lat, discharge_obj[2].long];
+         NFM = [discharge_obj[3].lat, discharge_obj[3].long];
+         BRL = [discharge_obj[4].lat, discharge_obj[4].long];
+         CCB = [discharge_obj[5].lat, discharge_obj[5].long];
+         LSM = [discharge_obj[6].lat, discharge_obj[6].long];
+         BRT = [discharge_obj[7].lat, discharge_obj[7].long];
+         CRV = [discharge_obj[8].lat, discharge_obj[8].long];
+         PDA = [discharge_obj[9].lat, discharge_obj[9].long];
+         FCP = [discharge_obj[10].lat, discharge_obj[10].long];
+         TCL = [discharge_obj[11].lat, discharge_obj[11].long];
+         JCR = [discharge_obj[12].lat, discharge_obj[12].long];
+         JCM = [discharge_obj[13].lat, discharge_obj[13].long];
+         WRP = [discharge_obj[14].lat, discharge_obj[14].long];
+         FCG = [discharge_obj[15].lat, discharge_obj[15].long];
+         CSP = [discharge_obj[16].lat, discharge_obj[16].long];
       }
 
 
-      //dicharge api call
-      /*
-      const [discharge, SetData] = useState(null);
-      useEffect(() => {
-        getData2();
-        
-      }, [])
-      async function getData2(){
-        try {
-          const response2 = await axios.get(url2);
-          console.log(response2);
-          setData(response2.data2);
-        } catch (err) {
-          console.error(err);
-        }
-      }
-      if(discharge){
-        console.log(discharge);
-        for(let i = 0; i < 5; ++i){
-            obj[i] ={
-                name: discharge.value.timeSeries[i].sourceInfo.siteName,
-                site: discharge.value.timeSeries[i].sourceInfo.siteCode[0].value,
-                lat:  discharge.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.latitude,
-                long: discharge.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.longitude,
-                quantity: discharge.value.timeSeries[i].values[0].value[0].value
-            };
-        }
-        console.log(obj);
-    }
-    */
-    //let obj2 = [[]]
+
+
+    //let temp_obj = [[]]
    // console.log(data.value.timeSeries[0].sourceInfo.siteName)
    /*
     for(let i = 0; i < 5; ++i){
-        obj2[i] ={
+        temp_obj[i] ={
             name: water.value.timeSeries[i].sourceInfo.siteName,
             site: water.value.timeSeries[i].sourceInfo.siteCode[0].value,
             lat:  water.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.latitude,
@@ -314,15 +265,15 @@ export default function Page(props) {
     }
     */
 
-   // console.log(obj2[0].name);
+   // console.log(temp_obj[0].name);
    /*
-    let obj = [{}];
+    let discharge_obj = [{}];
     let getData = async () => {
         try {
             let response = await fetch(url2);
             let data = await response.json();
             for(let i = 0; i < 5; ++i){
-                obj[i] ={
+                discharge_obj[i] ={
                     name: data.value.timeSeries[i].sourceInfo.siteName,
                     site: data.value.timeSeries[i].sourceInfo.siteCode[0].value,
                     lat:  data.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.latitude,
@@ -330,9 +281,9 @@ export default function Page(props) {
                     temp: data.value.timeSeries[i].values[0].value[0].value
                 };
             }
-            console.log(obj[0].name);
+            console.log(discharge_obj[0].name);
             console.log(WRPS)
-            console.log(obj);
+            console.log(discharge_obj);
             setTimeout( 10000);
 
         } catch (error) {
@@ -340,21 +291,10 @@ export default function Page(props) {
         }
     };
     getData();
-        /*
-            const PRA = [45.23317586, -122.7500933]; //= [obj[0].lat, obj[0].long]; //PUDDING RIVER AT AURORA
-            const TRL = [45.35650877, -122.6850937]; //TUALITIN RIVER NEAR WEST LINN
-            const CSC = [45.4740079, -122.6420388]; //CRYSTAL SPRINGS CREEK
-            const WRP = [45.5175, -122.6691667]; //WILLAMETTE RIVER AT PORTLAND
-            const BCB = [45.5009505, -122.852045]; //BEVERTON CREEK AT BEAVERTO
-            const TRL//= [obj[1].lat, obj[1].long]; //TUALITIN RIVER NEAR WEST LINN
-            const CSC//= [obj[2].lat, obj[2].long]; //CRYSTAL SPRINGS CREEK
-            const WRP//= [obj[3].lat, obj[3].long]; //WILLAMETTE RIVER AT PORTLAND
-            const BCB//= [obj[4].lat, obj[4].long]; //BEVERTON CREEK AT BEAVERTO
-    console.log(PRA);
-    console.log(obj);
-    console.log(Array.isArray(obj));
-    console.log(obj[0].name);
-    let result = obj.map(gage =>({
+    console.log(discharge_obj);
+    console.log(Array.isArray(discharge_obj));
+    console.log(discharge_obj[0].name);
+    let result = discharge_obj.map(gage =>({
         name: gage.name,
         site: gage.site,
         lat: gage.lat,
@@ -364,30 +304,31 @@ export default function Page(props) {
     */
     //console.log(result);
     //console.log(water.value.timeSeries[0].sourceInfo.siteName);
-    const position = [startLocation.lat, startLocation.lng]
     /*
-    const WRP = [obj[0].long, obj[0].lat]; //WILLAMETTE RIVER AT PORTLAND OR
-    const CRV = [obj[1].long, obj[1].lat]; //COLUMBIA RIVER AT VANCOUVER WAA
-    const BCL = [obj[2].long, obj[2].lat]; //BRONSON CREEK AT LAIDLAW
-    const CSP = [obj[3].long, obj[3].lat]; //WILLAMETTE RIVER AT PORTLAND OR
-    const BCB = [obj[4].long, obj[4].lat]; //BEAVERTON CREEK AT 170TH AVE BEAVERTON OR
-    const FCP = [obj[5].long, obj[5].lat]; //FANNO CREEK AT 56TH AVE, AT PORTLAND, OR
-    */
-   // const CSP = [gages[0].longitude, gages[0].latitude]; //COLUMBIA SLOUGH AT PORTLAND OR
-  //  const CRV = [gages[1].longitude, gages[1].latitude] //COLUMBIA RIVER AT VANCOUVER WAA
+    const WRP = [discharge_obj[0].long, discharge_obj[0].lat]; //WILLAMETTE RIVER AT PORTLAND OR
+    const CRV = [discharge_obj[1].long, discharge_obj[1].lat]; //COLUMBIA RIVER AT VANCOUVER WAA
+    const BCL = [discharge_obj[2].long, discharge_obj[2].lat]; //BRONSON CREEK AT LAIDLAW
+    const CSP = [discharge_obj[3].long, discharge_obj[3].lat]; //WILLAMETTE RIVER AT PORTLAND OR
+    const BCB = [discharge_obj[4].long, discharge_obj[4].lat]; //BEAVERTON CREEK AT 170TH AVE BEAVERTON OR
+    const FCP = [discharge_obj[5].long, discharge_obj[5].lat]; //FANNO CREEK AT 56TH AVE, AT PORTLAND, OR
+    
+    const CSP = [gages[0].longitude, gages[0].latitude]; //COLUMBIA SLOUGH AT PORTLAND OR
+     const CRV = [gages[1].longitude, gages[1].latitude] //COLUMBIA RIVER AT VANCOUVER WAA
     const JCW = [gages[2].longitude, gages[2].latitude]; //JOHNSON CREEK AT MILWAUKIE OR
     //const WRP = [gages[3].longitude, gages[3].latitude] //WILLAMETTE RIVER AT PORTLAND OR
     //const TCL = [gages[4].longitude, gages[4].latitude] //TRYON CREEK NEAR LAKE OSWEGO OR
     //const FCP = [gages[5].longitude, gages[5].latitude]; //FANNO CREEK AT 56TH AVE, AT PORTLAND, OR
     //const WRP = [gages[3].longitude, gages[3].latitude] //WILLAMETTE RIVER AT PORTLAND OR
     //const BCB = [gages[4].longitude, gages[4].latitude] //BEAVERTON CREEK AT 170TH AVE BEAVERTON OR
+    */
+
+    const position = [startLocation.lat, startLocation.lng]
+
     const mapMarker = L.icon({
         iconUrl: marker,
         iconSize: [25, 25],
     })
-    //const WRPS = [obj[0].lat, obj[0].long]; //WILLAMETTE RIVER AT PORTLAND OR
-    //console.log(obj);
-    console.log(obj)
+    //console.log(discharge_obj)
     const test = [45.6391, -122.7619]
     const coodinates = [[gages[0].longitude, gages[0].latitude], [gages[1].longitude, gages[1].latitude], [gages[2].longitude, gages[2].latitude], [gages[3].longitude, gages[3].latitude], [gages[4].longitude, gages[4].latitude], [gages[5].longitude, gages[5].latitude]]
     return (
@@ -399,188 +340,188 @@ export default function Page(props) {
                         <Circle
                             color={'blue'}
                             center={BRB}
-                            radius={obj[0] && changeRadius(obj[0].quantity)}
+                            radius={discharge_obj[0] && changeRadius(discharge_obj[0].quantity)}
                             pathOptions={{ color: 'blue', fillColor: 'blue' }}
                         >
                             <Popup>
-                                <div>{obj[0] && obj[0].name}</div>
-                                <div>discharge: {obj[0] && obj[0].quantity}</div>
+                                <div>{discharge_obj[0] && discharge_obj[0].name}</div>
+                                <div>discharge: {discharge_obj[0] && discharge_obj[0].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
                             color={'blue'}
                             center={BRM}
-                            radius={obj[1] && changeRadius(obj[1].quantity)}
+                            radius={discharge_obj[1] && changeRadius(discharge_obj[1].quantity)}
                             pathOptions={{ color: 'blue', fillColor: 'blue' }}
                         >
                             <Popup>
-                                <div>{obj[1] && obj[1].name}</div>
-                                <div>discharge: {obj[1] && obj[1].quantity}</div>
+                                <div>{discharge_obj[1] && discharge_obj[1].name}</div>
+                                <div>discharge: {discharge_obj[1] && discharge_obj[1].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
                             color={'blue'}
                             center={FCB}
-                            radius={obj[2] && changeRadius(obj[2].quantity)}
+                            radius={discharge_obj[2] && changeRadius(discharge_obj[2].quantity)}
                             pathOptions={{ color: 'blue', fillColor: 'blue' }}
                         >
                             <Popup>
-                                <div>{obj[0] && obj[0].name}</div>
-                                <div>discharge: {obj[0] && obj[0].quantity}</div>
+                                <div>{discharge_obj[0] && discharge_obj[0].name}</div>
+                                <div>discharge: {discharge_obj[0] && discharge_obj[0].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
                             color={'blue'}
                             center={NFM}
-                            radius={obj[3] && changeRadius(obj[3].quantity)}
+                            radius={discharge_obj[3] && changeRadius(discharge_obj[3].quantity)}
                             pathOptions={{ color: 'blue', fillColor: 'blue' }}
                         >
                             <Popup>
-                                <div>{obj[3] && obj[3].name}</div>
-                                <div>discharge: {obj[3] && obj[3].quantity}</div>
+                                <div>{discharge_obj[3] && discharge_obj[3].name}</div>
+                                <div>discharge: {discharge_obj[3] && discharge_obj[3].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
                             color={'blue'}
                             center={BRL}
-                            radius={obj[4] && changeRadius(obj[4].quantity)}
+                            radius={discharge_obj[4] && changeRadius(discharge_obj[4].quantity)}
                             pathOptions={{ color: 'blue', fillColor: 'blue' }}
                         >
                             <Popup>
-                                <div>{obj[4] && obj[4].name}</div>
-                                <div>discharge: {obj[4] && obj[4].quantity}</div>
+                                <div>{discharge_obj[4] && discharge_obj[4].name}</div>
+                                <div>discharge: {discharge_obj[4] && discharge_obj[4].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
                             color={'blue'}
                             center={CCB}
-                            radius={obj[5] && changeRadius(obj[5].quantity)}
+                            radius={discharge_obj[5] && changeRadius(discharge_obj[5].quantity)}
                             pathOptions={{ color: 'blue', fillColor: 'blue' }}
                         >
                             <Popup>
-                                <div>{obj[5] && obj[5].name}</div>
-                                <div>discharge: {obj[5] && obj[5].quantity}</div>
+                                <div>{discharge_obj[5] && discharge_obj[5].name}</div>
+                                <div>discharge: {discharge_obj[5] && discharge_obj[5].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
                             color={'blue'}
                             center={LSM}
-                            radius={obj[6] && changeRadius(obj[6].quantity)}
+                            radius={discharge_obj[6] && changeRadius(discharge_obj[6].quantity)}
                             pathOptions={{ color: 'blue', fillColor: 'blue' }}
                         >
                             <Popup>
-                                <div>{obj[6] && obj[6].name}</div>
-                                <div>discharge: {obj[6] && obj[6].quantity}</div>
+                                <div>{discharge_obj[6] && discharge_obj[6].name}</div>
+                                <div>discharge: {discharge_obj[6] && discharge_obj[6].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
                             color={'blue'}
                             center={BRT}
-                            radius={obj[7] && changeRadius(obj[7].quantity)}
+                            radius={discharge_obj[7] && changeRadius(discharge_obj[7].quantity)}
                             pathOptions={{ color: 'blue', fillColor: 'blue' }}
                         >
                             <Popup>
-                                <div>{obj[7] && obj[7].name}</div>
-                                <div>discharge: {obj[7] && obj[7].quantity}</div>
+                                <div>{discharge_obj[7] && discharge_obj[7].name}</div>
+                                <div>discharge: {discharge_obj[7] && discharge_obj[7].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
                             color={'blue'}
                             center={CRV}
-                            radius={obj[8] && changeRadius(obj[8].quantity)}
+                            radius={discharge_obj[8] && changeRadius(discharge_obj[8].quantity)}
                             pathOptions={{ color: 'blue', fillColor: 'blue' }}
                         >
                             <Popup>
-                                <div>{obj[8] && obj[8].name}</div>
-                                <div>discharge: {obj[8] && obj[8].quantity}</div>
+                                <div>{discharge_obj[8] && discharge_obj[8].name}</div>
+                                <div>discharge: {discharge_obj[8] && discharge_obj[8].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
                             color={'blue'}
                             center={PDA}
-                            radius={obj[9] && changeRadius(obj[9].quantity)}
+                            radius={discharge_obj[9] && changeRadius(discharge_obj[9].quantity)}
                             pathOptions={{ color: 'blue', fillColor: 'blue' }}
                         >
                             <Popup>
-                                <div>{obj[9] && obj[9].name}</div>
-                                <div>discharge: {obj[9] && obj[9].quantity}</div>
+                                <div>{discharge_obj[9] && discharge_obj[9].name}</div>
+                                <div>discharge: {discharge_obj[9] && discharge_obj[9].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
                             color={'blue'}
                             center={FCP}
-                            radius={obj[10] && changeRadius(obj[10].quantity)}
+                            radius={discharge_obj[10] && changeRadius(discharge_obj[10].quantity)}
                             pathOptions={{ color: 'blue', fillColor: 'blue' }}
                         >
                             <Popup>
-                                <div>{obj[10] && obj[10].name}</div>
-                                <div>discharge: {obj[10] && obj[10].quantity}</div>
+                                <div>{discharge_obj[10] && discharge_obj[10].name}</div>
+                                <div>discharge: {discharge_obj[10] && discharge_obj[10].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
                             color={'blue'}
                             center={TCL}
-                            radius={obj[11] && changeRadius(obj[11].quantity)}
+                            radius={discharge_obj[11] && changeRadius(discharge_obj[11].quantity)}
                             pathOptions={{ color: 'blue', fillColor: 'blue' }}
                         >
                             <Popup>
-                                <div>{obj[11] && obj[11].name}</div>
-                                <div>discharge: {obj[11] && obj[11].quantity}</div>
+                                <div>{discharge_obj[11] && discharge_obj[11].name}</div>
+                                <div>discharge: {discharge_obj[11] && discharge_obj[11].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
                             color={'blue'}
                             center={JCR}
-                            radius={obj[12] && changeRadius(obj[12].quantity)}
+                            radius={discharge_obj[12] && changeRadius(discharge_obj[12].quantity)}
                             pathOptions={{ color: 'blue', fillColor: 'blue' }}
                         >
                             <Popup>
-                                <div>{obj[12] && obj[12].name}</div>
-                                <div>discharge: {obj[12] && obj[12].quantity}</div>
+                                <div>{discharge_obj[12] && discharge_obj[12].name}</div>
+                                <div>discharge: {discharge_obj[12] && discharge_obj[12].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
                             color={'blue'}
                             center={JCM}
-                            radius={obj[13] && changeRadius(obj[13].quantity)}
+                            radius={discharge_obj[13] && changeRadius(discharge_obj[13].quantity)}
                             pathOptions={{ color: 'blue', fillColor: 'blue' }}
                         >
                             <Popup>
-                                <div>{obj[13] && obj[13].name}</div>
-                                <div>discharge: {obj[13] && obj[13].quantity}</div>
+                                <div>{discharge_obj[13] && discharge_obj[13].name}</div>
+                                <div>discharge: {discharge_obj[13] && discharge_obj[13].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
                             color={'blue'}
                             center={WRP}
-                            radius={obj[14] && changeRadius(obj[14].quantity)}
+                            radius={discharge_obj[14] && changeRadius(discharge_obj[14].quantity)}
                             pathOptions={{ color: 'blue', fillColor: 'blue' }}
                         >
                             <Popup>
-                                <div>{obj[14] && obj[14].name}</div>
-                                <div>discharge: {obj[14] && obj[14].quantity}</div>
+                                <div>{discharge_obj[14] && discharge_obj[14].name}</div>
+                                <div>discharge: {discharge_obj[14] && discharge_obj[14].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
                             color={'blue'}
                             center={FCG}
-                            radius={obj[15] && changeRadius(obj[15].quantity)}
+                            radius={discharge_obj[15] && changeRadius(discharge_obj[15].quantity)}
                             pathOptions={{ color: 'blue', fillColor: 'blue' }}
                         >
                             <Popup>
-                                <div>{obj[15] && obj[15].name}</div>
-                                <div>discharge: {obj[15] && obj[15].quantity}</div>
+                                <div>{discharge_obj[15] && discharge_obj[15].name}</div>
+                                <div>discharge: {discharge_obj[15] && discharge_obj[15].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                         <Circle
                             color={'blue'}
                             center={CSP}
-                            radius={obj[16] && changeRadius(obj[16].quantity)}
+                            radius={discharge_obj[16] && changeRadius(discharge_obj[16].quantity)}
                             pathOptions={{ color: 'blue', fillColor: 'blue' }}
                         >
                             <Popup>
-                                <div>{obj[16] && obj[16].name}</div>
-                                <div>discharge: {obj[16] && obj[16].quantity}</div>
+                                <div>{discharge_obj[16] && discharge_obj[16].name}</div>
+                                <div>discharge: {discharge_obj[16] && discharge_obj[16].quantity} ft<sup>3</sup>/s</div>
                             </Popup>
                         </Circle>
                     </LayerGroup>
@@ -589,218 +530,218 @@ export default function Page(props) {
                     <LayerGroup>
                         <Marker position={BRF} icon={mapMarker}>
                             <Popup>
-                                <div><b>{obj2[0].name}</b></div>
-                                <div>Site: {obj2[0].site}</div>
-                                <div>Temp: {obj2[0] && obj2[0].temp}</div>
+                                <div><b>{temp_obj[0].name}</b></div>
+                                <div>Site: {temp_obj[0].site}</div>
+                                <div>Temp: {temp_obj[0] && temp_obj[0].temp} {'\u00B0'}C</div>
                                 <a href={add_TempURLS[2].website}>https://waterdata.usgs.gov</a>
                             </Popup>
                             <Circle
-                                color={colorChange(obj2[0].temp)}
+                                color={colorChange(temp_obj[0].temp)}
                                 center={BRF}
                                 radius={7000}
                             >
                                 <Popup>
-                                    <div><b>{obj2[0].name}</b></div>
-                                    <div>Temp: {obj2[0].temp} C</div>
+                                    <div><b>{temp_obj[0].name}</b></div>
+                                    <div>Temp: {temp_obj[0].temp} {'\u00B0'}C</div>
                                 </Popup>
                             </Circle>
                         </Marker>
                         <Marker position={BRMT} icon={mapMarker}>
                             <Popup>
-                                <div><b>{obj2[1] && obj2[1].name}</b></div>
-                                <div>Site: {obj2[1] && obj2[1].site}</div>
-                                <div>Temp: {obj2[1] && obj2[1].temp}</div>
+                                <div><b>{temp_obj[1] && temp_obj[1].name}</b></div>
+                                <div>Site: {temp_obj[1] && temp_obj[1].site}</div>
+                                <div>Temp: {temp_obj[1] && temp_obj[1].temp} {'\u00B0'}C</div>
                                 <a href={add_TempURLS[3].website}>https://waterdata.usgs.gov</a>
                             </Popup>
                             <Circle
-                                color={obj2[1] && colorChange(obj2[1].temp)}
+                                color={temp_obj[1] && colorChange(temp_obj[1].temp)}
                                 center={BRMT}
                                 radius={7000}
                             >
                                 <Popup>
-                                    <div><b>{obj2[1] && obj2[1].name}</b></div>
-                                    <div>Temp: {obj2[1] && obj2[1].temp} C</div>
+                                    <div><b>{temp_obj[1] && temp_obj[1].name}</b></div>
+                                    <div>Temp: {temp_obj[1] && temp_obj[1].temp} {'\u00B0'}C</div>
                                 </Popup>
                             </Circle>
                         </Marker>
                         <Marker position={FCBT} icon={mapMarker}>
                             <Popup>
-                                <div><b>{obj2[2] && obj2[2].name}</b></div>
-                                <div>Site: {obj2[2] && obj2[2].site}</div>
-                                <div>Temp: {obj2[2] && obj2[2].temp}</div>
+                                <div><b>{temp_obj[2] && temp_obj[2].name}</b></div>
+                                <div>Site: {temp_obj[2] && temp_obj[2].site}</div>
+                                <div>Temp: {temp_obj[2] && temp_obj[2].temp} {'\u00B0'}C</div>
 
                                 <a href={add_TempURLS[5].website}>https://waterdata.usgs.gov</a>
                             </Popup>
                             <Circle
-                                color={obj2[2] && colorChange(obj2[2].temp)}
+                                color={temp_obj[2] && colorChange(temp_obj[2].temp)}
                                 center={FCBT}
                                 radius={7000}
                             >
                                 <Popup>
-                                    <div><b>{obj2[2] && obj2[2].name}</b></div>
-                                    <div>Temp: {obj2[2] && obj2[2].temp} C</div>
+                                    <div><b>{temp_obj[2] && temp_obj[2].name}</b></div>
+                                    <div>Temp: {temp_obj[2] && temp_obj[2].temp} {'\u00B0'}C</div>
                                 </Popup>
                             </Circle>
                         </Marker>
                         <Marker position={NFMT} icon={mapMarker}>
                             <Popup>
-                                <div><b>{obj2[3] && obj2[3].name}</b></div>
-                                <div>Site: {obj2[3] && obj2[3].site}</div>
-                                <div>Temp: {obj2[3] && obj2[3].temp}</div>
+                                <div><b>{temp_obj[3] && temp_obj[3].name}</b></div>
+                                <div>Site: {temp_obj[3] && temp_obj[3].site}</div>
+                                <div>Temp: {temp_obj[3] && temp_obj[3].temp} {'\u00B0'}C</div>
                                 <a href={add_TempURLS[6].website}>https://waterdata.usgs.gov</a>
                             </Popup>
                             <Circle
-                                color={obj2[3] && colorChange(obj2[3].temp)}
+                                color={temp_obj[3] && colorChange(temp_obj[3].temp)}
                                 center={NFMT}
                                 radius={7000}
                             >
                                 <Popup>
-                                    <div><b>{obj2[3] && obj2[3].name}</b></div>
-                                    <div>Temp: {obj2[3] && obj2[3].temp} C</div>
+                                    <div><b>{temp_obj[3] && temp_obj[3].name}</b></div>
+                                    <div>Temp: {temp_obj[3] && temp_obj[3].temp} {'\u00B0'}C</div>
                                 </Popup>
                             </Circle>
                         </Marker>
                         <Marker position={CRVT} icon={mapMarker}>
                             <Popup>
-                                <div><b>{obj2[4] && obj2[4].name}</b></div>
-                                <div>Site: {obj2[4] && obj2[4].site}</div>
-                                <div>Temp: {obj2[4] && obj2[4].temp}</div>
+                                <div><b>{temp_obj[4] && temp_obj[4].name}</b></div>
+                                <div>Site: {temp_obj[4] && temp_obj[4].site}</div>
+                                <div>Temp: {temp_obj[4] && temp_obj[4].temp} {'\u00B0'}C</div>
                                 <a href={add_TempURLS[0].website}>https://waterdata.usgs.gov</a>
                             </Popup>
                             <Circle
-                                color={obj2[4] && colorChange(obj2[4].temp)}
+                                color={temp_obj[4] && colorChange(temp_obj[4].temp)}
                                 center={CRVT}
                                 radius={7000}
                             >
                                 <Popup>
-                                    <div><b>{obj2[4] && obj2[4].name}</b></div>
-                                    <div>Temp: {obj2[4] && obj2[4].temp} C</div>
+                                    <div><b>{temp_obj[4] && temp_obj[4].name}</b></div>
+                                    <div>Temp: {temp_obj[4] && temp_obj[4].temp} {'\u00B0'}C</div>
                                 </Popup>
                             </Circle>
                         </Marker>
                         <Marker position={PRA} icon={mapMarker}>
                             <Popup>
-                                <div><b>{obj2[5] && obj2[5].name}</b></div>
-                                <div>Site: {obj2[5] && obj2[5].site}</div>
-                                <div>Temp: {obj2[5] && obj2[5].temp}</div>
+                                <div><b>{temp_obj[5] && temp_obj[5].name}</b></div>
+                                <div>Site: {temp_obj[5] && temp_obj[5].site}</div>
+                                <div>Temp: {temp_obj[5] && temp_obj[5].temp} {'\u00B0'}C</div>
                                 <a href={add_TempURLS[4].website}>https://waterdata.usgs.gov</a>
                             </Popup>
                             <Circle
-                                color={obj2[5] && colorChange(obj2[5].temp)}
+                                color={temp_obj[5] && colorChange(temp_obj[5].temp)}
                                 center={PRA}
                                 radius={7000}
                             >
                                 <Popup>
-                                    <div><b>{obj2[5] && obj2[5].name}</b></div>
-                                    <div>Temp: {obj2[5] && obj2[5].temp} C</div>
+                                    <div><b>{temp_obj[5] && temp_obj[5].name}</b></div>
+                                    <div>Temp: {temp_obj[5] && temp_obj[5].temp} {'\u00B0'}C</div>
                                 </Popup>
                             </Circle>
                         </Marker>
                         <Marker position={TRL} icon={mapMarker}>
                             <Popup>
-                                <div><b>{obj2[6] && obj2[6].name}</b></div>
-                                <div>Site: {obj2[6] && obj2[6].site}</div>
-                                <div>Temp: {obj2[6] && obj2[6].temp}</div>
+                                <div><b>{temp_obj[6] && temp_obj[6].name}</b></div>
+                                <div>Site: {temp_obj[6] && temp_obj[6].site}</div>
+                                <div>Temp: {temp_obj[6] && temp_obj[6].temp} {'\u00B0'}C</div>
                                 <a href={add_TempURLS[10].website}>https://waterdata.usgs.gov</a>
                             </Popup>
                             <Circle
-                                color={obj2[6] && colorChange(obj2[6].temp)}
+                                color={temp_obj[6] && colorChange(temp_obj[6].temp)}
                                 center={TRL}
                                 radius={7000}
                             >
                                 <Popup>
-                                    <div><b>{obj2[6] && obj2[6].name}</b></div>
-                                    <div>Temp: {obj2[6] && obj2[6].temp} C</div>
+                                    <div><b>{temp_obj[6] && temp_obj[6].name}</b></div>
+                                    <div>Temp: {temp_obj[6] && temp_obj[6].temp} {'\u00B0'}C</div>
                                 </Popup>
                             </Circle>
                         </Marker>
                         <Marker position={JCRT} icon={mapMarker}>
                             <Popup>
-                                <div><b>{obj2[7] && obj2[7].name}</b></div>
-                                <div>Site: {obj2[7] && obj2[7].site}</div>
-                                <div>Temp: {obj2[7] && obj2[7].temp}</div>
+                                <div><b>{temp_obj[7] && temp_obj[7].name}</b></div>
+                                <div>Site: {temp_obj[7] && temp_obj[7].site}</div>
+                                <div>Temp: {temp_obj[7] && temp_obj[7].temp} {'\u00B0'}C</div>
                                 <a href={add_TempURLS[7].website}>https://waterdata.usgs.gov</a>
                             </Popup>
                             <Circle
-                                color={obj2[7] && colorChange(obj2[7].temp)}
+                                color={temp_obj[7] && colorChange(temp_obj[7].temp)}
                                 center={JCRT}
                                 radius={7000}
                             >
                                 <Popup>
-                                    <div><b>{obj2[7] && obj2[7].name}</b></div>
-                                    <div>Temp: {obj2[7] && obj2[7].temp} C</div>
+                                    <div><b>{temp_obj[7] && temp_obj[7].name}</b></div>
+                                    <div>Temp: {temp_obj[7] && temp_obj[7].temp} {'\u00B0'}C</div>
                                 </Popup>
                             </Circle>
                         </Marker>
                         <Marker position={CSC} icon={mapMarker}>
                             <Popup>
-                                <div><b>{obj2[8] && obj2[8].name}</b></div>
-                                <div>Site: {obj2[8] && obj2[8].site}</div>
-                                <div>Temp: {obj2[8] && obj2[8].temp}</div>
+                                <div><b>{temp_obj[8] && temp_obj[8].name}</b></div>
+                                <div>Site: {temp_obj[8] && temp_obj[8].site}</div>
+                                <div>Temp: {temp_obj[8] && temp_obj[8].temp} {'\u00B0'}C</div>
                                 <a href={add_TempURLS[10].website}>https://waterdata.usgs.gov</a>
                             </Popup>
                             <Circle
-                                color={obj2[8] && colorChange(obj2[8].temp)}
+                                color={temp_obj[8] && colorChange(temp_obj[8].temp)}
                                 center={CSC}
                                 radius={7000}
                             >
                                 <Popup>
-                                    <div><b>{obj2[8] && obj2[8].name}</b></div>
-                                    <div>Temp: {obj2[8] && obj2[8].temp} C</div>
+                                    <div><b>{temp_obj[8] && temp_obj[8].name}</b></div>
+                                    <div>Temp: {temp_obj[8] && temp_obj[8].temp} {'\u00B0'}C</div>
                                 </Popup>
                             </Circle>
                         </Marker>
                         <Marker position={JCMT} icon={mapMarker}>
                             <Popup>
-                                <div><b>{obj2[9] && obj2[9].name}</b></div>
-                                <div>Site: {obj2[9] && obj2[9].site}</div>
-                                <div>Temp: {obj2[9] && obj2[9].temp}</div>
+                                <div><b>{temp_obj[9] && temp_obj[9].name}</b></div>
+                                <div>Site: {temp_obj[9] && temp_obj[9].site}</div>
+                                <div>Temp: {temp_obj[9] && temp_obj[9].temp} {'\u00B0'}C</div>
                                 <a href={add_TempURLS[8].website}>https://waterdata.usgs.gov</a>
                             </Popup>
                             <Circle
-                                color={obj2[9] && colorChange(obj2[9].temp)}
+                                color={temp_obj[9] && colorChange(temp_obj[9].temp)}
                                 center={JCMT}
                                 radius={7000}
                             >
                                 <Popup>
-                                    <div><b>{obj2[9] && obj2[9].name}</b></div>
-                                    <div>Temp: {obj2[9] && obj2[9].temp} C</div>
+                                    <div><b>{temp_obj[9] && temp_obj[9].name}</b></div>
+                                    <div>Temp: {temp_obj[9] && temp_obj[9].temp} {'\u00B0'}C</div>
                                 </Popup>
                             </Circle>
                         </Marker>
                         <Marker position={WRPT} icon={mapMarker}>
                             <Popup>
-                                <div><b>{obj2[10] && obj2[10].name}</b></div>
-                                <div>Site: {obj2[10] && obj2[10].site}</div>
-                                <div>Temp: {obj2[10] && obj2[10].temp}</div>
+                                <div><b>{temp_obj[10] && temp_obj[10].name}</b></div>
+                                <div>Site: {temp_obj[10] && temp_obj[10].site}</div>
+                                <div>Temp: {temp_obj[10] && temp_obj[10].temp} {'\u00B0'}C</div>
                                 <a href={add_TempURLS[1].website}>https://waterdata.usgs.gov</a>
                             </Popup>
                             <Circle
-                                color={obj2[10] && colorChange(obj2[10].temp)}
+                                color={temp_obj[10] && colorChange(temp_obj[10].temp)}
                                 center={WRPT}
                                 radius={7000}
                             >
                                 <Popup>
-                                    <div><b>{obj2[10] && obj2[10].name}</b></div>
-                                    <div>Temp: {obj2[10] && obj2[10].temp} C</div>
+                                    <div><b>{temp_obj[10] && temp_obj[10].name}</b></div>
+                                    <div>Temp: {temp_obj[10] && temp_obj[10].temp} {'\u00B0'}C</div>
                                 </Popup>
                             </Circle>
                         </Marker>
                         <Marker position={BCB} icon={mapMarker}>
                             <Popup>
-                                <div><b>{obj2[11] && obj2[11].name}</b></div>
-                                <div>Site: {obj2[11] && obj2[11].site}</div>
-                                <div>Temp: {obj2[11] && obj2[11].temp}</div>
+                                <div><b>{temp_obj[11] && temp_obj[11].name}</b></div>
+                                <div>Site: {temp_obj[11] && temp_obj[11].site}</div>
+                                <div>Temp: {temp_obj[11] && temp_obj[11].temp} {'\u00B0'}C</div>
                                 <a href={tempSiteURLS[4].website}>https://waterdata.usgs.gov</a>
                             </Popup>
                             <Circle
-                                color={obj2[11] && colorChange(obj2[11].temp)}
+                                color={temp_obj[11] && colorChange(temp_obj[11].temp)}
                                 center={BCB}
                                 radius={7000}
                             >
                                 <Popup>
-                                    <div><b>{obj2[11] && obj2[11].name}</b></div>
-                                    <div>Temp: {obj2[11] && obj2[11].temp} C</div>
+                                    <div><b>{temp_obj[11] && temp_obj[11].name}</b></div>
+                                    <div>Temp: {temp_obj[11] && temp_obj[11].temp} {'\u00B0'}C</div>
                                 </Popup>
                             </Circle>
                         </Marker>
