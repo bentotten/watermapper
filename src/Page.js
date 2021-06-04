@@ -241,7 +241,7 @@ export default function Page(props) {
       }
       if(discharge){
           console.log(discharge);
-          for(let i = 0; i < 17; ++i){
+          for(let i = 0; i < 6; ++i){
             obj[i] ={
                 name: discharge.value.timeSeries[i].sourceInfo.siteName,
                 site: discharge.value.timeSeries[i].sourceInfo.siteCode[0].value,
