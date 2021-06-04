@@ -32,7 +32,6 @@ export default function Chart2(props) {
   var dataSmall = []
   var options = []
   if (water) {
-    console.log('hello world');
     defaults.color = 'white';
     defaults.maintainAspectRatio = false;
     let backgroundColors = [
@@ -67,7 +66,6 @@ export default function Chart2(props) {
         name: water.value.timeSeries[i].sourceInfo.siteName,
         temp: water.value.timeSeries[i].values[0].value[0].value
       }
-      console.log(Gauges[i].temp);
     }
     var gaugeNames = [];
     var gaugeTemp = [];

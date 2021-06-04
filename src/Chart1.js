@@ -40,7 +40,6 @@ export default function Chart1(props) {
   var riverDataSmall = []
   var creekDataSmall = []
   if(water){
-    console.log('hello world');
     defaults.color = 'white';
     defaults.maintainAspectRatio = false;
     let backgroundColors = [
@@ -75,7 +74,6 @@ export default function Chart1(props) {
         name: water.value.timeSeries[i].sourceInfo.siteName,
         discharge: water.value.timeSeries[i].values[0].value[0].value
       }
-      console.log(Gauges[i].temp);
     }
     var riverNames = [];
     var creekNames = [];
@@ -90,12 +88,9 @@ export default function Chart1(props) {
     
     
     for(let i = 0; i < Gauges.length; i++){
-      //var longName = 0
       Gauges[i].name = Gauges[i].name.replace(', OREG', '')
       Gauges[i].name = Gauges[i].name.replace(', OR', '')
       if(Gauges[i].name.includes('RIVER') || Gauges[i].name.includes('SLOUGH')){
-        //if(Gauges[i].name === 'NORTH FORK BULL RUN RIVER NEAR MULTNOMAH FALLS')
-          //longName = i;
         riverNames.push(Gauges[i].name)
         riverDischarge.push(Gauges[i].discharge)
         riverLabels.push(<li>{Gauges[i].name}</li>)
@@ -108,9 +103,6 @@ export default function Chart1(props) {
         creekNumbers.push(creekCount++)
       }
     }
-
-    //riverNames.push(Gauges[longName].name)
-    //riverDischarge.push(Gauges[longName].name)
 
     riverData =  {
       labels: riverNames,
