@@ -24,12 +24,12 @@
 }
 #riverFlow{
   margin-top: 5vh;
-  width: 40vw;
+  width: 45vw;
   height: 50vh;
 }
 #creekFlow{
   margin-top: 5vh;
-  width: 50vw;
+  width: 45vw;
   height: 50vh;
 }
 #temperature, #onlyRiverFlow, #onlyCreekFlow{
