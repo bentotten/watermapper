@@ -106,5 +106,104 @@
         "longitude": "45.40150659",
         "latitude": "-122.8951003",
         "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14206694 "
+      },
+      {
+        "site": 14207770 ,
+        "name": "WILLAMETTE RIVER BELOW FALLS, AT OREGON CITY, OR",
+        "type": "Stream",
+        "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14207770 ",
+        "longitude": "45.35762066",
+        "latitude": "-122.610925",
+        "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14207770 "
+      },
+      {
+        "site": 14197900 ,
+        "name": "WILLAMETTE RIVER AT NEWBERG, OR",
+        "type": "Stream",
+        "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14197900 ",
+        "longitude": "45.2845625",
+        "latitude": "-122.9614893",
+        "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14197900 "
+      },
+      {
+        "site": 14191000 ,
+        "name": "WILLAMETTE RIVER AT SALEM, OR",
+        "type": "Stream",
+        "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14191000 ",
+        "longitude": "44.9442863",
+        "latitude": "-123.0428742",
+        "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14191000 "
+      },
+      {
+        "site": 14087380 ,
+        "name": "CROOKED RIVER BLW OSBORNE CANYON, NR OPAL CITY, OR",
+        "type": "Stream",
+        "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14087380 ",
+        "longitude": "44.4268972",
+        "latitude": "-121.2328728",
+        "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14087380 "
+      },
+      {
+        "site": 14048000 ,
+        "name": "JOHN DAY RIVER AT MCDONALD FERRY, OR",
+        "type": "Stream",
+        "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14048000 ",
+        "longitude": "45.5876278",
+        "latitude": "-120.4094919",
+        "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14048000 "
+      },
+      {
+        "site": 14200000 ,
+        "name": "MOLALLA RIVER NEAR CANBY, OR",
+        "type": "Stream",
+        "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14200000 ",
+        "longitude": "45.24428767",
+        "latitude": "-122.687314",
+        "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14200000 "
+      },
+      {
+        "site": 14194150 ,
+        "name": "SOUTH YAMHILL RIVER AT MCMINNVILLE, OR",
+        "type": "Stream",
+        "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14194150 ",
+        "longitude": "45.2069444",
+        "latitude": "-123.1816667",
+        "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14194150 "
+      },
+      {
+        "site": 14189050 ,
+        "name": "SANTIAM RIVER NEAR JEFFERSON, OR",
+        "type": "Stream",
+        "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14189050 ",
+        "longitude": "44.7387325",
+        "latitude": "-123.0498164",
+        "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14189050 "
+      },
+      {
+        "site": 14170000 ,
+        "name": "LONG TOM RIVER AT MONROE, OR",
+        "type": "Stream",
+        "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14170000 ",
+        "longitude": "44.31290047",
+        "latitude": "-123.2964859",
+        "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14170000 "
+      },
+      {
+        "site": 14166000 ,
+        "name": "WILLAMETTE RIVER AT HARRISBURG, OR",
+        "type": "Stream",
+        "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14166000 ",
+        "longitude": "44.27040126",
+        "latitude": "-123.1737036",
+        "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14166000 "
+      },
+      {
+        "site": 14158100 ,
+        "name": "WILLAMETTE RIVER AT HARRISBURG, OR",
+        "type": "Stream",
+        "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14158100 ",
+        "longitude": "44.09166667",
+        "latitude": "-123.116111",
+        "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14158100 "
       }
 ]
