@@ -60,6 +60,7 @@
 .labels {
   margin: auto;
   font-size: smaller;
+  margin-top: 2vh;
 }
 /*
 .chart1, .chart2 {

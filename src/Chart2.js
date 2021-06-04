@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from 'axios';
 import { Bar, defaults } from 'react-chartjs-2';
 import './styles/chart.css'
-import gauges from './data/sites.json'
+import gauges from './data/temp2.json'
 
 
 
