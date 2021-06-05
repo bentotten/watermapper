@@ -10,13 +10,13 @@ import Page from './Page.js';
 import Chart1 from './Chart1.js';
 import Chart2 from './Chart2.js';
 import React from 'react';
-//import Test from './Test.js';
-//import 'bootstrap/dist/css/bootstrap.css';
-//import marker from './img/map-marker.png'
-//import L, { layerGroup } from 'leaflet'
-//import marker from './img/map-marker.png'
-//import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
-//import gages from './data/sites.json'
+import Test from './Test.js';
+import 'bootstrap/dist/css/bootstrap.css';
+import marker from './img/map-marker.png'
+import L, { layerGroup } from 'leaflet'
+import marker from './img/map-marker.png'
+import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
+import gages from './data/sites.json'
 
 
 export default function Routing(props) {
@@ -157,7 +157,7 @@ export default function Routing(props) {
                     <ZoomControl id="zoom" position="bottomleft" />
                     <TileLayer
                         attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
-                        url="https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}.jpg?key=a25BWEXwxHphmT537wWB"
+                        url="https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}.jpg?key=uRRgRvCkCHUE4b1kpMfw"
                     />
 
                     <Switch>
