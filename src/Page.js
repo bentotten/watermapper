@@ -212,7 +212,7 @@ export default function Page(props) {
       async function getDischarge(){
           try{
               const response = await axios.get(url4);
-             console.log(response);
+            // console.log(response);
               setDischarge(response.data)
           } catch (err){
               console.log(err);
