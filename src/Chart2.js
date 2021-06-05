@@ -7,27 +7,35 @@ import gauges from './data/temp2.json'
 
 
 export default function Chart2(props) {
-    
-  var url = 'https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites='
-  for(let i = 0; i < gauges.length; i++){
-    if(i === 0)
-      url += gauges[i].site
-    else
-      url += ",%20" + gauges[i].site
-  }
+  
   const [water, setData] = useState(null);
   useEffect(() => {
-    getData();
-  }, [])
-  async function getData() {
-    try {
-      const response = await axios.get(url);
-      console.log(response.data);
-      setData(response.data);
-    } catch (err) {
-      console.error(err);
+
+    function getUrl(){
+      var url = 'https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites='
+      for(let i = 0; i < gauges.length; i++){
+        if(i === 0)
+          url += gauges[i].site
+        else
+          url += ",%20" + gauges[i].site
+      }
+      return url
     }
-  }
+
+    async function getData() {
+      try {
+        const response = await axios.get(getUrl());
+        console.log(response.data);
+        setData(response.data);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    getData();
+    
+  }, [])
+  
   var data = []
   var dataSmall = []
   var options = []

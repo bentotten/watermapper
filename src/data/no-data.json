@@ -1,14 +1,5 @@
 [
     {
-        "site": 453004122510301,
-        "name": "BEAVERTON CREEK AT 170TH AVE, BEAVERTON, OR",
-        "type": "Stream",
-        "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=453004122510301",
-        "longitude": "45.5009505",
-        "latitude": "-122.852045",
-        "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=453004122510301"
-    },
-    {
         "site": 14128860,
         "name": "COLUMBIA RIVER AT BONNEVILLE DAM,OR",
         "type": "Stream",
@@ -16,24 +7,6 @@
         "longitude": "45.6378949",
         "latitude": "-121.947026",
         "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14128860"
-    },
-    {
-        "site": 14128870,
-        "name": "COLUMBIA RIVER BELOW BONNEVILLE DAM, OR",
-        "type": "Stream",
-        "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14128870",
-        "longitude": "45.63305556",
-        "latitude": "-121.9608333",
-        "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14128870"
-    },
-    {
-        "site": 14128910,
-        "name": "COLUMBIA RIVER AT WARRENDALE, OR",
-        "type": "Stream",
-        "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14128910",
-        "longitude": "45.6123396",
-        "latitude": "-122.0275838",
-        "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14128910"
     },
       {
         "site": 14128950,
@@ -79,14 +52,5 @@
         "longitude": "45.47745556",
         "latitude": "-122.5080194",
         "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=114211500"
-      },
-      {
-        "site": 14211546,
-        "name": "CRYSTAL SPRINGS CREEK AT MOUTH AT PORTLAND, OR",
-        "type": "Stream",
-        "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14211546",
-        "longitude": "45.4606747",
-        "latitude": "-122.642872",
-        "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14211546"
       }
 ]

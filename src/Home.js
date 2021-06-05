@@ -27,50 +27,57 @@ export default function Home(props) {
     // Data from sites.json
     //const coodinates = [[gages[0].longitude, gages[0].latitude], [gages[1].longitude, gages[1].latitude], [gages[2].longitude, gages[2].latitude], [gages[3].longitude, gages[3].latitude], [gages[4].longitude, gages[4].latitude], [gages[5].longitude, gages[5].latitude]]
     //const coordinates = [[]]
-
-    var url1 = 'https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites='
-    for(let i = 0; i < gauges.length; i++){
-        if(i === 0)
-            url1 += gauges[i].site
-        else
-            url1 += ",%20" + gauges[i].site
+    function getUrl1(){
+        var url1 = 'https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites='
+        for(let i = 0; i < gauges.length; i++){
+            if(i === 0)
+                url1 += gauges[i].site
+            else
+                url1 += ",%20" + gauges[i].site
+        }
+        return url1
     }
 
     const [discharge, setDischargeData] = useState(null);
     useEffect(() => {
+        async function getDischargeData(){
+            try {
+            const response = await axios.get(getUrl1());
+            console.log(response.data);
+            setDischargeData(response.data);
+            } catch (err) {
+            console.error(err);
+            }
+        }
         getDischargeData();
         
-    },[])
-    async function getDischargeData(){
-        try {
-        const response = await axios.get(url1);
-        console.log(response.data);
-        setDischargeData(response.data);
-        } catch (err) {
-        console.error(err);
+    },[discharge])
+    
+    function getUrl2(){
+        var url2 = 'https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites='
+        for(let i = 0; i < temperatures.length; i++){
+            if(i === 0)
+            url2 += temperatures[i].site
+            else
+            url2 += ",%20" + temperatures[i].site
         }
-    }
-
-    var url2 = 'https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites='
-    for(let i = 0; i < temperatures.length; i++){
-        if(i === 0)
-        url2 += temperatures[i].site
-        else
-        url2 += ",%20" + temperatures[i].site
+        return url2
     }
     const [temperature, setTemperatureData] = useState(null);
+    
     useEffect(() => {
-        getTemperatureData();
-    }, [])
-    async function getTemperatureData() {
-        try {
-        const response = await axios.get(url2);
-        console.log(response.data);
-        setTemperatureData(response.data);
-        } catch (err) {
-        console.error(err);
+        async function getTemperatureData() {
+            try {
+            const response = await axios.get(getUrl2());
+            console.log(response.data);
+            setTemperatureData(response.data);
+            } catch (err) {
+            console.error(err);
+            }
         }
-    }
+        getTemperatureData();
+    }, [temperature])
+    
     const items = []
     if(discharge && temperature){
         var hasBoth = false;

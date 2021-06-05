@@ -8,31 +8,37 @@ import gauges from './data/sites.json'
 
 
 export default function Chart1(props) {
-    
-  var url = 'https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites='
-  for(let i = 0; i < gauges.length; i++){
-    if(gauges[i].site !== 14144700 && gauges[i].site !== 14211720){
-      if(i === 0)
-        url += gauges[i].site
-      else
-        url += ",%20" + gauges[i].site 
-    }
-  }
 
   const [water, setData] = useState(null);
   useEffect(() => {
+
+    function getUrl(){
+      var url = 'https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites='
+      for(let i = 0; i < gauges.length; i++){
+        if(gauges[i].site !== 14144700 && gauges[i].site !== 14211720){
+          if(i === 0)
+            url += gauges[i].site
+          else
+            url += ",%20" + gauges[i].site 
+        }
+      }
+      return url
+    }
+
+    async function getData(){
+      try {
+        const response = await axios.get(getUrl());
+        console.log(response.data);
+        setData(response.data);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
     getData();
     
   },[])
-  async function getData(){
-    try {
-      const response = await axios.get(url);
-      console.log(response.data);
-      setData(response.data);
-    } catch (err) {
-      console.error(err);
-    }
-  }
+  
   
   var riverData = []
   var options = []

@@ -107,8 +107,34 @@
 		"longitude": "45.4740079",
 		"latitude": "-122.6420388",
 		"daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14211542"
-	}
-  
+	},
+  {
+    "site": 14211546,
+    "name": "CRYSTAL SPRINGS CREEK AT MOUTH AT PORTLAND, OR",
+    "type": "Stream",
+    "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14211546",
+    "longitude": "45.4606747",
+    "latitude": "-122.642872",
+    "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14211546"
+  },
+  {
+      "site": 14128910,
+      "name": "COLUMBIA RIVER AT WARRENDALE, OR",
+      "type": "Stream",
+      "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=14128910",
+      "longitude": "45.6123396",
+      "latitude": "-122.0275838",
+      "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14128910"
+  },
+  {
+    "site": 453004122510301,
+    "name": "BEAVERTON CREEK AT 170TH AVE, BEAVERTON, OR",
+    "type": "Stream",
+    "website": "https://waterdata.usgs.gov/nwis/dv?referred_module=sw&agency_code=USGS&site_no=453004122510301",
+    "longitude": "45.5009505",
+    "latitude": "-122.852045",
+    "daily_url": "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=453004122510301"
+}
   
   
 ]
