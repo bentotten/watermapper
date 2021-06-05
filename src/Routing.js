@@ -10,13 +10,13 @@ import Page from './Page.js';
 import Chart1 from './Chart1.js';
 import Chart2 from './Chart2.js';
 import React from 'react';
-import Test from './Test.js';
-import 'bootstrap/dist/css/bootstrap.css';
-import marker from './img/map-marker.png'
-import L, { layerGroup } from 'leaflet'
-import marker from './img/map-marker.png'
-import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
-import gages from './data/sites.json'
+//import Test from './Test.js';
+//import 'bootstrap/dist/css/bootstrap.css';
+//import marker from './img/map-marker.png'
+//import L, { layerGroup } from 'leaflet'
+//import marker from './img/map-marker.png'
+//import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
+//import gages from './data/sites.json'
 
 
 export default function Routing(props) {
