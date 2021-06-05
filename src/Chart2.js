@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import { Bar, defaults } from 'react-chartjs-2';
+import {ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
 import './styles/chart.css'
 import gauges from './data/temp2.json'
 
@@ -37,7 +38,10 @@ export default function Chart2(props) {
   }, [])
   
   var data = []
-  var dataSmall = []
+  var riverData = []
+  var creekData = []
+  var riverDataSmall = []
+  var creekDataSmall = []
   var options = []
   if (water) {
     defaults.color = 'white';
@@ -77,17 +81,34 @@ export default function Chart2(props) {
     }
     var gaugeNames = [];
     var gaugeTemp = [];
-    var temperatureLabels = [];
-    var temperatureNumbers = [];
-    var count = 1;
+    var riverNames = [];
+    var creekNames = [];
+    var riverTemp = [];
+    var creekTemp = [];
+    var riverNumbers = [];
+    var creekNumbers = [];
+    var riverLabels = [];
+    var creekLabels = [];
+    var riverCount = 1;
+    var creekCount = 1;
 
     for (let i = 0; i < Gauges.length; i++) {
       Gauges[i].name = Gauges[i].name.replace(', OREG', '')
       Gauges[i].name = Gauges[i].name.replace(', OR', '')
+      if(Gauges[i].name.includes('RIVER') || Gauges[i].name.includes('SLOUGH')){
+        riverNames.push(Gauges[i].name)
+        riverTemp.push(Gauges[i].temp)
+        riverLabels.push(<li>{Gauges[i].name}</li>)
+        riverNumbers.push(riverCount++)
+      }
+      else{
+        creekNames.push(Gauges[i].name)
+        creekTemp.push(Gauges[i].temp)
+        creekLabels.push(<li>{Gauges[i].name}</li>)
+        creekNumbers.push(creekCount++)
+      }
       gaugeNames.push(Gauges[i].name);
       gaugeTemp.push(Gauges[i].temp);
-      temperatureLabels.push(<li>{Gauges[i].name}</li>);
-      temperatureNumbers.push(count++);
     }
     data = {
       labels: gaugeNames,
@@ -99,11 +120,41 @@ export default function Chart2(props) {
         borderWidth: 1,
       }],
     }
-    dataSmall = {
-      labels: temperatureNumbers,
+    riverData = {
+      labels: riverNames,
       datasets: [{
         label: 'Gauge Temperatures (Degrees Celsius)',
-        data: gaugeTemp,
+        data: riverTemp,
+        backgroundColor: backgroundColors,
+        borderColor: borderColors,
+        borderWidth: 1,
+      }],
+    }
+    creekData = {
+      labels: creekNames,
+      datasets: [{
+        label: 'Gauge Temperatures (Degrees Celsius)',
+        data: creekTemp,
+        backgroundColor: backgroundColors,
+        borderColor: borderColors,
+        borderWidth: 1,
+      }],
+    }
+    riverDataSmall = {
+      labels: riverNumbers,
+      datasets: [{
+        label: 'Gauge Temperatures (Degrees Celsius)',
+        data: riverTemp,
+        backgroundColor: backgroundColors,
+        borderColor: borderColors,
+        borderWidth: 1,
+      }],
+    }
+    creekDataSmall = {
+      labels: creekNumbers,
+      datasets: [{
+        label: 'Gauge Temperatures (Degrees Celsius)',
+        data: creekTemp,
         backgroundColor: backgroundColors,
         borderColor: borderColors,
         borderWidth: 1,
@@ -130,20 +181,48 @@ export default function Chart2(props) {
     }
 
   }
-  return (
-
+  const [displayRiver, setRiver] = useState(true);
+  const [displayCreek, setCreek] = useState(false);
+  return(
+    
     <div>
-      <article className="canvas-container" id="temperature">
-        <Bar data={data} options={options} />
-      </article>
-      <article className="canvas-container" id="temperatureSmall">
-        <Bar data={dataSmall} options={options} />
-        <div className="labels">
-          <ol>
-            {temperatureLabels}
-          </ol>
+      <div className="temperatureRadio">
+        <ToggleButtonGroup className="temperature" type="radio" name="options2" defaultValue={1}>
+            <ToggleButton className="chartSelect" value={1} onClick={() => {setRiver(true); setCreek(false);}}>Rivers</ToggleButton>
+            <ToggleButton className="chartSelect" value={2} onClick={() => {setRiver(false); setCreek(true);}}>Creeks</ToggleButton>
+        </ToggleButtonGroup>
+        <div className="river" style={{display: displayRiver ? 'block': 'none'}}>
+          <article className="canvas-container" id="onlyRiverTemp">
+            <Bar data={riverData} options={options} />
+          </article>
+          <article className="canvas-container" id="onlyRiverTempSmall">
+            <Bar data={riverDataSmall} options={options} />
+            <div className="labels">
+              <ol> 
+                {riverLabels}
+              </ol>
+            </div>
+          </article>
         </div>
-      </article>
+        <div className="creek" style={{display: displayCreek ? 'block': 'none'}}>
+          <article className="canvas-container" id="onlyCreekTemp">
+            <Bar data={creekData} options={options} />
+          </article>
+          <article className="canvas-container" id="onlyCreekTempSmall">
+            <Bar data={creekDataSmall} options={options} />
+            <div className='labels'>
+              <ol>
+                {creekLabels}
+              </ol>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div className="combined">
+        <article className="canvas-container" id="combinedTemp">
+          <Bar data={data} options={options} />
+        </article>
+      </div>
     </div>
   );
 }

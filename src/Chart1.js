@@ -36,15 +36,15 @@ export default function Chart1(props) {
     }
 
     getData();
-    
+
   },[])
   
   
   var riverData = []
-  var options = []
   var creekData = []
   var riverDataSmall = []
   var creekDataSmall = []
+  var options = []
   if(water){
     defaults.color = 'white';
     defaults.maintainAspectRatio = false;
@@ -88,8 +88,8 @@ export default function Chart1(props) {
     var creekLabels = [];
     var riverLabels = [];
     var creekNumbers = [];
-    var creekCount = 1;
     var riverNumbers = [];
+    var creekCount = 1;
     var riverCount = 1;
     
     
