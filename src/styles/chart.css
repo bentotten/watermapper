@@ -33,6 +33,7 @@
   height: 50vh;
 }
 #combinedTemp{
+  display: none;
   margin-top: 3vh;
   width: 90vw;
   height: 55vh;
@@ -52,7 +53,7 @@
 .combined {
   display: block;
 }
-.dischargeRadio, .temperatureRadio {
+.dischargeRadio {
   display: none;
 }
 .labels {
@@ -72,7 +73,7 @@
   }
 }
 @media screen and (max-width: 1000px) {
-  .dischargeRadio, .temperatureRadio {
+  .dischargeRadio{
     display: block;
   }
   .combined {
