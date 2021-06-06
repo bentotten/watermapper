@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import React from "react"
-import L, { layerGroup, popup } from 'leaflet'
-import { Map, TileLayer, Marker, Circle, Popup, LayersControl, LayerGroup } from 'react-leaflet'
+import L, {} from 'leaflet'
+import { Marker, Circle, Popup, LayersControl, LayerGroup } from 'react-leaflet'
 import marker from './img/map-marker.png'
-import gages from './data/sites.json'
-import useFetch from "./Api.js"
+//import gages from './data/sites.json'
+//import useFetch from "./Api.js"
 import Home from './Home.js';
 import axios from 'axios';
 import tempSiteURLS from './data/temp_gage_urls.json'
-import CallApi from "./Api.js"
+//import CallApi from "./Api.js"
 import add_TempURLS from './data/temp2.json'
 
 export default function Page(props) {
@@ -53,25 +53,30 @@ export default function Page(props) {
     let temp_obj =[{}];//temp gage data
 
     //discharge gage houses
-    let url =
-        "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14211820,%2014144700,%2014211315,%2014206900,%2014211550,%2014211720";
+    //let url =
+       // "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14211820,%2014144700,%2014211315,%2014206900,%2014211550,%2014211720";
     //temperature gage houses
-    let url2 =
-        "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14211720,%2014211542,%2014207200,%2014202000,%20453004122510301 ";
+    //let url2 =
+        //"https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14211720,%2014211542,%2014207200,%2014202000,%20453004122510301 ";
     //test url
-    let url3 =
-        "https://waterservices.usgs.gov/nwis/dv/?format=json&sites=14211720,%2014211542,%2014207200,%2014202000,%20453004122510301&parameterCd=00010&siteType=FA-CI&siteStatus=active";
-    let url4 =
+    //let url3 =
+        //"https://waterservices.usgs.gov/nwis/dv/?format=json&sites=14211720,%2014211542,%2014207200,%2014202000,%20453004122510301&parameterCd=00010&siteType=FA-CI&siteStatus=active";
+    function getUrl4(){
+        let url4 =
         "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14211820,%2014144700,%2014211315,%2014206900,%2014211550,%2014211720,%2014211814,%2014211400,%2014142800,%2014140500,%2014139500,%2014138900,%2014139700,%2014138870,%2014138850,%2014138720,%2014202000 "
-    let url5 =
+        return url4;
+    }
+    function getUrl5(){
+        let url5 =
         "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14211720,%2014211542,%2014207200,%2014202000,%20453004122510301,%2014144700,%2014138720,%2014138850,%2014138870,%2014138900,%2014211400,%2014211550";
-
+        return url5;
+    }
     
-    const startLocation = {
+    /*const startLocation = {
         lat: 45.4865092,
         lng: -122.421757,
         zoom: 11,
-    }
+    }*/
 
 
     function colorChange(temp) {
@@ -120,14 +125,14 @@ export default function Page(props) {
     }
 
     
-    function notNull(coordinate){
+  /*  function notNull(coordinate){
         while(coordinate == [0, 0]){
             if(coordinate != [0,0]){
                 break;
                 return;
             }
         }
-    }
+    }*/
 
     //discharge api call
     /*
@@ -164,18 +169,19 @@ export default function Page(props) {
       //temperature api call
       const [water, setData] = useState(null);
       useEffect(() => {
+        async function getData(){
+            try {
+              const response = await axios.get(getUrl5());
+       //       console.log(response);
+              setData(response.data);
+            } catch (err) {
+              console.error(err);
+            }
+          }
         getData();
         
-      }, [])
-      async function getData(){
-        try {
-          const response = await axios.get(url5);
-   //       console.log(response);
-          setData(response.data);
-        } catch (err) {
-          console.error(err);
-        }
-      }
+      }, [water])
+      
      
       if(water){
        // console.log(water);
@@ -207,17 +213,18 @@ export default function Page(props) {
       //discharge api call
       const[discharge, setDischarge] = useState(null);
       useEffect(() =>{
+        async function getDischarge(){
+            try{
+                const response = await axios.get(getUrl4());
+              // console.log(response);
+                setDischarge(response.data)
+            } catch (err){
+                console.log(err);
+            }
+        }
           getDischarge();
-      }, [])
-      async function getDischarge(){
-          try{
-              const response = await axios.get(url4);
-            // console.log(response);
-              setDischarge(response.data)
-          } catch (err){
-              console.log(err);
-          }
-      }
+      }, [discharge])
+      
       if(discharge){
          // console.log(discharge);
           for(let i = 0; i < discharge.value.timeSeries.length; ++i){
@@ -322,15 +329,15 @@ export default function Page(props) {
     //const BCB = [gages[4].longitude, gages[4].latitude] //BEAVERTON CREEK AT 170TH AVE BEAVERTON OR
     */
 
-    const position = [startLocation.lat, startLocation.lng]
+    //const position = [startLocation.lat, startLocation.lng]
 
     const mapMarker = L.icon({
         iconUrl: marker,
         iconSize: [25, 25],
     })
     //console.log(discharge_obj)
-    const test = [45.6391, -122.7619]
-    const coodinates = [[gages[0].longitude, gages[0].latitude], [gages[1].longitude, gages[1].latitude], [gages[2].longitude, gages[2].latitude], [gages[3].longitude, gages[3].latitude], [gages[4].longitude, gages[4].latitude], [gages[5].longitude, gages[5].latitude]]
+    //const test = [45.6391, -122.7619]
+    //const coodinates = [[gages[0].longitude, gages[0].latitude], [gages[1].longitude, gages[1].latitude], [gages[2].longitude, gages[2].latitude], [gages[3].longitude, gages[3].latitude], [gages[4].longitude, gages[4].latitude], [gages[5].longitude, gages[5].latitude]]
     return (
         <>
             <Home />
