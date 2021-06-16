@@ -74,118 +74,86 @@ export default function Home(props) {
             for (let j = 0; j < temperature.value.timeSeries.length; j++) {
                 if (temperature.value.timeSeries[j].sourceInfo.siteCode[0].value === discharge.value.timeSeries[i].sourceInfo.siteCode[0].value) {
                     var coordinates2 = [discharge.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.latitude,
-                        discharge.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.longitude
-                    ]
+                    discharge.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.longitude]
                     var href2 = "https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=" + discharge.value.timeSeries[i].sourceInfo.siteCode[0].value;
-                    items.push( < Marker position = { coordinates2 }
-                        icon = { mapMarker } >
-                        <
-                        Popup >
-                        <
-                        div > < b > { discharge.value.timeSeries[i].sourceInfo.siteName } < /b></div >
-                        <
-                        div > Site: { discharge.value.timeSeries[i].sourceInfo.siteCode[0].value } < /div> <
-                        div > Daily Discharge Volume: { discharge.value.timeSeries[i].values[0].value[0].value }
-                        ft < sup > 3 < /sup>/s < /div> <
-                        div > Daily Temperature Reading: { temperature.value.timeSeries[j].values[0].value[0].value } { '\u00B0' }
-                        C < /div> <
-                        a href = { href2 } > https: //waterdata.usgs.gov</a>
-                        <
-                        /Popup> <
-                        /Marker>);
-                        hasBoth = true;
-                    }
+                    items.push(<Marker position={coordinates2} icon={mapMarker}>
+                        <Popup>
+                            <div><b>{discharge.value.timeSeries[i].sourceInfo.siteName}</b></div>
+                            <div>Site: {discharge.value.timeSeries[i].sourceInfo.siteCode[0].value}</div>
+                            <div>Daily Discharge Volume: {discharge.value.timeSeries[i].values[0].value[0].value}ft<sup>3</sup>/s</div>
+                            <div>Daily Temperature Reading: {temperature.value.timeSeries[j].values[0].value[0].value}{'\u00B0'}C</div>
+                            <a href={href2}>https://waterdata.usgs.gov</a>
+                        </Popup>
+                    </Marker>);
+                    hasBoth = true;
                 }
-                if (!hasBoth) {
-                    var coordinates = [discharge.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.latitude,
-                        discharge.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.longitude
-                    ]
-                    var href = "https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=" + discharge.value.timeSeries[i].sourceInfo.siteCode[0].value;
-                    items.push( < Marker position = { coordinates }
-                        icon = { mapMarker } >
-                        <
-                        Popup >
-                        <
-                        div > < b > { discharge.value.timeSeries[i].sourceInfo.siteName } < /b></div >
-                        <
-                        div > Site: { discharge.value.timeSeries[i].sourceInfo.siteCode[0].value } < /div> <
-                        div > Daily Discharge Volume: { discharge.value.timeSeries[i].values[0].value[0].value }
-                        ft < sup > 3 < /sup>/s < /div> <
-                        a href = { href } > https: //waterdata.usgs.gov</a>
-                        <
-                        /Popup> <
-                        /Marker>);
+            }
+            if (!hasBoth) {
+                var coordinates = [discharge.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.latitude,
+                discharge.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.longitude]
+                var href = "https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=" + discharge.value.timeSeries[i].sourceInfo.siteCode[0].value;
+                items.push(<Marker position={coordinates} icon={mapMarker}>
+                    <Popup>
+                        <div><b>{discharge.value.timeSeries[i].sourceInfo.siteName}</b></div>
+                        <div>Site: {discharge.value.timeSeries[i].sourceInfo.siteCode[0].value}</div>
+                        <div>Daily Discharge Volume: {discharge.value.timeSeries[i].values[0].value[0].value}ft<sup>3</sup>/s</div>
+                        <a href={href}>https://waterdata.usgs.gov</a>
+                    </Popup>
+                </Marker>);
 
-                    }
-                    hasBoth = false;
+            }
+            hasBoth = false;
+        }
+        for (let i = 0; i < temperature.value.timeSeries.length; i++) {
+            for (let j = 0; j < discharge.value.timeSeries.length; j++) {
+                if (temperature.value.timeSeries[i].sourceInfo.siteCode[0].value === discharge.value.timeSeries[j].sourceInfo.siteCode[0].value) {
+                    hasBoth = true;
                 }
-                for (let i = 0; i < temperature.value.timeSeries.length; i++) {
-                    for (let j = 0; j < discharge.value.timeSeries.length; j++) {
-                        if (temperature.value.timeSeries[i].sourceInfo.siteCode[0].value === discharge.value.timeSeries[j].sourceInfo.siteCode[0].value) {
-                            hasBoth = true;
-                        }
-                    }
-                    if (!hasBoth) {
-                        coordinates = [temperature.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.latitude,
-                            temperature.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.longitude
-                        ]
-                        href = "https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=" + temperature.value.timeSeries[i].sourceInfo.siteCode[0].value;
-                        items.push( < Marker position = { coordinates }
-                            icon = { mapMarker } >
-                            <
-                            Popup >
-                            <
-                            div > < b > { temperature.value.timeSeries[i].sourceInfo.siteName } < /b></div >
-                            <
-                            div > Site: { temperature.value.timeSeries[i].sourceInfo.siteCode[0].value } < /div> <
-                            div > Daily Temperature Reading: { temperature.value.timeSeries[i].values[0].value[0].value } { '\u00B0' }
-                            C < /div> <
-                            a href = { href } > https: //waterdata.usgs.gov</a>
-                            <
-                            /Popup> <
-                            /Marker>);
-                            console.log(temperature.value.timeSeries[i].sourceInfo.siteName)
+            }
+            if (!hasBoth) {
+                coordinates = [temperature.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.latitude,
+                temperature.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.longitude]
+                href = "https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=" + temperature.value.timeSeries[i].sourceInfo.siteCode[0].value;
+                items.push(<Marker position={coordinates} icon={mapMarker}>
+                    <Popup>
+                        <div><b>{temperature.value.timeSeries[i].sourceInfo.siteName}</b></div>
+                        <div>Site: {temperature.value.timeSeries[i].sourceInfo.siteCode[0].value}</div>
+                        <div>Daily Temperature Reading: {temperature.value.timeSeries[i].values[0].value[0].value}{'\u00B0'}C</div>
+                        <a href={href}>https://waterdata.usgs.gov</a>
+                    </Popup>
+                </Marker>);
+                console.log(temperature.value.timeSeries[i].sourceInfo.siteName)
 
-                        }
-                        hasBoth = false;
-                    }
-                    for (let i = 0; i < noData.length; i++) {
-                        coordinates = [noData[i].longitude, noData[i].latitude]
-                        items.push( < Marker position = { coordinates }
-                            icon = { mapMarker } >
-                            <
-                            Popup >
-                            <
-                            div > < b > { noData[i].name } < /b></div >
-                            <
-                            div > Site: { noData[i].site } < /div> <
-                            a href = { noData[i].website } > https: //waterdata.usgs.gov</a>
-                            <
-                            /Popup> <
-                            /Marker>);
-                        }
-                    }
-                    for (let i = 0; i < lane.length; i++) {
-                        coordinates = [lane[i].longitude, lane[i].latitude]
-                        items.push( < Marker position = { coordinates }
-                            icon = { mapMarker } >
-                            <
-                            Popup >
-                            <
-                            div > < b > { lane[i].name } < /b></div >
-                            <
-                            div > Site: { lane[i].site } < /div> <
-                            a href = { lane[i].website } > https: //waterdata.usgs.gov</a>
-                            <
-                            /Popup> <
-                            /Marker>);
-                        }
-                        return ( <
-                            >
-                            <
-                            LayerGroup > { items } <
-                            /LayerGroup> <
-                            />
-                        )
+            }
+            hasBoth = false;
+        }
+        for (let i = 0; i < noData.length; i++) {
+            coordinates = [noData[i].longitude, noData[i].latitude]
+            items.push(<Marker position={coordinates} icon={mapMarker}>
+                <Popup>
+                    <div><b>{noData[i].name}</b></div>
+                    <div>Site: {noData[i].site}</div>
+                    <a href={noData[i].website}>https://waterdata.usgs.gov</a>
+                </Popup>
+            </Marker>);
+        }
+    }
+    for (let i = 0; i < lane.length; i++) {
+        coordinates = [lane[i].longitude, lane[i].latitude]
+        items.push(<Marker position={coordinates} icon={mapMarker}>
+            <Popup>
+                <div><b>{lane[i].name}</b></div>
+                <div>Site: {lane[i].site}</div>
+                <a href={lane[i].website}>https://waterdata.usgs.gov</a>
+            </Popup>
+        </Marker>);
+    }
+    return (
+        <>
+            <LayerGroup>
+                {items}
+            </LayerGroup>
+        </>
+    )
 
-                    }
+}
