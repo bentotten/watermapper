@@ -3,19 +3,15 @@ import React from "react"
 import L, {} from 'leaflet'
 import { Marker, Circle, Popup, LayersControl, LayerGroup } from 'react-leaflet'
 import marker from './img/map-marker.png'
-//import gages from './data/sites.json'
-//import useFetch from "./Api.js"
 import Home from './Home.js';
 import axios from 'axios';
 import tempSiteURLS from './data/temp_gage_urls.json'
-//import CallApi from "./Api.js"
 import add_TempURLS from './data/temp2.json'
 
 export default function Page(props) {
     //gage site coordinate variables
-    //temp gage houses
 
-    let BRF = [0, 0]; //BULL RUN RIVER AT LOWER FLUME NR 
+    let BRF = [0, 0]; //BULL RUN RIVER AT LOWER FLUME NR
     let BRMT = [0, 0]; //BULL RUN RIVER NEAR MULTNOMAH FALLS, OR
     let FCBT = [0, 0]; //FIR CREEK NEAR BRIGHTWOOD, OR
     let NFMT = [0, 0]; //NORTH FORK BULL RUN RIVER NEAR MULTNOMAH FALLS, OR
@@ -53,14 +49,6 @@ export default function Page(props) {
     let temp_obj =[{}];//temp gage data
 
     //discharge gage houses
-    //let url =
-       // "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14211820,%2014144700,%2014211315,%2014206900,%2014211550,%2014211720";
-    //temperature gage houses
-    //let url2 =
-        //"https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14211720,%2014211542,%2014207200,%2014202000,%20453004122510301 ";
-    //test url
-    //let url3 =
-        //"https://waterservices.usgs.gov/nwis/dv/?format=json&sites=14211720,%2014211542,%2014207200,%2014202000,%20453004122510301&parameterCd=00010&siteType=FA-CI&siteStatus=active";
     function getUrl4(){
         let url4 =
         "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14211820,%2014144700,%2014211315,%2014206900,%2014211550,%2014211720,%2014211814,%2014211400,%2014142800,%2014140500,%2014139500,%2014138900,%2014139700,%2014138870,%2014138850,%2014138720,%2014202000 "
@@ -71,13 +59,6 @@ export default function Page(props) {
         "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14211720,%2014211542,%2014207200,%2014202000,%20453004122510301,%2014144700,%2014138720,%2014138850,%2014138870,%2014138900,%2014211400,%2014211550";
         return url5;
     }
-    
-    /*const startLocation = {
-        lat: 45.4865092,
-        lng: -122.421757,
-        zoom: 11,
-    }*/
-
 
     function colorChange(temp) {
         if (temp < 5 )
@@ -86,20 +67,19 @@ export default function Page(props) {
             return '#169ACB';
         if (temp >= 9 && temp < 13)
             return '#16CB72';
-        if (temp >= 13 && temp < 17) 
+        if (temp >= 13 && temp < 17)
             return '#16CB2E';
-        if (temp >= 17 && temp < 24) 
-            return '#42CB16';    
-        if (temp >= 24 && temp < 30) 
-            return '#E1EA03';       
-         if (temp >= 30 && temp < 40) 
-            return '#E97E06';       
-        if (temp >= 40 && temp < 60) 
-            return '#E97E06';        
+        if (temp >= 17 && temp < 24)
+            return '#42CB16';
+        if (temp >= 24 && temp < 30)
+            return '#E1EA03';
+         if (temp >= 30 && temp < 40)
+            return '#E97E06';
+        if (temp >= 40 && temp < 60)
+            return '#E97E06';
         else
             return '#E90606'
     }
-
 
     function changeRadius(discharge) {
         if(discharge >= 500000)
@@ -124,48 +104,6 @@ export default function Page(props) {
             return 1000;
     }
 
-    
-  /*  function notNull(coordinate){
-        while(coordinate == [0, 0]){
-            if(coordinate != [0,0]){
-                break;
-                return;
-            }
-        }
-    }*/
-
-    //discharge api call
-    /*
-    var url = 'https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites='
-    for(let i = 0; i < gauges.length; i++){
-    if(i === 0)
-      url += gauges[i].site
-    else
-      url += ",%20" + gauges[i].site
-    }
-    */
-
-   /*
-    function LocationMarker() {
-        const [position, setPosition] = useState(null)
-        const map = useMapEvents({
-          click() {
-            map.locate()
-          },
-          locationfound(e) {
-            setPosition(e.latlng)
-            map.flyTo(e.latlng, map.getZoom())
-          },
-        })
-      
-        return position === null ? null : (
-          <Marker position={position}>
-            <Popup>You are here</Popup>
-          </Marker>
-        )
-      }
-     */
-
       //temperature api call
       const [water, setData] = useState(null);
       useEffect(() => {
@@ -179,10 +117,10 @@ export default function Page(props) {
             }
           }
         getData();
-        
+
       }, [water])
-      
-     
+
+
       if(water){
        // console.log(water);
         for(let i = 0; i < water.value.timeSeries.length; ++i){
@@ -207,8 +145,7 @@ export default function Page(props) {
         JCMT = [temp_obj[9].lat, temp_obj[9].long];
         WRPT = [temp_obj[10].lat, temp_obj[10].long];
         BCB = [temp_obj[11].lat, temp_obj[11].long];
-      }   
-     
+      }
 
       //discharge api call
       const[discharge, setDischarge] = useState(null);
@@ -224,7 +161,7 @@ export default function Page(props) {
         }
           getDischarge();
       }, [discharge])
-      
+
       if(discharge){
          // console.log(discharge);
           for(let i = 0; i < discharge.value.timeSeries.length; ++i){
@@ -255,89 +192,11 @@ export default function Page(props) {
          CSP = [discharge_obj[16].lat, discharge_obj[16].long];
       }
 
-
-
-
-    //let temp_obj = [[]]
-   // console.log(data.value.timeSeries[0].sourceInfo.siteName)
-   /*
-    for(let i = 0; i < 5; ++i){
-        temp_obj[i] ={
-            name: water.value.timeSeries[i].sourceInfo.siteName,
-            site: water.value.timeSeries[i].sourceInfo.siteCode[0].value,
-            lat:  water.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.latitude,
-            long: water.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.longitude,
-            Daily Temperature Reading: water.value.timeSeries[i].values[0].value[0].value
-        };
-    }
-    */
-
-   // console.log(temp_obj[0].name);
-   /*
-    let discharge_obj = [{}];
-    let getData = async () => {
-        try {
-            let response = await fetch(url2);
-            let data = await response.json();
-            for(let i = 0; i < 5; ++i){
-                discharge_obj[i] ={
-                    name: data.value.timeSeries[i].sourceInfo.siteName,
-                    site: data.value.timeSeries[i].sourceInfo.siteCode[0].value,
-                    lat:  data.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.latitude,
-                    long: data.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.longitude,
-                    Daily Temperature Reading: data.value.timeSeries[i].values[0].value[0].value
-                };
-            }
-            console.log(discharge_obj[0].name);
-            console.log(WRPS)
-            console.log(discharge_obj);
-            setTimeout( 10000);
-
-        } catch (error) {
-            console.error(error);
-        }
-    };
-    getData();
-    console.log(discharge_obj);
-    console.log(Array.isArray(discharge_obj));
-    console.log(discharge_obj[0].name);
-    let result = discharge_obj.map(gage =>({
-        name: gage.name,
-        site: gage.site,
-        lat: gage.lat,
-        long: gage.long,
-        Daily Temperature Reading: gage.temp
-    }));
-    */
-    //console.log(result);
-    //console.log(water.value.timeSeries[0].sourceInfo.siteName);
-    /*
-    const WRP = [discharge_obj[0].long, discharge_obj[0].lat]; //WILLAMETTE RIVER AT PORTLAND OR
-    const CRV = [discharge_obj[1].long, discharge_obj[1].lat]; //COLUMBIA RIVER AT VANCOUVER WAA
-    const BCL = [discharge_obj[2].long, discharge_obj[2].lat]; //BRONSON CREEK AT LAIDLAW
-    const CSP = [discharge_obj[3].long, discharge_obj[3].lat]; //WILLAMETTE RIVER AT PORTLAND OR
-    const BCB = [discharge_obj[4].long, discharge_obj[4].lat]; //BEAVERTON CREEK AT 170TH AVE BEAVERTON OR
-    const FCP = [discharge_obj[5].long, discharge_obj[5].lat]; //FANNO CREEK AT 56TH AVE, AT PORTLAND, OR
-    
-    const CSP = [gages[0].longitude, gages[0].latitude]; //COLUMBIA SLOUGH AT PORTLAND OR
-     const CRV = [gages[1].longitude, gages[1].latitude] //COLUMBIA RIVER AT VANCOUVER WAA
-    const JCW = [gages[2].longitude, gages[2].latitude]; //JOHNSON CREEK AT MILWAUKIE OR
-    //const WRP = [gages[3].longitude, gages[3].latitude] //WILLAMETTE RIVER AT PORTLAND OR
-    //const TCL = [gages[4].longitude, gages[4].latitude] //TRYON CREEK NEAR LAKE OSWEGO OR
-    //const FCP = [gages[5].longitude, gages[5].latitude]; //FANNO CREEK AT 56TH AVE, AT PORTLAND, OR
-    //const WRP = [gages[3].longitude, gages[3].latitude] //WILLAMETTE RIVER AT PORTLAND OR
-    //const BCB = [gages[4].longitude, gages[4].latitude] //BEAVERTON CREEK AT 170TH AVE BEAVERTON OR
-    */
-
-    //const position = [startLocation.lat, startLocation.lng]
-
     const mapMarker = L.icon({
         iconUrl: marker,
         iconSize: [25, 25],
     })
-    //console.log(discharge_obj)
-    //const test = [45.6391, -122.7619]
-    //const coodinates = [[gages[0].longitude, gages[0].latitude], [gages[1].longitude, gages[1].latitude], [gages[2].longitude, gages[2].latitude], [gages[3].longitude, gages[3].latitude], [gages[4].longitude, gages[4].latitude], [gages[5].longitude, gages[5].latitude]]
+
     return (
         <>
             <Home />
