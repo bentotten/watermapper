@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Navbar, Nav, NavDropdown, ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
-import { Map, TileLayer, ZoomControl} from 'react-leaflet';
+import { Map, TileLayer, ZoomControl } from 'react-leaflet';
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles/chart.css';
 import './styles/App.css';
@@ -34,11 +34,10 @@ export default function Routing(props) {
                             <h1>Portland Watershed Data Dashboard</h1>
                             <h2>Portland Watershed Data Dashboard</h2>
                             <h3>Portland Watershed Data Dashboard</h3>
-                            <h4 className = "text-wrap">Portland Watershed Data Dashboard</h4>
+                            <h4 className="text-wrap">Portland Watershed Data Dashboard</h4>
                             <h5>Portland Watershed </h5><h5>Data Dashboard</h5>
                         </Navbar.Brand>
                     </div>
-                    {/* <Navbar.Toggle /> */}
 
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ml-auto align-items-center">
@@ -54,87 +53,87 @@ export default function Routing(props) {
                                 <Link to="/page"><h4 className="little link">Gradient</h4></Link>
                                 <Link to="/page"><h5 className="tiny link">Gradient</h5></Link>
                             </Nav.Link>
-                                <h2 className='big'>
-                                    <NavDropdown drop='down' title="Chart" id="basic-nav-dropdown" >
-                                        <ToggleButtonGroup className="border border-dark" type="radio" name="options" defaultValue={1}>
-                                            <ToggleButton className="chartSelect" value={1} onClick={() => {setDischarge(true); setTemperature(false);}}>Discharge Data</ToggleButton>
-                                            <ToggleButton className="chartSelect" value={2} onClick={() => {setDischarge(false); setTemperature(true);}}>Temperature Data</ToggleButton>
-                                        </ToggleButtonGroup>
-                                        <div className="chart1" style={{display: displayDischarge ? 'block': 'none'}}>
-                                            <Route>
-                                                <Chart1 />
-                                            </Route>
-                                        </div>
+                            <h2 className='big'>
+                                <NavDropdown drop='down' title="Chart" id="basic-nav-dropdown" >
+                                    <ToggleButtonGroup className="border border-dark" type="radio" name="options" defaultValue={1}>
+                                        <ToggleButton className="chartSelect" value={1} onClick={() => { setDischarge(true); setTemperature(false); }}>Discharge Data</ToggleButton>
+                                        <ToggleButton className="chartSelect" value={2} onClick={() => { setDischarge(false); setTemperature(true); }}>Temperature Data</ToggleButton>
+                                    </ToggleButtonGroup>
+                                    <div className="chart1" style={{ display: displayDischarge ? 'block' : 'none' }}>
+                                        <Route>
+                                            <Chart1 />
+                                        </Route>
+                                    </div>
 
-                                        <div className="chart2" style={{display: displayTemperature ? 'block': 'none'}}>
-                                            <Route>
-                                                <Chart2 />
-                                            </Route>
-                                        </div>
-                                    </NavDropdown>
-                                </h2>
-                                <h3 className='med'>
-                                    <NavDropdown drop='down' title="Chart" id="basic-nav-dropdown" bsPrefix={"ml-auto"}>
-                                        <ToggleButtonGroup className="border border-dark" type="radio" name="options" defaultValue={1}>
-                                            <ToggleButton className="chartSelect" value={1} onClick={() => {setDischarge(true); setTemperature(false);}}>Discharge Data</ToggleButton>
-                                            <ToggleButton className="chartSelect" value={2} onClick={() => {setDischarge(false); setTemperature(true);}}>Temperature Data</ToggleButton>
-                                        </ToggleButtonGroup>
-                                        <div className="chart1" style={{display: displayDischarge ? 'block': 'none'}}>
-                                            <Route>
-                                                <Chart1 />
-                                            </Route>
-                                        </div>
+                                    <div className="chart2" style={{ display: displayTemperature ? 'block' : 'none' }}>
+                                        <Route>
+                                            <Chart2 />
+                                        </Route>
+                                    </div>
+                                </NavDropdown>
+                            </h2>
+                            <h3 className='med'>
+                                <NavDropdown drop='down' title="Chart" id="basic-nav-dropdown" bsPrefix={"ml-auto"}>
+                                    <ToggleButtonGroup className="border border-dark" type="radio" name="options" defaultValue={1}>
+                                        <ToggleButton className="chartSelect" value={1} onClick={() => { setDischarge(true); setTemperature(false); }}>Discharge Data</ToggleButton>
+                                        <ToggleButton className="chartSelect" value={2} onClick={() => { setDischarge(false); setTemperature(true); }}>Temperature Data</ToggleButton>
+                                    </ToggleButtonGroup>
+                                    <div className="chart1" style={{ display: displayDischarge ? 'block' : 'none' }}>
+                                        <Route>
+                                            <Chart1 />
+                                        </Route>
+                                    </div>
 
-                                        <div className="chart2" style={{display: displayTemperature ? 'block': 'none'}}>
-                                            <Route>
-                                                <Chart2 />
-                                            </Route>
-                                        </div>
+                                    <div className="chart2" style={{ display: displayTemperature ? 'block' : 'none' }}>
+                                        <Route>
+                                            <Chart2 />
+                                        </Route>
+                                    </div>
 
-                                    </NavDropdown>
-                                </h3>
-                                    <h4 className='little'>
-                                        <NavDropdown drop='down' title="Chart" id="basic-nav-dropdown" bsPrefix={"ml-auto"}>
-                                            <ToggleButtonGroup className="border border-dark" type="radio" name="options" defaultValue={1}>
-                                                <ToggleButton className="chartSelect" value={1} onClick={() => {setDischarge(true); setTemperature(false);}}>Discharge Data</ToggleButton>
-                                                <ToggleButton className="chartSelect" value={2} onClick={() => {setDischarge(false); setTemperature(true);}}>Temperature Data</ToggleButton>
-                                            </ToggleButtonGroup>
-                                            <div className="chart1" style={{display: displayDischarge ? 'block': 'none'}}>
-                                                <Route>
-                                                    <Chart1 />
-                                                </Route>
-                                            </div>
+                                </NavDropdown>
+                            </h3>
+                            <h4 className='little'>
+                                <NavDropdown drop='down' title="Chart" id="basic-nav-dropdown" bsPrefix={"ml-auto"}>
+                                    <ToggleButtonGroup className="border border-dark" type="radio" name="options" defaultValue={1}>
+                                        <ToggleButton className="chartSelect" value={1} onClick={() => { setDischarge(true); setTemperature(false); }}>Discharge Data</ToggleButton>
+                                        <ToggleButton className="chartSelect" value={2} onClick={() => { setDischarge(false); setTemperature(true); }}>Temperature Data</ToggleButton>
+                                    </ToggleButtonGroup>
+                                    <div className="chart1" style={{ display: displayDischarge ? 'block' : 'none' }}>
+                                        <Route>
+                                            <Chart1 />
+                                        </Route>
+                                    </div>
 
-                                            <div className="chart2" style={{display: displayTemperature ? 'block': 'none'}}>
-                                                <Route>
-                                                    <Chart2 />
-                                                </Route>
-                                            </div>
+                                    <div className="chart2" style={{ display: displayTemperature ? 'block' : 'none' }}>
+                                        <Route>
+                                            <Chart2 />
+                                        </Route>
+                                    </div>
 
-                                        </NavDropdown>
-                                    </h4>
-                                    <h5 className='tiny'>
-                                        <NavDropdown drop='down' title="Chart" id="basic-nav-dropdown" bsPrefix={"ml-auto"}>
-                                            <ToggleButtonGroup className="border border-dark" type="radio" name="options" defaultValue={1}>
-                                                <ToggleButton className="chartSelect" value={1} onClick={() => {setDischarge(true); setTemperature(false);}}>Discharge Data</ToggleButton>
-                                                <ToggleButton className="chartSelect" value={2} onClick={() => {setDischarge(false); setTemperature(true);}}>Temperature Data</ToggleButton>
-                                            </ToggleButtonGroup>
-                                            <div className="chart1" style={{display: displayDischarge ? 'block': 'none'}}>
-                                                <Route>
-                                                    <Chart1 />
-                                                </Route>
-                                            </div>
+                                </NavDropdown>
+                            </h4>
+                            <h5 className='tiny'>
+                                <NavDropdown drop='down' title="Chart" id="basic-nav-dropdown" bsPrefix={"ml-auto"}>
+                                    <ToggleButtonGroup className="border border-dark" type="radio" name="options" defaultValue={1}>
+                                        <ToggleButton className="chartSelect" value={1} onClick={() => { setDischarge(true); setTemperature(false); }}>Discharge Data</ToggleButton>
+                                        <ToggleButton className="chartSelect" value={2} onClick={() => { setDischarge(false); setTemperature(true); }}>Temperature Data</ToggleButton>
+                                    </ToggleButtonGroup>
+                                    <div className="chart1" style={{ display: displayDischarge ? 'block' : 'none' }}>
+                                        <Route>
+                                            <Chart1 />
+                                        </Route>
+                                    </div>
 
-                                            <div className="chart2" style={{display: displayTemperature ? 'block': 'none'}}>
-                                                <Route>
-                                                    <Chart2 />
-                                                </Route>
-                                            </div>
+                                    <div className="chart2" style={{ display: displayTemperature ? 'block' : 'none' }}>
+                                        <Route>
+                                            <Chart2 />
+                                        </Route>
+                                    </div>
 
-                                        </NavDropdown>
-                                    </h5>
+                                </NavDropdown>
+                            </h5>
 
-                                </Nav>
+                        </Nav>
                     </Navbar.Collapse>
                 </Navbar>
 
@@ -159,7 +158,7 @@ export default function Routing(props) {
                             <Route exact path="/page">
                                 <Page />
                             </Route>
-                          {/*  <Route exact path="/test">
+                            {/*  <Route exact path="/test">
                                 <Test />
                             </Route>
                             */}
