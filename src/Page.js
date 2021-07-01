@@ -3,19 +3,15 @@ import React from "react"
 import L, {} from 'leaflet'
 import { Marker, Circle, Popup, LayersControl, LayerGroup } from 'react-leaflet'
 import marker from './img/map-marker.png'
-//import gages from './data/sites.json'
-//import useFetch from "./Api.js"
 import Home from './Home.js';
 import axios from 'axios';
 import tempSiteURLS from './data/temp_gage_urls.json'
-//import CallApi from "./Api.js"
 import add_TempURLS from './data/temp2.json'
 
 export default function Page(props) {
     //gage site coordinate variables
-    //temp gage houses
 
-    let BRF = [0, 0]; //BULL RUN RIVER AT LOWER FLUME NR 
+    let BRF = [0, 0]; //BULL RUN RIVER AT LOWER FLUME NR
     let BRMT = [0, 0]; //BULL RUN RIVER NEAR MULTNOMAH FALLS, OR
     let FCBT = [0, 0]; //FIR CREEK NEAR BRIGHTWOOD, OR
     let NFMT = [0, 0]; //NORTH FORK BULL RUN RIVER NEAR MULTNOMAH FALLS, OR
@@ -52,6 +48,7 @@ export default function Page(props) {
 
     let temp_obj =[{}];//temp gage data
 
+    //discharge gage houses
     function getUrl4(){
         let url4 =
         "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00060&statCd=00003&sites=14211820,%2014144700,%2014211315,%2014206900,%2014211550,%2014211720,%2014211814,%2014211400,%2014142800,%2014140500,%2014139500,%2014138900,%2014139700,%2014138870,%2014138850,%2014138720,%2014202000 "
@@ -62,13 +59,6 @@ export default function Page(props) {
         "https://waterservices.usgs.gov/nwis/dv/?format=json&indent=on&parameterCd=00010&statCd=00003&sites=14211720,%2014211542,%2014207200,%2014202000,%20453004122510301,%2014144700,%2014138720,%2014138850,%2014138870,%2014138900,%2014211400,%2014211550";
         return url5;
     }
-    
-    /*const startLocation = {
-        lat: 45.4865092,
-        lng: -122.421757,
-        zoom: 11,
-    }*/
-
 
     function colorChange(temp) {
         if (temp < 5 )
@@ -77,20 +67,19 @@ export default function Page(props) {
             return '#169ACB';
         if (temp >= 9 && temp < 13)
             return '#16CB72';
-        if (temp >= 13 && temp < 17) 
+        if (temp >= 13 && temp < 17)
             return '#16CB2E';
-        if (temp >= 17 && temp < 24) 
-            return '#42CB16';    
-        if (temp >= 24 && temp < 30) 
-            return '#E1EA03';       
-         if (temp >= 30 && temp < 40) 
-            return '#E97E06';       
-        if (temp >= 40 && temp < 60) 
-            return '#E97E06';        
+        if (temp >= 17 && temp < 24)
+            return '#42CB16';
+        if (temp >= 24 && temp < 30)
+            return '#E1EA03';
+         if (temp >= 30 && temp < 40)
+            return '#E97E06';
+        if (temp >= 40 && temp < 60)
+            return '#E97E06';
         else
             return '#E90606'
     }
-
 
     function changeRadius(discharge) {
         if(discharge >= 500000)
@@ -114,6 +103,8 @@ export default function Page(props) {
         else
             return 1000;
     }
+
+      //temperature api call
       const [water, setData] = useState(null);
       useEffect(() => {
         async function getData(){
@@ -154,8 +145,7 @@ export default function Page(props) {
         JCMT = [temp_obj[9].lat, temp_obj[9].long];
         WRPT = [temp_obj[10].lat, temp_obj[10].long];
         BCB = [temp_obj[11].lat, temp_obj[11].long];
-      }   
-     
+      }
 
       //discharge api call
       const[discharge, setDischarge] = useState(null);
@@ -202,20 +192,11 @@ export default function Page(props) {
          CSP = [discharge_obj[16].lat, discharge_obj[16].long];
       }
 
-
-
-
-    
-
-    //const position = [startLocation.lat, startLocation.lng]
-
     const mapMarker = L.icon({
         iconUrl: marker,
         iconSize: [25, 25],
     })
-    //console.log(discharge_obj)
-    //const test = [45.6391, -122.7619]
-    //const coodinates = [[gages[0].longitude, gages[0].latitude], [gages[1].longitude, gages[1].latitude], [gages[2].longitude, gages[2].latitude], [gages[3].longitude, gages[3].latitude], [gages[4].longitude, gages[4].latitude], [gages[5].longitude, gages[5].latitude]]
+
     return (
         <>
             <Home />

@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Navbar, Nav, NavDropdown, ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
-import { Map, TileLayer, ZoomControl} from 'react-leaflet';
+import { Map, TileLayer, ZoomControl } from 'react-leaflet';
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles/chart.css';
 import './styles/App.css';
@@ -10,7 +10,6 @@ import Page from './Page.js';
 import Chart1 from './Chart1.js';
 import Chart2 from './Chart2.js';
 import React from 'react';
-
 
 export default function Routing(props) {
 
@@ -34,11 +33,10 @@ export default function Routing(props) {
                             <h1>Portland Watershed Data Dashboard</h1>
                             <h2>Portland Watershed Data Dashboard</h2>
                             <h3>Portland Watershed Data Dashboard</h3>
-                            <h4 className = "text-wrap">Portland Watershed Data Dashboard</h4>
+                            <h4 className="text-wrap">Portland Watershed Data Dashboard</h4>
                             <h5>Portland Watershed </h5><h5>Data Dashboard</h5>
                         </Navbar.Brand>
                     </div>
-                    {/* <Navbar.Toggle /> */}
 
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ml-auto align-items-center">
@@ -156,7 +154,7 @@ export default function Routing(props) {
                             <Route exact path="/page">
                                 <Page />
                             </Route>
-                          {/*  <Route exact path="/test">
+                            {/*  <Route exact path="/test">
                                 <Test />
                             </Route>
                             */}

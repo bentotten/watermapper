@@ -8,8 +8,7 @@ import gauges from './data/sites.json'
 import temperatures from './data/temp2.json'
 import noData from './data/no-data.json'
 import lane from './data/lane.json'
-//import Legend from "./Legend";
-//import CallApi from "./Api.js"
+
 
 export default function Home(props) {
     
