@@ -26,7 +26,6 @@ export default function Chart2(props) {
     async function getData() {
       try {
         const response = await axios.get(getUrl());
-        console.log(response.data);
         setData(response.data);
       } catch (err) {
         console.error(err);
